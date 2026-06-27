@@ -1,0 +1,24 @@
+[2.372s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_planning': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_planning/build --no-deps symlink_data
+[2.897s] running develop
+[3.150s] running egg_info
+[3.150s] creating abaja_planning.egg-info
+[3.183s] writing abaja_planning.egg-info/PKG-INFO
+[3.183s] writing dependency_links to abaja_planning.egg-info/dependency_links.txt
+[3.183s] writing entry points to abaja_planning.egg-info/entry_points.txt
+[3.184s] writing requirements to abaja_planning.egg-info/requires.txt
+[3.184s] writing top-level names to abaja_planning.egg-info/top_level.txt
+[3.184s] writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.219s] reading manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.220s] writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.239s] running build_ext
+[3.239s] Creating /home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages/abaja-planning.egg-link (link to .)
+[3.240s] Installing path_planner_node script to /home/pavithra/ros2_ws/install/abaja_planning/lib/abaja_planning
+[3.241s] 
+[3.241s] Installed /home/pavithra/ros2_ws/build/abaja_planning
+[3.241s] running symlink_data
+[3.241s] creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index
+[3.241s] creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index
+[3.241s] creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index/packages
+[3.241s] symbolically linking /home/pavithra/ros2_ws/build/abaja_planning/resource/abaja_planning -> /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index/packages
+[3.241s] symbolically linking /home/pavithra/ros2_ws/build/abaja_planning/package.xml -> /home/pavithra/ros2_ws/install/abaja_planning/share/abaja_planning
+[3.296s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_planning' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_planning/build --no-deps symlink_data

@@ -1,0 +1,21 @@
+[3.261s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_dbw': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_dbw/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_dbw/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_dbw/build --no-deps symlink_data
+[3.879s] running develop
+[4.392s] running egg_info
+[4.449s] writing abaja_dbw.egg-info/PKG-INFO
+[4.451s] writing dependency_links to abaja_dbw.egg-info/dependency_links.txt
+[4.451s] writing entry points to abaja_dbw.egg-info/entry_points.txt
+[4.452s] writing requirements to abaja_dbw.egg-info/requires.txt
+[4.453s] writing top-level names to abaja_dbw.egg-info/top_level.txt
+[4.556s] reading manifest file 'abaja_dbw.egg-info/SOURCES.txt'
+[4.558s] writing manifest file 'abaja_dbw.egg-info/SOURCES.txt'
+[4.612s] running build_ext
+[4.612s] Creating /home/pavithra/ros2_ws/install/abaja_dbw/lib/python3.12/site-packages/abaja-dbw.egg-link (link to .)
+[4.613s] Installing brake_by_wire_node script to /home/pavithra/ros2_ws/install/abaja_dbw/lib/abaja_dbw
+[4.614s] Installing cmd_vel_to_dbw_node script to /home/pavithra/ros2_ws/install/abaja_dbw/lib/abaja_dbw
+[4.614s] Installing dbw_manager_node script to /home/pavithra/ros2_ws/install/abaja_dbw/lib/abaja_dbw
+[4.615s] Installing steer_by_wire_node script to /home/pavithra/ros2_ws/install/abaja_dbw/lib/abaja_dbw
+[4.615s] Installing throttle_by_wire_node script to /home/pavithra/ros2_ws/install/abaja_dbw/lib/abaja_dbw
+[4.615s] 
+[4.616s] Installed /home/pavithra/ros2_ws/build/abaja_dbw
+[4.616s] running symlink_data
+[4.709s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_dbw' returned '0': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_dbw/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_dbw/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_dbw/build --no-deps symlink_data

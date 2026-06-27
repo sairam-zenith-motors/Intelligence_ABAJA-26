@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: abaja-bringup
+Version: 0.1.0
+Summary: Bringup launch files for the aBAJA autonomous buggy
+Maintainer: aBAJA Team
+Maintainer-email: team@abaja.com
+License: MIT

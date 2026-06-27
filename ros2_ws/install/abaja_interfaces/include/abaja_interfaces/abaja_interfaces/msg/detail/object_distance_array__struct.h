@@ -1,0 +1,1 @@
+/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_c/abaja_interfaces/msg/detail/object_distance_array__struct.h

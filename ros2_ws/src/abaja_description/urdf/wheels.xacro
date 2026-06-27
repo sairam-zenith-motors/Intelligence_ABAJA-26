@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<!-- ============================================================================
+  wheels.xacro - Wheel definitions for the aBAJA Buggy
+  
+  This file defines all four wheels with:
+  - Front steering (revolute joints for front wheel assemblies)
+  - Rear drive (continuous joints for wheel rotation)
+  - Proper tire and rim visual representation
+  - Collision and inertial properties
+  
+  The real buggy has:
+  - Large off-road knobby tires (ATV-style)
+  - Silver/grey steel rims
+  - Front steering, rear wheel drive
+  
+  Wheel Specs:
+    Radius: 0.32 m (including tire)
+    Width:  0.18 m
+    Wheelbase: 1.65 m (distance between front and rear axles)
+    Track width: 1.25 m (distance between left and right wheels)
+============================================================================ -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="abaja_wheels">
+
+  <!-- ======================================================================
+    WHEEL PROPERTIES
+  ====================================================================== -->
+  <xacro:property name="wheel_radius" value="0.32"/>
+  <xacro:property name="wheel_width" value="0.18"/>
+  <xacro:property name="wheel_mass" value="8.0"/>
+  <xacro:property name="wheelbase" value="1.65"/>
+  <xacro:property name="track_width" value="1.25"/>
+  
+  <!-- Steering limits (front wheels) -->
+  <xacro:property name="steering_limit" value="0.6"/>  <!-- ~34 degrees -->
+  
+  <!-- ======================================================================
+    WHEEL MACRO - Reusable macro for creating identical wheel assemblies
+    
+    Parameters:
+      prefix:  "front_left", "front_right", "rear_left", "rear_right"
+      x_pos:   X position relative to base_link
+      y_pos:   Y position relative to base_link (+ = left, - = right)
+      steerable: "true" if this wheel has steering, "false" otherwise
+  ====================================================================== -->
+  <xacro:macro name="wheel_assembly" params="prefix x_pos y_pos steerable">
+
+    <!-- ==================================================================
+      STEERING LINK (only for front wheels)
+      This intermediate link allows the front wheels to rotate for steering.
+      For rear wheels, a fixed "dummy" steering link is used.
+    ================================================================== -->
+    <link name="${prefix}_steering_link">
+      <!-- Small hub/knuckle visualization -->
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.04" length="0.06"/>
+        </geometry>
+        <material name="DarkGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.04" length="0.06"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="1.0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+      </inertial>
+    </link>
+
+    <!-- Steering joint: revolute for front, fixed for rear -->
+    <xacro:if value="${steerable}">
+      <joint name="${prefix}_steering_joint" type="revolute">
+        <parent link="chassis_link"/>
+        <child link="${prefix}_steering_link"/>
+        <!-- chassis_link is elevated by (ground_clearance + wheel_radius), so we must drop Z down by the same amount -->
+        <origin xyz="${x_pos} ${y_pos} -0.57" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-${steering_limit}" upper="${steering_limit}" 
+               effort="100.0" velocity="1.0"/>
+        <dynamics damping="0.1" friction="0.1"/>
+      </joint>
+    </xacro:if>
+    <xacro:unless value="${steerable}">
+      <joint name="${prefix}_steering_joint" type="fixed">
+        <parent link="chassis_link"/>
+        <child link="${prefix}_steering_link"/>
+        <origin xyz="${x_pos} ${y_pos} -0.57" rpy="0 0 0"/>
+      </joint>
+    </xacro:unless>
+
+    <!-- ==================================================================
+      WHEEL LINK - The actual rotating wheel (tire + rim)
+      
+      The wheel rotates around the Y axis (in ROS convention).
+      We orient the cylinder with its axis along Y using rpy rotation.
+    ================================================================== -->
+    <link name="${prefix}_wheel_link">
+      <!-- Tire (outer black rubber) -->
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+        <material name="TireBlack"/>
+      </visual>
+      <!-- Rim (inner silver disc) -->
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius * 0.55}" length="${wheel_width + 0.01}"/>
+        </geometry>
+        <material name="WheelRim"/>
+      </visual>
+      <!-- Hub cap center -->
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="0.05" length="${wheel_width + 0.02}"/>
+        </geometry>
+        <material name="LightGrey"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="${wheel_mass}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <!-- Inertia for a solid cylinder (axis along Y after rotation) -->
+        <inertia
+          ixx="${(1.0/12.0) * wheel_mass * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="${(1.0/12.0) * wheel_mass * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"
+          iyz="0.0"
+          izz="${(1.0/2.0) * wheel_mass * wheel_radius * wheel_radius}"/>
+      </inertial>
+    </link>
+
+    <!-- Wheel rotation joint (continuous = unlimited rotation) -->
+    <joint name="${prefix}_wheel_joint" type="continuous">
+      <parent link="${prefix}_steering_link"/>
+      <child link="${prefix}_wheel_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="0.5" friction="0.3"/>
+    </joint>
+
+  </xacro:macro>
+
+  <!-- ======================================================================
+    INSTANTIATE ALL FOUR WHEELS
+    
+    Coordinate system (ROS convention):
+      X = forward
+      Y = left
+      Z = up
+    
+    base_link is centered at the rear axle on the ground.
+    Front axle is at x = wheelbase.
+  ====================================================================== -->
+  
+  <!-- Front Left Wheel - steerable -->
+  <xacro:wheel_assembly 
+    prefix="front_left" 
+    x_pos="${wheelbase}" 
+    y_pos="${track_width/2}"
+    steerable="true"/>
+
+  <!-- Front Right Wheel - steerable -->
+  <xacro:wheel_assembly 
+    prefix="front_right" 
+    x_pos="${wheelbase}" 
+    y_pos="-${track_width/2}"
+    steerable="true"/>
+
+  <!-- Rear Left Wheel - non-steerable (drive wheel) -->
+  <xacro:wheel_assembly 
+    prefix="rear_left" 
+    x_pos="0" 
+    y_pos="${track_width/2}"
+    steerable="false"/>
+
+  <!-- Rear Right Wheel - non-steerable (drive wheel) -->
+  <xacro:wheel_assembly 
+    prefix="rear_right" 
+    x_pos="0" 
+    y_pos="-${track_width/2}"
+    steerable="false"/>
+
+</robot>

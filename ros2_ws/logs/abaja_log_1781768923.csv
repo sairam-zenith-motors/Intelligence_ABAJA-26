@@ -1,0 +1,1 @@
+timestamp,speed_mps,steering_deg,brake_pct,throttle_pct,lateral_error,ttc_sec,aeb_active,objects_detected,dbw_fault

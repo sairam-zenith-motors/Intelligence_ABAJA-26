@@ -1,0 +1,8 @@
+float32 target_speed_mps
+float32 steering_angle_deg
+float32 throttle_percent
+float32 brake_percent
+bool enable_throttle
+bool enable_brake
+bool enable_steering
+bool emergency_stop

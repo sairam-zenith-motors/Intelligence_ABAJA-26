@@ -1,0 +1,37 @@
+[1.074s] Invoking command in '/home/pavithra/ros2_ws/src/abaja_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/abaja_teleop build --build-base /home/pavithra/ros2_ws/build/abaja_teleop/build install --record /home/pavithra/ros2_ws/build/abaja_teleop/install.log --single-version-externally-managed install_data
+[1.336s] running egg_info
+[1.336s] creating ../../build/abaja_teleop/abaja_teleop.egg-info
+[1.347s] writing ../../build/abaja_teleop/abaja_teleop.egg-info/PKG-INFO
+[1.347s] writing dependency_links to ../../build/abaja_teleop/abaja_teleop.egg-info/dependency_links.txt
+[1.348s] writing entry points to ../../build/abaja_teleop/abaja_teleop.egg-info/entry_points.txt
+[1.348s] writing requirements to ../../build/abaja_teleop/abaja_teleop.egg-info/requires.txt
+[1.348s] writing top-level names to ../../build/abaja_teleop/abaja_teleop.egg-info/top_level.txt
+[1.348s] writing manifest file '../../build/abaja_teleop/abaja_teleop.egg-info/SOURCES.txt'
+[1.370s] reading manifest file '../../build/abaja_teleop/abaja_teleop.egg-info/SOURCES.txt'
+[1.370s] writing manifest file '../../build/abaja_teleop/abaja_teleop.egg-info/SOURCES.txt'
+[1.371s] running build
+[1.371s] running build_py
+[1.371s] creating /home/pavithra/ros2_ws/build/abaja_teleop/build
+[1.371s] creating /home/pavithra/ros2_ws/build/abaja_teleop/build/lib
+[1.371s] creating /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop
+[1.371s] copying abaja_teleop/__init__.py -> /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop
+[1.371s] copying abaja_teleop/keyboard_teleop.py -> /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop
+[1.371s] running install
+[1.375s] running install_lib
+[1.385s] creating /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop
+[1.385s] copying /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop/__init__.py -> /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop
+[1.385s] copying /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop/keyboard_teleop.py -> /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop
+[1.385s] byte-compiling /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop/__init__.py to __init__.cpython-312.pyc
+[1.385s] byte-compiling /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop/keyboard_teleop.py to keyboard_teleop.cpython-312.pyc
+[1.386s] running install_data
+[1.386s] creating /home/pavithra/ros2_ws/install/abaja_teleop/share/ament_index
+[1.386s] creating /home/pavithra/ros2_ws/install/abaja_teleop/share/ament_index/resource_index
+[1.386s] creating /home/pavithra/ros2_ws/install/abaja_teleop/share/ament_index/resource_index/packages
+[1.387s] copying resource/abaja_teleop -> /home/pavithra/ros2_ws/install/abaja_teleop/share/ament_index/resource_index/packages
+[1.387s] copying package.xml -> /home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop
+[1.387s] running install_egg_info
+[1.397s] Copying ../../build/abaja_teleop/abaja_teleop.egg-info to /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop-0.1.0-py3.12.egg-info
+[1.397s] running install_scripts
+[1.470s] Installing keyboard_teleop script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+[1.470s] writing list of installed files to '/home/pavithra/ros2_ws/build/abaja_teleop/install.log'
+[1.489s] Invoked command in '/home/pavithra/ros2_ws/src/abaja_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/abaja_teleop build --build-base /home/pavithra/ros2_ws/build/abaja_teleop/build install --record /home/pavithra/ros2_ws/build/abaja_teleop/install.log --single-version-externally-managed install_data

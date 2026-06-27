@@ -1,0 +1,6 @@
+[console_scripts]
+brake_by_wire_node = abaja_dbw.brake_by_wire_node:main
+cmd_vel_to_dbw_node = abaja_dbw.cmd_vel_to_dbw_node:main
+dbw_manager_node = abaja_dbw.dbw_manager_node:main
+steer_by_wire_node = abaja_dbw.steer_by_wire_node:main
+throttle_by_wire_node = abaja_dbw.throttle_by_wire_node:main

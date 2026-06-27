@@ -1,0 +1,21 @@
+[0.728s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_teleop/build --no-deps symlink_data --force
+[0.956s] running develop
+[1.083s] running egg_info
+[1.095s] writing abaja_teleop.egg-info/PKG-INFO
+[1.095s] writing dependency_links to abaja_teleop.egg-info/dependency_links.txt
+[1.095s] writing entry points to abaja_teleop.egg-info/entry_points.txt
+[1.095s] writing requirements to abaja_teleop.egg-info/requires.txt
+[1.095s] writing top-level names to abaja_teleop.egg-info/top_level.txt
+[1.127s] reading manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+[1.127s] writing manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+[1.143s] running build_ext
+[1.143s] Creating /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja-teleop.egg-link (link to .)
+[1.144s] Installing keyboard_teleop script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+[1.144s] Installing sim_controller script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+[1.144s] 
+[1.144s] Installed /home/pavithra/ros2_ws/build/abaja_teleop
+[1.144s] running symlink_data
+[1.145s] symbolically linking /home/pavithra/ros2_ws/build/abaja_teleop/resource/abaja_teleop -> /home/pavithra/ros2_ws/install/abaja_teleop/share/ament_index/resource_index/packages
+[1.145s] symbolically linking /home/pavithra/ros2_ws/build/abaja_teleop/package.xml -> /home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop
+[1.145s] symbolically linking /home/pavithra/ros2_ws/build/abaja_teleop/launch/teleop.launch.py -> /home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop/launch
+[1.176s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_teleop/build --no-deps symlink_data --force

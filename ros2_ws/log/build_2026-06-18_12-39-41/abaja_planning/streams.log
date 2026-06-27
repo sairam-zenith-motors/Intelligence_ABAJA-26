@@ -1,0 +1,17 @@
+[2.211s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_planning': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_planning/build --no-deps symlink_data
+[2.731s] running develop
+[3.099s] running egg_info
+[3.142s] writing abaja_planning.egg-info/PKG-INFO
+[3.142s] writing dependency_links to abaja_planning.egg-info/dependency_links.txt
+[3.145s] writing entry points to abaja_planning.egg-info/entry_points.txt
+[3.145s] writing requirements to abaja_planning.egg-info/requires.txt
+[3.145s] writing top-level names to abaja_planning.egg-info/top_level.txt
+[3.203s] reading manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.203s] writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.237s] running build_ext
+[3.237s] Creating /home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages/abaja-planning.egg-link (link to .)
+[3.240s] Installing path_planner_node script to /home/pavithra/ros2_ws/install/abaja_planning/lib/abaja_planning
+[3.241s] 
+[3.241s] Installed /home/pavithra/ros2_ws/build/abaja_planning
+[3.241s] running symlink_data
+[3.296s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_planning' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_planning/build --no-deps symlink_data

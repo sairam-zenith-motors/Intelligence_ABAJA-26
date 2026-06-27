@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/TTCStatus.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct TTCStatus {
+      boolean obstacle_detected;
+
+      string object_class;
+
+      float distance_m;
+
+      float ego_speed_mps;
+
+      float ttc_seconds;
+
+      string risk_level;
+    };
+  };
+};

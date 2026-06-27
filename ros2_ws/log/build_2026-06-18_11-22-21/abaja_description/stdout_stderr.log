@@ -1,0 +1,46 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Configuring done (1.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/pavithra/ros2_ws/build/abaja_description
+-- Install configuration: ""
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/chassis.xacro
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/materials.xacro
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/abaja_buggy.urdf.xacro
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/wheels.xacro
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/sensors.xacro
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/gazebo.launch.py
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/display.launch.py
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/rviz
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/rviz/abaja_display.rviz
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/meshes
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/meshes/README.md
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/package_run_dependencies/abaja_description
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/parent_prefix_path/abaja_description
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.sh
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.dsv
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.sh
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.dsv
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.bash
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.sh
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.zsh
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.dsv
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.dsv
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/packages/abaja_description
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig.cmake
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig-version.cmake
+-- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.xml

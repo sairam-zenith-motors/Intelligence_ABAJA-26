@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!--
+  abaja_description - ROS2 package for aBAJA Autonomous Buggy URDF model
+  
+  This package contains the URDF/XACRO model files, launch files, and RViz 
+  configuration for visualizing the aBAJA BAJA off-road buggy.
+  
+  Team: Sairam Zenith Motors, Sri Sairam Engineering College
+-->
+<package format="3">
+  <name>abaja_description</name>
+  <version>0.1.0</version>
+  <description>URDF description package for the aBAJA autonomous BAJA buggy</description>
+  <maintainer email="team@abaja.com">aBAJA Team</maintainer>
+  <license>MIT</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Runtime dependencies for URDF processing and visualization -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <!-- Gazebo Harmonic dependencies (ROS2 Jazzy) -->
+  <exec_depend>ros_gz</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+
+  <!-- Launch dependency -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

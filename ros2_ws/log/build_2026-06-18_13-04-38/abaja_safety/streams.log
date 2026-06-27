@@ -1,0 +1,17 @@
+[2.626s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_safety': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_safety/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_safety/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_safety/build --no-deps symlink_data
+[3.170s] running develop
+[3.470s] running egg_info
+[3.504s] writing abaja_safety.egg-info/PKG-INFO
+[3.507s] writing dependency_links to abaja_safety.egg-info/dependency_links.txt
+[3.507s] writing entry points to abaja_safety.egg-info/entry_points.txt
+[3.507s] writing requirements to abaja_safety.egg-info/requires.txt
+[3.507s] writing top-level names to abaja_safety.egg-info/top_level.txt
+[3.581s] reading manifest file 'abaja_safety.egg-info/SOURCES.txt'
+[3.581s] writing manifest file 'abaja_safety.egg-info/SOURCES.txt'
+[3.628s] running build_ext
+[3.628s] Creating /home/pavithra/ros2_ws/install/abaja_safety/lib/python3.12/site-packages/abaja-safety.egg-link (link to .)
+[3.628s] Installing safety_monitor_node script to /home/pavithra/ros2_ws/install/abaja_safety/lib/abaja_safety
+[3.628s] 
+[3.628s] Installed /home/pavithra/ros2_ws/build/abaja_safety
+[3.628s] running symlink_data
+[3.723s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_safety' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_safety/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_safety/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_safety/build --no-deps symlink_data

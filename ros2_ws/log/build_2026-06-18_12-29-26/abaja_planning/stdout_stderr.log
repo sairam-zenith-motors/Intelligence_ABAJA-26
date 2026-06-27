@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating abaja_planning.egg-info
+writing abaja_planning.egg-info/PKG-INFO
+writing dependency_links to abaja_planning.egg-info/dependency_links.txt
+writing entry points to abaja_planning.egg-info/entry_points.txt
+writing requirements to abaja_planning.egg-info/requires.txt
+writing top-level names to abaja_planning.egg-info/top_level.txt
+writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+reading manifest file 'abaja_planning.egg-info/SOURCES.txt'
+writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/ros2_ws/install/abaja_planning/lib/python3.12/site-packages/abaja-planning.egg-link (link to .)
+Installing path_planner_node script to /home/pavithra/ros2_ws/install/abaja_planning/lib/abaja_planning
+
+Installed /home/pavithra/ros2_ws/build/abaja_planning
+running symlink_data
+creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index
+creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index
+creating /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/ros2_ws/build/abaja_planning/resource/abaja_planning -> /home/pavithra/ros2_ws/install/abaja_planning/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/ros2_ws/build/abaja_planning/package.xml -> /home/pavithra/ros2_ws/install/abaja_planning/share/abaja_planning

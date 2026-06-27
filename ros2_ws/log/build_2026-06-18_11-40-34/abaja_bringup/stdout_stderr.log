@@ -1,0 +1,18 @@
+running egg_info
+writing ../../build/abaja_bringup/abaja_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../build/abaja_bringup/abaja_bringup.egg-info/dependency_links.txt
+writing requirements to ../../build/abaja_bringup/abaja_bringup.egg-info/requires.txt
+writing top-level names to ../../build/abaja_bringup/abaja_bringup.egg-info/top_level.txt
+reading manifest file '../../build/abaja_bringup/abaja_bringup.egg-info/SOURCES.txt'
+writing manifest file '../../build/abaja_bringup/abaja_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying launch/sim_bringup.launch.py -> /home/pavithra/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+running install_egg_info
+removing '/home/pavithra/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup-0.1.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/abaja_bringup/abaja_bringup.egg-info to /home/pavithra/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup-0.1.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/pavithra/ros2_ws/build/abaja_bringup/install.log'

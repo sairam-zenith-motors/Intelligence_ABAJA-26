@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<!-- ============================================================================
+  abaja_buggy.urdf.xacro - Main URDF/XACRO file for the aBAJA Autonomous Buggy
+  
+  This is the top-level XACRO file that assembles the complete robot model
+  by including all component files:
+    - materials.xacro  → Color/material definitions
+    - chassis.xacro    → Body frame, roll cage, seat, beacons, electronics
+    - wheels.xacro     → Four wheels with steering and drive joints
+    - sensors.xacro    → Camera, LiDAR, IMU sensor mounts
+  
+  Vehicle: aBAJA Electric Autonomous BAJA Buggy
+  Team: Sairam Zenith Motors, Sri Sairam Engineering College
+  
+  Usage:
+    # Process XACRO to URDF:
+    xacro abaja_buggy.urdf.xacro > abaja_buggy.urdf
+    
+    # Or use with launch file:
+    ros2 launch abaja_description display.launch.py
+  
+  Approximate Dimensions:
+    Length:     2.30 m
+    Width:     1.45 m (at wheels)
+    Height:    1.65 m (to top of beacons)
+    Wheelbase: 1.65 m
+    Track:     1.25 m
+    Weight:    ~200 kg (estimated with battery)
+============================================================================ -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="abaja_buggy">
+
+  <!-- ======================================================================
+    INCLUDE COMPONENT FILES
+    Each file defines a set of related links and joints.
+    Order matters: materials must be included first so other files can 
+    reference the color names.
+  ====================================================================== -->
+  
+  <!-- Color/material definitions (must be first) -->
+  <xacro:include filename="$(find abaja_description)/urdf/materials.xacro"/>
+  
+  <!-- Chassis, roll cage, body, seat, beacons, electronics -->
+  <xacro:include filename="$(find abaja_description)/urdf/chassis.xacro"/>
+  
+  <!-- Four wheels with steering and drive joints -->
+  <xacro:include filename="$(find abaja_description)/urdf/wheels.xacro"/>
+  
+  <!-- Sensor mounts: camera, lidar, imu -->
+  <xacro:include filename="$(find abaja_description)/urdf/sensors.xacro"/>
+
+  <!-- ======================================================================
+    GAZEBO-SPECIFIC PROPERTIES
+    
+    These tags define how links appear in Gazebo simulation.
+    Gazebo ignores URDF <material> tags and needs its own color definitions.
+  ====================================================================== -->
+  
+  <!-- Chassis -->
+  <gazebo reference="chassis_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Floor pan -->
+  <gazebo reference="floor_pan_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Body panels -->
+  <gazebo reference="left_body_panel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="right_body_panel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- Roll cage elements -->
+  <gazebo reference="roll_cage_front_hoop">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_rear_hoop">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_top_bar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_left_pillar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_right_pillar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_left_rear_pillar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_right_rear_pillar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_left_side_bar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="roll_cage_right_side_bar">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <!-- Beacons -->
+  <gazebo reference="asal_beacon_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="asal_beacon_dome">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="warning_beacon_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <gazebo reference="warning_beacon_dome">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Wheels -->
+  <gazebo reference="front_left_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+  <gazebo reference="front_right_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+  <gazebo reference="rear_left_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+  <gazebo reference="rear_right_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+  </gazebo>
+
+  <!-- Seat -->
+  <gazebo reference="seat_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="seat_backrest_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Battery and Electronics -->
+  <gazebo reference="battery_box_link">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+  <gazebo reference="electronics_box_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Sensors -->
+  <gazebo reference="camera_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="radar_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="imu_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Suspension springs -->
+  <gazebo reference="front_left_spring">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="front_right_spring">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="rear_left_spring">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <gazebo reference="rear_right_spring">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- Tail lights -->
+  <gazebo reference="left_tail_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="right_tail_light">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- ======================================================================
+    GAZEBO HARMONIC (GZ-SIM) DIFFERENTIAL DRIVE PLUGIN
+    
+    This plugin enables drive control via /cmd_vel topic in gz-sim.
+    It drives the rear wheels based on Twist commands.
+    
+    NOTE: This is a simplified diff-drive controller. For proper Ackermann
+    steering, you'll need a more specialized plugin in a future stage.
+  ====================================================================== -->
+  <gazebo>
+    <plugin filename="gz-sim-diff-drive-system"
+            name="gz::sim::systems::DiffDrive">
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <wheel_separation>1.25</wheel_separation>
+      <wheel_radius>0.32</wheel_radius>
+      <max_linear_acceleration>2.0</max_linear_acceleration>
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+    </plugin>
+  </gazebo>
+
+  <!-- ======================================================================
+    GAZEBO HARMONIC JOINT STATE PUBLISHER PLUGIN
+    
+    Publishes joint states from gz-sim so RViz can show wheel rotation.
+  ====================================================================== -->
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>front_left_wheel_joint</joint_name>
+      <joint_name>front_right_wheel_joint</joint_name>
+      <joint_name>rear_left_wheel_joint</joint_name>
+      <joint_name>rear_right_wheel_joint</joint_name>
+      <joint_name>front_left_steering_joint</joint_name>
+      <joint_name>front_right_steering_joint</joint_name>
+    </plugin>
+  </gazebo>
+
+</robot>

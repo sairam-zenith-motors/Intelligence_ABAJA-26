@@ -1,0 +1,4 @@
+[console_scripts]
+lane_detection_node = abaja_lane_detection.lane_detection_node:main
+lane_tracker_node = abaja_lane_detection.lane_tracker_node:main
+lka_controller_node = abaja_lane_detection.lka_controller_node:main

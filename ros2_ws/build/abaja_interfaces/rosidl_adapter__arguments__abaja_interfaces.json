@@ -1,0 +1,22 @@
+{
+  "package_name": "abaja_interfaces",
+  "non_idl_tuples": [
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/ControlCmd.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/VehicleState.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/WheelSpeed.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/SteeringFeedback.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/BatteryStatus.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/ModeStatus.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/DbwCmd.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/DbwStatus.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/DetectedObject.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/DetectedObjectArray.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/LaneMarking.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/LaneState.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/ObjectDistance.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/ObjectDistanceArray.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/TTCStatus.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/AEBStatus.msg",
+    "/home/pavithra/ros2_ws/src/abaja_interfaces:msg/SafetyState.msg"
+  ]
+}

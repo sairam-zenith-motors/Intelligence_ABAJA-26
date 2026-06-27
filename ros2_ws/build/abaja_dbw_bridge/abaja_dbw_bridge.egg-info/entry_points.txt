@@ -1,0 +1,2 @@
+[console_scripts]
+dbw_interface_node = abaja_dbw_bridge.dbw_interface_node:main

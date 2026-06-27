@@ -1,0 +1,17 @@
+[2.383s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_lane_detection': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_lane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_lane_detection/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_lane_detection/build --no-deps symlink_data
+[2.756s] running develop
+[2.976s] running egg_info
+[2.996s] writing abaja_lane_detection.egg-info/PKG-INFO
+[2.998s] writing dependency_links to abaja_lane_detection.egg-info/dependency_links.txt
+[3.001s] writing entry points to abaja_lane_detection.egg-info/entry_points.txt
+[3.001s] writing requirements to abaja_lane_detection.egg-info/requires.txt
+[3.001s] writing top-level names to abaja_lane_detection.egg-info/top_level.txt
+[3.045s] reading manifest file 'abaja_lane_detection.egg-info/SOURCES.txt'
+[3.045s] writing manifest file 'abaja_lane_detection.egg-info/SOURCES.txt'
+[3.065s] running build_ext
+[3.065s] Creating /home/pavithra/ros2_ws/install/abaja_lane_detection/lib/python3.12/site-packages/abaja-lane-detection.egg-link (link to .)
+[3.065s] Installing lane_detector_node script to /home/pavithra/ros2_ws/install/abaja_lane_detection/lib/abaja_lane_detection
+[3.066s] 
+[3.066s] Installed /home/pavithra/ros2_ws/build/abaja_lane_detection
+[3.066s] running symlink_data
+[3.117s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_lane_detection' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_lane_detection/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_lane_detection/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_lane_detection/build --no-deps symlink_data

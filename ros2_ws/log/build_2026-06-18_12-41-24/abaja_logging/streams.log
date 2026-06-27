@@ -1,0 +1,17 @@
+[2.375s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_logging': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_logging/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_logging/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_logging/build --no-deps symlink_data
+[2.956s] running develop
+[3.296s] running egg_info
+[3.328s] writing abaja_logging.egg-info/PKG-INFO
+[3.329s] writing dependency_links to abaja_logging.egg-info/dependency_links.txt
+[3.331s] writing entry points to abaja_logging.egg-info/entry_points.txt
+[3.331s] writing requirements to abaja_logging.egg-info/requires.txt
+[3.331s] writing top-level names to abaja_logging.egg-info/top_level.txt
+[3.412s] reading manifest file 'abaja_logging.egg-info/SOURCES.txt'
+[3.413s] writing manifest file 'abaja_logging.egg-info/SOURCES.txt'
+[3.451s] running build_ext
+[3.451s] Creating /home/pavithra/ros2_ws/install/abaja_logging/lib/python3.12/site-packages/abaja-logging.egg-link (link to .)
+[3.452s] Installing data_logger_node script to /home/pavithra/ros2_ws/install/abaja_logging/lib/abaja_logging
+[3.453s] 
+[3.453s] Installed /home/pavithra/ros2_ws/build/abaja_logging
+[3.453s] running symlink_data
+[3.549s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_logging' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_logging/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_logging/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_logging/build --no-deps symlink_data

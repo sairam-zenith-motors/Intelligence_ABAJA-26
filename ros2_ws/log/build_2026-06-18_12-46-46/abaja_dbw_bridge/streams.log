@@ -1,0 +1,17 @@
+[4.156s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_dbw_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_dbw_bridge/build --no-deps symlink_data
+[4.740s] running develop
+[5.109s] running egg_info
+[5.149s] writing abaja_dbw_bridge.egg-info/PKG-INFO
+[5.150s] writing dependency_links to abaja_dbw_bridge.egg-info/dependency_links.txt
+[5.154s] writing entry points to abaja_dbw_bridge.egg-info/entry_points.txt
+[5.154s] writing requirements to abaja_dbw_bridge.egg-info/requires.txt
+[5.154s] writing top-level names to abaja_dbw_bridge.egg-info/top_level.txt
+[5.229s] reading manifest file 'abaja_dbw_bridge.egg-info/SOURCES.txt'
+[5.230s] writing manifest file 'abaja_dbw_bridge.egg-info/SOURCES.txt'
+[5.280s] running build_ext
+[5.280s] Creating /home/pavithra/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja-dbw-bridge.egg-link (link to .)
+[5.283s] Installing dbw_interface_node script to /home/pavithra/ros2_ws/install/abaja_dbw_bridge/lib/abaja_dbw_bridge
+[5.283s] 
+[5.283s] Installed /home/pavithra/ros2_ws/build/abaja_dbw_bridge
+[5.283s] running symlink_data
+[5.403s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_dbw_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_dbw_bridge/build --no-deps symlink_data

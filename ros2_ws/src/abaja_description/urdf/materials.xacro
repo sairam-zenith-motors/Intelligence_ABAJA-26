@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!-- ============================================================================
+  materials.xacro - Color/Material definitions for the aBAJA Buggy
+  
+  This file defines all the visual materials (colors) used across the URDF model.
+  Colors are defined using RGBA values (Red, Green, Blue, Alpha).
+  
+  Usage: Include this file in other XACRO files with:
+    <xacro:include filename="materials.xacro"/>
+  Then reference materials with: <material name="MaterialName"/>
+============================================================================ -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="abaja_materials">
+
+  <!-- ======================================================================
+    CHASSIS AND BODY COLORS
+  ====================================================================== -->
+  
+  <!-- Main chassis color - Black like the real buggy -->
+  <material name="Black">
+    <color rgba="0.1 0.1 0.1 1.0"/>
+  </material>
+
+  <!-- Dark grey for structural elements -->
+  <material name="DarkGrey">
+    <color rgba="0.2 0.2 0.2 1.0"/>
+  </material>
+
+  <!-- Medium grey for metallic parts -->
+  <material name="Grey">
+    <color rgba="0.5 0.5 0.5 1.0"/>
+  </material>
+
+  <!-- Light grey for wheel rims -->
+  <material name="LightGrey">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    ROLL CAGE AND FRAME COLORS
+  ====================================================================== -->
+  
+  <!-- Roll cage tubes - dark steel color -->
+  <material name="Steel">
+    <color rgba="0.25 0.25 0.28 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    WHEEL AND TIRE COLORS
+  ====================================================================== -->
+  
+  <!-- Tire rubber - near black -->
+  <material name="TireBlack">
+    <color rgba="0.15 0.15 0.15 1.0"/>
+  </material>
+
+  <!-- Wheel rim - silver/light grey like the real buggy -->
+  <material name="WheelRim">
+    <color rgba="0.75 0.75 0.75 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    SUSPENSION COLORS
+  ====================================================================== -->
+  
+  <!-- Red suspension springs - visible on the real buggy -->
+  <material name="Red">
+    <color rgba="0.85 0.1 0.1 1.0"/>
+  </material>
+
+  <!-- Orange for rear suspension springs -->
+  <material name="Orange">
+    <color rgba="1.0 0.55 0.0 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    BEACON AND LIGHT COLORS
+  ====================================================================== -->
+  
+  <!-- Blue ASAL (Autonomous) beacon -->
+  <material name="Blue">
+    <color rgba="0.0 0.3 0.9 1.0"/>
+  </material>
+
+  <!-- Orange/Amber warning beacon -->
+  <material name="Amber">
+    <color rgba="1.0 0.65 0.0 0.9"/>
+  </material>
+
+  <!-- ======================================================================
+    SENSOR AND ELECTRONICS COLORS  
+  ====================================================================== -->
+  
+  <!-- Camera sensor housing -->
+  <material name="CameraBlack">
+    <color rgba="0.05 0.05 0.05 1.0"/>
+  </material>
+
+  <!-- Electronics box -->
+  <material name="ElectronicsGrey">
+    <color rgba="0.35 0.35 0.38 1.0"/>
+  </material>
+
+  <!-- Battery box - typically yellow hazard or dark -->
+  <material name="BatteryYellow">
+    <color rgba="0.9 0.85 0.2 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    SEAT AND COCKPIT COLORS
+  ====================================================================== -->
+  
+  <!-- Seat material - black with red stripe like the real buggy -->
+  <material name="SeatBlack">
+    <color rgba="0.12 0.12 0.12 1.0"/>
+  </material>
+
+  <!-- Red harness/stripe on seat -->
+  <material name="SeatRed">
+    <color rgba="0.8 0.05 0.1 1.0"/>
+  </material>
+
+  <!-- Steering wheel -->
+  <material name="SteeringBlack">
+    <color rgba="0.08 0.08 0.08 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    BODY PANEL COLORS
+  ====================================================================== -->
+  
+  <!-- Side body panels - dark black like real buggy -->
+  <material name="BodyPanel">
+    <color rgba="0.08 0.08 0.1 1.0"/>
+  </material>
+
+  <!-- Floor pan -->
+  <material name="FloorGrey">
+    <color rgba="0.3 0.3 0.3 1.0"/>
+  </material>
+
+</robot>

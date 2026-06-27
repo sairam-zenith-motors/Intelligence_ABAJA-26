@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/ModeStatus.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct ModeStatus {
+      boolean autonomous_switch;
+
+      boolean manual_switch;
+
+      boolean lateral_switch;
+
+      boolean longitudinal_switch;
+
+      boolean kill_switch;
+
+      boolean dbw_ready;
+    };
+  };
+};

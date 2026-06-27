@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating abaja_perception.egg-info
+writing abaja_perception.egg-info/PKG-INFO
+writing dependency_links to abaja_perception.egg-info/dependency_links.txt
+writing entry points to abaja_perception.egg-info/entry_points.txt
+writing requirements to abaja_perception.egg-info/requires.txt
+writing top-level names to abaja_perception.egg-info/top_level.txt
+writing manifest file 'abaja_perception.egg-info/SOURCES.txt'
+reading manifest file 'abaja_perception.egg-info/SOURCES.txt'
+writing manifest file 'abaja_perception.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja-perception.egg-link (link to .)
+Installing radar_perception_node script to /home/pavithra/ros2_ws/install/abaja_perception/lib/abaja_perception
+
+Installed /home/pavithra/ros2_ws/build/abaja_perception
+running symlink_data
+creating /home/pavithra/ros2_ws/install/abaja_perception/share/ament_index
+creating /home/pavithra/ros2_ws/install/abaja_perception/share/ament_index/resource_index
+creating /home/pavithra/ros2_ws/install/abaja_perception/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/ros2_ws/build/abaja_perception/resource/abaja_perception -> /home/pavithra/ros2_ws/install/abaja_perception/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/ros2_ws/build/abaja_perception/package.xml -> /home/pavithra/ros2_ws/install/abaja_perception/share/abaja_perception

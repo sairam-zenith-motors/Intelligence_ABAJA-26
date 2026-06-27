@@ -1,0 +1,18 @@
+[4.166s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_teleop': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_teleop/build --no-deps symlink_data
+[4.760s] running develop
+[5.121s] running egg_info
+[5.160s] writing abaja_teleop.egg-info/PKG-INFO
+[5.161s] writing dependency_links to abaja_teleop.egg-info/dependency_links.txt
+[5.162s] writing entry points to abaja_teleop.egg-info/entry_points.txt
+[5.168s] writing requirements to abaja_teleop.egg-info/requires.txt
+[5.169s] writing top-level names to abaja_teleop.egg-info/top_level.txt
+[5.245s] reading manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+[5.248s] writing manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+[5.295s] running build_ext
+[5.297s] Creating /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja-teleop.egg-link (link to .)
+[5.298s] Installing keyboard_teleop script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+[5.301s] Installing sim_controller script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+[5.301s] 
+[5.302s] Installed /home/pavithra/ros2_ws/build/abaja_teleop
+[5.302s] running symlink_data
+[5.388s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_teleop' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_teleop/build --no-deps symlink_data

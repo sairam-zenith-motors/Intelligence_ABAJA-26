@@ -1,0 +1,6 @@
+bool dbw_enabled
+bool throttle_enabled
+bool brake_enabled
+bool steering_enabled
+bool fault_detected
+string fault_reason

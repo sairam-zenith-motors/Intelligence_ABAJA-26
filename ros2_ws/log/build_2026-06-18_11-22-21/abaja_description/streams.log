@@ -1,0 +1,52 @@
+[0.011s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/ros2_ws/src/abaja_description -DCMAKE_INSTALL_PREFIX=/home/pavithra/ros2_ws/install/abaja_description
+[0.192s] -- The C compiler identification is GNU 13.3.0
+[0.314s] -- The CXX compiler identification is GNU 13.3.0
+[0.351s] -- Detecting C compiler ABI info
+[0.462s] -- Detecting C compiler ABI info - done
+[0.479s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.480s] -- Detecting C compile features
+[0.481s] -- Detecting C compile features - done
+[0.501s] -- Detecting CXX compiler ABI info
+[0.690s] -- Detecting CXX compiler ABI info - done
+[0.711s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.712s] -- Detecting CXX compile features
+[0.713s] -- Detecting CXX compile features - done
+[0.725s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.951s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.183s] -- Configuring done (1.1s)
+[1.185s] -- Generating done (0.0s)
+[1.187s] -- Build files have been written to: /home/pavithra/ros2_ws/build/abaja_description
+[1.192s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/ros2_ws/src/abaja_description -DCMAKE_INSTALL_PREFIX=/home/pavithra/ros2_ws/install/abaja_description
+[1.194s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/ros2_ws/build/abaja_description -- -j12 -l12
+[1.261s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/ros2_ws/build/abaja_description -- -j12 -l12
+[1.271s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/ros2_ws/build/abaja_description
+[1.279s] -- Install configuration: ""
+[1.280s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf
+[1.280s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/chassis.xacro
+[1.280s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/materials.xacro
+[1.280s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/abaja_buggy.urdf.xacro
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/wheels.xacro
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/sensors.xacro
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/gazebo.launch.py
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/display.launch.py
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/rviz
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/rviz/abaja_display.rviz
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/meshes
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/meshes/README.md
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/package_run_dependencies/abaja_description
+[1.281s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/parent_prefix_path/abaja_description
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.sh
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.dsv
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.sh
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.dsv
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.bash
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.sh
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.zsh
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.dsv
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.dsv
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/packages/abaja_description
+[1.282s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig.cmake
+[1.283s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig-version.cmake
+[1.283s] -- Installing: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.xml
+[1.283s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/ros2_ws/build/abaja_description

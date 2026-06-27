@@ -1,0 +1,30 @@
+[0.054s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/ros2_ws/build/abaja_description -- -j12 -l12
+[1.158s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/ros2_ws/build/abaja_description -- -j12 -l12
+[1.159s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/ros2_ws/build/abaja_description
+[1.379s] -- Install configuration: ""
+[1.379s] -- Execute custom install script
+[1.379s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/abaja_buggy.urdf.xacro
+[1.379s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/chassis.xacro
+[1.379s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/materials.xacro
+[1.379s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/sensors.xacro
+[1.379s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/urdf/wheels.xacro
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/display.launch.py
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/launch/gazebo.launch.py
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/rviz/abaja_display.rviz
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/meshes/README.md
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/package_run_dependencies/abaja_description
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/parent_prefix_path/abaja_description
+[1.380s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.sh
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.dsv
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.sh
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/environment/path.dsv
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.bash
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.sh
+[1.381s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.zsh
+[1.382s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/local_setup.dsv
+[1.382s] -- Symlinking: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.dsv
+[1.382s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/ament_index/resource_index/packages/abaja_description
+[1.382s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig.cmake
+[1.382s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig-version.cmake
+[1.382s] -- Up-to-date symlink: /home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.xml
+[1.406s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/ros2_ws/build/abaja_description

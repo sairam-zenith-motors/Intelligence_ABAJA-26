@@ -1,0 +1,20 @@
+[2.824s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_perception': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_perception/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_perception/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_perception/build --no-deps symlink_data
+[3.567s] running develop
+[4.059s] running egg_info
+[4.108s] writing abaja_perception.egg-info/PKG-INFO
+[4.109s] writing dependency_links to abaja_perception.egg-info/dependency_links.txt
+[4.109s] writing entry points to abaja_perception.egg-info/entry_points.txt
+[4.109s] writing requirements to abaja_perception.egg-info/requires.txt
+[4.110s] writing top-level names to abaja_perception.egg-info/top_level.txt
+[4.208s] reading manifest file 'abaja_perception.egg-info/SOURCES.txt'
+[4.209s] writing manifest file 'abaja_perception.egg-info/SOURCES.txt'
+[4.263s] running build_ext
+[4.263s] Creating /home/pavithra/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja-perception.egg-link (link to .)
+[4.264s] Installing camera_node script to /home/pavithra/ros2_ws/install/abaja_perception/lib/abaja_perception
+[4.264s] Installing detection_display_node script to /home/pavithra/ros2_ws/install/abaja_perception/lib/abaja_perception
+[4.265s] Installing detection_recorder_node script to /home/pavithra/ros2_ws/install/abaja_perception/lib/abaja_perception
+[4.265s] Installing object_detection_node script to /home/pavithra/ros2_ws/install/abaja_perception/lib/abaja_perception
+[4.266s] 
+[4.266s] Installed /home/pavithra/ros2_ws/build/abaja_perception
+[4.266s] running symlink_data
+[4.348s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_perception' returned '0': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_perception/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_perception/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_perception/build --no-deps symlink_data

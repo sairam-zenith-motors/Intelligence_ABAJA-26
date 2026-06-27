@@ -1,0 +1,5 @@
+[console_scripts]
+camera_node = abaja_perception.camera_node:main
+detection_display_node = abaja_perception.detection_display_node:main
+detection_recorder_node = abaja_perception.detection_recorder_node:main
+object_detection_node = abaja_perception.object_detection_node:main

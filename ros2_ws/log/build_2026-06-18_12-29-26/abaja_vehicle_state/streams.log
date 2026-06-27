@@ -1,0 +1,24 @@
+[0.798s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_vehicle_state': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_vehicle_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_vehicle_state/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_vehicle_state/build --no-deps symlink_data
+[1.083s] running develop
+[1.244s] running egg_info
+[1.244s] creating abaja_vehicle_state.egg-info
+[1.256s] writing abaja_vehicle_state.egg-info/PKG-INFO
+[1.256s] writing dependency_links to abaja_vehicle_state.egg-info/dependency_links.txt
+[1.256s] writing entry points to abaja_vehicle_state.egg-info/entry_points.txt
+[1.256s] writing requirements to abaja_vehicle_state.egg-info/requires.txt
+[1.256s] writing top-level names to abaja_vehicle_state.egg-info/top_level.txt
+[1.256s] writing manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+[1.283s] reading manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+[1.284s] writing manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+[1.298s] running build_ext
+[1.299s] Creating /home/pavithra/ros2_ws/install/abaja_vehicle_state/lib/python3.12/site-packages/abaja-vehicle-state.egg-link (link to .)
+[1.299s] Installing state_estimator_node script to /home/pavithra/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+[1.299s] 
+[1.299s] Installed /home/pavithra/ros2_ws/build/abaja_vehicle_state
+[1.300s] running symlink_data
+[1.300s] creating /home/pavithra/ros2_ws/install/abaja_vehicle_state/share/ament_index
+[1.300s] creating /home/pavithra/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index
+[1.300s] creating /home/pavithra/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index/packages
+[1.300s] symbolically linking /home/pavithra/ros2_ws/build/abaja_vehicle_state/resource/abaja_vehicle_state -> /home/pavithra/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index/packages
+[1.300s] symbolically linking /home/pavithra/ros2_ws/build/abaja_vehicle_state/package.xml -> /home/pavithra/ros2_ws/install/abaja_vehicle_state/share/abaja_vehicle_state
+[1.326s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_vehicle_state' returned '0': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_vehicle_state/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_vehicle_state/lib/python3.12/site-packages:/home/pavithra/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_vehicle_state/build --no-deps symlink_data

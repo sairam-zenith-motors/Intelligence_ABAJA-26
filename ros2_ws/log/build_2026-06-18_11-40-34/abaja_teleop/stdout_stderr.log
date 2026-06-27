@@ -1,0 +1,25 @@
+running egg_info
+writing ../../build/abaja_teleop/abaja_teleop.egg-info/PKG-INFO
+writing dependency_links to ../../build/abaja_teleop/abaja_teleop.egg-info/dependency_links.txt
+writing entry points to ../../build/abaja_teleop/abaja_teleop.egg-info/entry_points.txt
+writing requirements to ../../build/abaja_teleop/abaja_teleop.egg-info/requires.txt
+writing top-level names to ../../build/abaja_teleop/abaja_teleop.egg-info/top_level.txt
+reading manifest file '../../build/abaja_teleop/abaja_teleop.egg-info/SOURCES.txt'
+writing manifest file '../../build/abaja_teleop/abaja_teleop.egg-info/SOURCES.txt'
+running build
+running build_py
+copying abaja_teleop/sim_controller.py -> /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop
+running install
+running install_lib
+copying /home/pavithra/ros2_ws/build/abaja_teleop/build/lib/abaja_teleop/sim_controller.py -> /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop
+byte-compiling /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop/sim_controller.py to sim_controller.cpython-312.pyc
+running install_data
+creating /home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop/launch
+copying launch/teleop.launch.py -> /home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop/launch
+running install_egg_info
+removing '/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop-0.1.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/abaja_teleop/abaja_teleop.egg-info to /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja_teleop-0.1.0-py3.12.egg-info
+running install_scripts
+Installing keyboard_teleop script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+Installing sim_controller script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+writing list of installed files to '/home/pavithra/ros2_ws/build/abaja_teleop/install.log'

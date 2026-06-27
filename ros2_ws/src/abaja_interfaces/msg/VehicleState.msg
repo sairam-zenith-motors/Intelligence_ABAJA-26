@@ -1,0 +1,11 @@
+float32 speed_mps
+float32 steering_angle_deg
+float32 brake_position
+float32 throttle_position
+float32 battery_voltage
+bool autonomous_mode
+bool manual_mode
+bool lateral_enabled
+bool longitudinal_enabled
+bool emergency_stop
+string status_text

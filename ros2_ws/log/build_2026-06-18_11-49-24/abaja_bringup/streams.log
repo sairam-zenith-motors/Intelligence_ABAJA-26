@@ -1,0 +1,19 @@
+[0.597s] Invoking command in '/home/pavithra/ros2_ws/build/abaja_bringup': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_teleop:/home/pavithra/ros2_ws/install/abaja_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages:/home/pavithra/ros2_ws/build/abaja_teleop:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_bringup/build --no-deps symlink_data --force
+[0.826s] running develop
+[0.963s] running egg_info
+[0.977s] writing abaja_bringup.egg-info/PKG-INFO
+[0.978s] writing dependency_links to abaja_bringup.egg-info/dependency_links.txt
+[0.978s] writing requirements to abaja_bringup.egg-info/requires.txt
+[0.978s] writing top-level names to abaja_bringup.egg-info/top_level.txt
+[1.008s] reading manifest file 'abaja_bringup.egg-info/SOURCES.txt'
+[1.009s] writing manifest file 'abaja_bringup.egg-info/SOURCES.txt'
+[1.030s] running build_ext
+[1.030s] Creating /home/pavithra/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja-bringup.egg-link (link to .)
+[1.030s] 
+[1.031s] Installed /home/pavithra/ros2_ws/build/abaja_bringup
+[1.031s] running symlink_data
+[1.031s] symbolically linking /home/pavithra/ros2_ws/build/abaja_bringup/resource/abaja_bringup -> /home/pavithra/ros2_ws/install/abaja_bringup/share/ament_index/resource_index/packages
+[1.031s] symbolically linking /home/pavithra/ros2_ws/build/abaja_bringup/package.xml -> /home/pavithra/ros2_ws/install/abaja_bringup/share/abaja_bringup
+[1.031s] symbolically linking /home/pavithra/ros2_ws/build/abaja_bringup/launch/bringup.launch.py -> /home/pavithra/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+[1.031s] symbolically linking /home/pavithra/ros2_ws/build/abaja_bringup/launch/sim_bringup.launch.py -> /home/pavithra/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+[1.061s] Invoked command in '/home/pavithra/ros2_ws/build/abaja_bringup' returned '0': AMENT_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_teleop:/home/pavithra/ros2_ws/install/abaja_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/ros2_ws/install/abaja_description:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/ros2_ws/build/abaja_bringup/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages:/home/pavithra/ros2_ws/build/abaja_teleop:/home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/ros2_ws/build/abaja_bringup/build --no-deps symlink_data --force

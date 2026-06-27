@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing abaja_control.egg-info/PKG-INFO
+writing dependency_links to abaja_control.egg-info/dependency_links.txt
+writing entry points to abaja_control.egg-info/entry_points.txt
+writing requirements to abaja_control.egg-info/requires.txt
+writing top-level names to abaja_control.egg-info/top_level.txt
+reading manifest file 'abaja_control.egg-info/SOURCES.txt'
+writing manifest file 'abaja_control.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/ros2_ws/install/abaja_control/lib/python3.12/site-packages/abaja-control.egg-link (link to .)
+Installing control_mux_node script to /home/pavithra/ros2_ws/install/abaja_control/lib/abaja_control
+
+Installed /home/pavithra/ros2_ws/build/abaja_control
+running symlink_data

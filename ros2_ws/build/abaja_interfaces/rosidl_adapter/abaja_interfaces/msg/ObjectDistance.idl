@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/ObjectDistance.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct ObjectDistance {
+      string class_name;
+
+      float confidence;
+
+      float distance_m;
+
+      int32 x_min;
+
+      int32 y_min;
+
+      int32 x_max;
+
+      int32 y_max;
+    };
+  };
+};

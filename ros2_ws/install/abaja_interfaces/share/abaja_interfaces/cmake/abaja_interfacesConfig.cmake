@@ -1,0 +1,1 @@
+/home/pavithra/ros2_ws/build/abaja_interfaces/ament_cmake_core/abaja_interfacesConfig.cmake

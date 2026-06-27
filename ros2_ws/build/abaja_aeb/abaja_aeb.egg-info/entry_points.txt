@@ -1,0 +1,4 @@
+[console_scripts]
+aeb_controller_node = abaja_aeb.aeb_controller_node:main
+object_distance_estimator_node = abaja_aeb.object_distance_estimator_node:main
+ttc_calculator_node = abaja_aeb.ttc_calculator_node:main

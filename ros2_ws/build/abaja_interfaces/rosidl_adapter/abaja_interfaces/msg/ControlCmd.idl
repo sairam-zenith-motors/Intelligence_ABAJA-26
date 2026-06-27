@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/ControlCmd.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct ControlCmd {
+      float target_speed_mps;
+
+      float steering_angle_deg;
+
+      float throttle_percent;
+
+      float brake_percent;
+
+      boolean emergency_stop;
+
+      string source;
+    };
+  };
+};

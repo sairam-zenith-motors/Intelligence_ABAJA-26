@@ -1,0 +1,16 @@
+running develop
+running egg_info
+writing abaja_teleop.egg-info/PKG-INFO
+writing dependency_links to abaja_teleop.egg-info/dependency_links.txt
+writing entry points to abaja_teleop.egg-info/entry_points.txt
+writing requirements to abaja_teleop.egg-info/requires.txt
+writing top-level names to abaja_teleop.egg-info/top_level.txt
+reading manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+writing manifest file 'abaja_teleop.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/ros2_ws/install/abaja_teleop/lib/python3.12/site-packages/abaja-teleop.egg-link (link to .)
+Installing keyboard_teleop script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+Installing sim_controller script to /home/pavithra/ros2_ws/install/abaja_teleop/lib/abaja_teleop
+
+Installed /home/pavithra/ros2_ws/build/abaja_teleop
+running symlink_data
