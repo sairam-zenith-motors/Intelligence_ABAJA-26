@@ -1,0 +1,24 @@
+[1.160s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/build --no-deps symlink_data
+[1.407s] running develop
+[1.537s] running egg_info
+[1.538s] creating abaja_control.egg-info
+[1.550s] writing abaja_control.egg-info/PKG-INFO
+[1.550s] writing dependency_links to abaja_control.egg-info/dependency_links.txt
+[1.550s] writing entry points to abaja_control.egg-info/entry_points.txt
+[1.550s] writing requirements to abaja_control.egg-info/requires.txt
+[1.551s] writing top-level names to abaja_control.egg-info/top_level.txt
+[1.551s] writing manifest file 'abaja_control.egg-info/SOURCES.txt'
+[1.577s] reading manifest file 'abaja_control.egg-info/SOURCES.txt'
+[1.578s] writing manifest file 'abaja_control.egg-info/SOURCES.txt'
+[1.596s] running build_ext
+[1.596s] Creating /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages/abaja-control.egg-link (link to .)
+[1.597s] Installing control_mux_node script to /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/abaja_control
+[1.597s] 
+[1.598s] Installed /home/pavithra/Intelligence_ABAJA-26/build/abaja_control
+[1.598s] running symlink_data
+[1.598s] creating /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/ament_index
+[1.598s] creating /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/ament_index/resource_index
+[1.598s] creating /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/ament_index/resource_index/packages
+[1.599s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/resource/abaja_control -> /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/ament_index/resource_index/packages
+[1.599s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/package.xml -> /home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control
+[1.636s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/build --no-deps symlink_data

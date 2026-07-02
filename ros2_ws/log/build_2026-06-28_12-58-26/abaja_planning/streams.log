@@ -1,0 +1,21 @@
+[1.290s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/build --no-deps symlink_data
+[1.655s] running develop
+[1.777s] running egg_info
+[1.789s] writing abaja_planning.egg-info/PKG-INFO
+[1.789s] writing dependency_links to abaja_planning.egg-info/dependency_links.txt
+[1.789s] writing entry points to abaja_planning.egg-info/entry_points.txt
+[1.789s] writing requirements to abaja_planning.egg-info/requires.txt
+[1.789s] writing top-level names to abaja_planning.egg-info/top_level.txt
+[1.835s] reading manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[1.838s] writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[1.887s] running build_ext
+[1.887s] Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages/abaja-planning.egg-link (link to .)
+[1.888s] Installing nav_cmd_to_control_cmd_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[1.888s] Installing path_planner_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[1.888s] Installing traffic_light_sim_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[1.889s] Installing traffic_signal_logic_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[1.889s] Installing waypoint_mission_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[1.889s] 
+[1.889s] Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning
+[1.889s] running symlink_data
+[1.942s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/build --no-deps symlink_data

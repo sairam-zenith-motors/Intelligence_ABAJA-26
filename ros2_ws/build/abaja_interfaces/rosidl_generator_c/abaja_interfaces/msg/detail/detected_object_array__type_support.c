@@ -5,8 +5,8 @@
 #include <string.h>
 
 #include "rosidl_typesupport_interface/macros.h"
-#include "abaja_interfaces/msg/detail/detected_object_array__functions.h"
 #include "abaja_interfaces/msg/detail/detected_object_array__struct.h"
+#include "abaja_interfaces/msg/detail/detected_object_array__functions.h"
 #include "abaja_interfaces/msg/detail/detected_object_array__type_support.h"
 
 #ifdef __cplusplus

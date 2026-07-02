@@ -1,0 +1,514 @@
+<?xml version="1.0" ?>
+<!--
+  abaja_lane_track.sdf — aBAJA Autonomous Buggy Lane Test Track
+  Gazebo Harmonic (gz-sim) compatible world file
+
+  DESCRIPTION:
+    A realistic test track for autonomous lane-keeping testing.
+    Dark asphalt surface with bright white lane markings.
+    The vehicle-mounted camera can clearly see lane markings ahead.
+
+  TRACK LAYOUT:
+    ┌─────────────────────────────────────────────────────┐
+    │  Straight section: X = -2 to 25m                   │
+    │  Lane width: 2.5m (left edge Y=+1.25, right Y=-1.25)│
+    │  Centre dashes: 2m long, 1m gap                     │
+    │  Track boundary walls at Y = ±2.0m                  │
+    │  Orange cones at regular intervals (visual markers) │
+    │  Vehicle spawns at X=-1, Y=0 (facing +X forward)    │
+    └─────────────────────────────────────────────────────┘
+
+  ACTIVE WORLD PLUGINS:
+    - gz-sim-physics-system
+    - gz-sim-sensors-system (enables camera, lidar, imu, navsat)
+    - gz-sim-scene-broadcaster-system
+    - gz-sim-user-commands-system
+    - gz-sim-imu-system      (enables IMU simulation)
+    - gz-sim-navsat-system   (enables GPS NavSat simulation)
+
+  COORDINATE SYSTEM:
+    X = forward, Y = left, Z = up
+    Vehicle spawns at (-1, 0, 0.6) facing +X direction
+
+  LANE MARKINGS DESIGN:
+    High-contrast white on dark asphalt, optimized for camera detection.
+    Left edge line:  Y = +1.25m (continuous)
+    Right edge line: Y = -1.25m (continuous)
+    Centre line:     Y = 0.0m (dashed, 2m on, 1m gap)
+
+  CAMERA FIELD OF VIEW:
+    Camera is at ~1.5m height, looking forward.
+    At 5m forward distance → lane lines are ~40% of frame height.
+-->
+<sdf version='1.10'>
+  <world name='abaja_lane_track'>
+
+    <!-- ====================================================================
+         PHYSICS
+    ==================================================================== -->
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+
+    <!-- ====================================================================
+         PLUGINS — All systems needed for sensors
+    ==================================================================== -->
+    <plugin filename='gz-sim-physics-system'
+            name='gz::sim::systems::Physics'/>
+
+    <!-- Sensor system: required for camera, lidar, imu, navsat to work -->
+    <plugin filename='gz-sim-sensors-system'
+            name='gz::sim::systems::Sensors'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <plugin filename='gz-sim-scene-broadcaster-system'
+            name='gz::sim::systems::SceneBroadcaster'/>
+
+    <plugin filename='gz-sim-user-commands-system'
+            name='gz::sim::systems::UserCommands'/>
+
+    <!-- IMU system: enables imu sensor simulation -->
+    <plugin filename='gz-sim-imu-system'
+            name='gz::sim::systems::Imu'/>
+
+    <!-- NavSat (GPS) system: enables navsat sensor simulation -->
+    <plugin filename='gz-sim-navsat-system'
+            name='gz::sim::systems::NavSat'/>
+
+    <!-- ====================================================================
+         SCENE & LIGHTING
+    ==================================================================== -->
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.60 0.75 0.92 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <!-- Overhead sun — bright, directional, no shadows (fast rendering) -->
+    <light name='sun' type='directional'>
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 15 0 0 0</pose>
+      <diffuse>0.95 0.95 0.90 1</diffuse>
+      <specular>0.30 0.30 0.30 1</specular>
+      <direction>-0.3 0.1 -0.95</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- Secondary fill light (reduces harsh shadows) -->
+    <light name='fill_light' type='point'>
+      <pose>12 0 8 0 0 0</pose>
+      <diffuse>0.4 0.4 0.4 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>50</range>
+        <constant>0.5</constant>
+        <linear>0.02</linear>
+        <quadratic>0.002</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ====================================================================
+         GROUND PLANE — Dark asphalt for maximum lane-line contrast
+    ==================================================================== -->
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>80 30</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>80 30</size>
+            </plane>
+          </geometry>
+          <!-- Dark asphalt — high contrast with white lane markings -->
+          <material>
+            <ambient>0.12 0.12 0.12 1</ambient>
+            <diffuse>0.12 0.12 0.12 1</diffuse>
+            <specular>0.02 0.02 0.02 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         LANE MARKINGS — White on dark asphalt
+
+         Layout (top view, vehicle at X=0 facing +X):
+           Y = +1.25m  ───────────────── LEFT EDGE (continuous)
+           Y =  0.0m   ─  ─  ─  ─  ─  ─ CENTRE (dashed)
+           Y = -1.25m  ───────────────── RIGHT EDGE (continuous)
+
+         Total straight: X = -2m to +25m (27m visible ahead of spawn)
+    ==================================================================== -->
+
+    <!-- == LEFT EDGE LINE (continuous) == -->
+    <model name='left_edge_line'>
+      <static>true</static>
+      <pose>11.5 1.25 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>27 0.15 0.01</size></box></geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>27 0.15 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- == RIGHT EDGE LINE (continuous) == -->
+    <model name='right_edge_line'>
+      <static>true</static>
+      <pose>11.5 -1.25 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>27 0.15 0.01</size></box></geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.6 0.6 0.6 1</specular>
+          </material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>27 0.15 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- == CENTRE DASHES (2m on, 1m gap, starting at X=0) == -->
+    <!-- 9 dashes covering X=0 to X=25m -->
+    <model name='dash_1'><static>true</static><pose>0.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_2'><static>true</static><pose>3.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_3'><static>true</static><pose>6.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_4'><static>true</static><pose>9.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_5'><static>true</static><pose>12.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_6'><static>true</static><pose>15.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_7'><static>true</static><pose>18.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_8'><static>true</static><pose>21.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+    <model name='dash_9'><static>true</static><pose>24.5 0 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='c'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision></link></model>
+
+    <!-- == STOP LINE at X=25m == -->
+    <model name='stop_line'>
+      <static>true</static>
+      <pose>25 0 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.40 2.65 0.01</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>0.40 2.65 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- == START LINE at X=-1m (just behind spawn point) == -->
+    <model name='start_line'>
+      <static>true</static>
+      <pose>-1.5 0 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.40 2.65 0.01</size></box></geometry>
+          <material><ambient>0.2 0.8 0.2 1</ambient><diffuse>0.2 0.8 0.2 1</diffuse></material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>0.40 2.65 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         TRACK BOUNDARY WALLS — Prevent vehicle from driving off track
+         Semi-transparent red barriers
+    ==================================================================== -->
+    <model name='left_wall'>
+      <static>true</static>
+      <pose>11.5 2.1 0.30 0 0 0</pose>
+      <link name='link'>
+        <collision name='col'>
+          <geometry><box><size>27 0.12 0.60</size></box></geometry>
+        </collision>
+        <visual name='vis'>
+          <geometry><box><size>27 0.12 0.60</size></box></geometry>
+          <material>
+            <ambient>0.80 0.20 0.20 0.4</ambient>
+            <diffuse>0.80 0.20 0.20 0.4</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='right_wall'>
+      <static>true</static>
+      <pose>11.5 -2.1 0.30 0 0 0</pose>
+      <link name='link'>
+        <collision name='col'>
+          <geometry><box><size>27 0.12 0.60</size></box></geometry>
+        </collision>
+        <visual name='vis'>
+          <geometry><box><size>27 0.12 0.60</size></box></geometry>
+          <material>
+            <ambient>0.80 0.20 0.20 0.4</ambient>
+            <diffuse>0.80 0.20 0.20 0.4</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         ORANGE SAFETY CONES — Placed at 5m intervals on track edges
+         Visual markers that help identify track boundaries.
+    ==================================================================== -->
+    <!-- Left side cones (Y = +1.60m) at X = 5, 10, 15, 20m -->
+    <model name='cone_L_5'><static>true</static><pose>5 1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_L_10'><static>true</static><pose>10 1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_L_15'><static>true</static><pose>15 1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_L_20'><static>true</static><pose>20 1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+
+    <!-- Right side cones (Y = -1.60m) at X = 5, 10, 15, 20m -->
+    <model name='cone_R_5'><static>true</static><pose>5 -1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_R_10'><static>true</static><pose>10 -1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_R_15'><static>true</static><pose>15 -1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+    <model name='cone_R_20'><static>true</static><pose>20 -1.60 0.18 0 0 0</pose>
+      <link name='l'>
+        <visual name='v'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry>
+          <material><ambient>1 0.45 0 1</ambient><diffuse>1 0.45 0 1</diffuse></material></visual>
+        <collision name='c'><geometry><cylinder><radius>0.10</radius><length>0.36</length></cylinder></geometry></collision>
+      </link></model>
+
+    <!-- ====================================================================
+         SPAWN POINT MARKER — Green square at vehicle start position
+         Vehicle spawns at X=-1, Y=0 (just behind start line)
+    ==================================================================== -->
+    <model name='spawn_marker'>
+      <static>true</static>
+      <pose>-1 0 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.6 0.6 0.01</size></box></geometry>
+          <material><ambient>0 0.9 0 1</ambient><diffuse>0 0.9 0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         DISTANCE MARKERS — Text-style markers at 5m intervals
+         White boxes at road centre with 5m spacing for reference
+    ==================================================================== -->
+    <model name='marker_5m'><static>true</static><pose>5 0.60 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>0.20 0.20 0.01</size></box></geometry>
+        <material><ambient>1 1 0.2 1</ambient><diffuse>1 1 0.2 1</diffuse></material></visual></link></model>
+    <model name='marker_10m'><static>true</static><pose>10 0.60 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>0.20 0.20 0.01</size></box></geometry>
+        <material><ambient>1 1 0.2 1</ambient><diffuse>1 1 0.2 1</diffuse></material></visual></link></model>
+    <model name='marker_15m'><static>true</static><pose>15 0.60 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>0.20 0.20 0.01</size></box></geometry>
+        <material><ambient>1 1 0.2 1</ambient><diffuse>1 1 0.2 1</diffuse></material></visual></link></model>
+    <model name='marker_20m'><static>true</static><pose>20 0.60 0.005 0 0 0</pose>
+      <link name='l'><visual name='v'><geometry><box><size>0.20 0.20 0.01</size></box></geometry>
+        <material><ambient>1 1 0.2 1</ambient><diffuse>1 1 0.2 1</diffuse></material></visual></link></model>
+
+    <!-- ====================================================================
+         TRAFFIC SIGNAL — at X=18, Y=1.8 (beside left lane edge)
+         Three stacked signal heads: RED (top), YELLOW (mid), GREEN (bottom)
+         Pole: grey cylinder below the signal heads
+
+         LOGIC: The visual state is static (all 3 colours visible).
+         The actual current state is published by traffic_light_sim_node.py
+         on /traffic_light_state. The logic is handled in software.
+
+         STOP LINE: Reinforced at X=17 (wider than original for visibility)
+         LiDAR can detect the signal pole as an obstacle.
+    ==================================================================== -->
+
+    <!-- Traffic Signal Pole -->
+    <model name='traffic_signal_pole'>
+      <static>true</static>
+      <pose>18.0 1.8 1.2 0 0 0</pose>
+      <link name='link'>
+        <visual name='pole_vis'>
+          <geometry><cylinder><radius>0.05</radius><length>2.4</length></cylinder></geometry>
+          <material><ambient>0.4 0.4 0.4 1</ambient><diffuse>0.4 0.4 0.4 1</diffuse></material>
+        </visual>
+        <collision name='pole_col'>
+          <geometry><cylinder><radius>0.05</radius><length>2.4</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Signal housing (dark grey box) -->
+    <model name='traffic_signal_housing'>
+      <static>true</static>
+      <pose>18.0 1.8 2.6 0 0 0</pose>
+      <link name='link'>
+        <visual name='housing_vis'>
+          <geometry><box><size>0.22 0.22 0.72</size></box></geometry>
+          <material><ambient>0.15 0.15 0.15 1</ambient><diffuse>0.15 0.15 0.15 1</diffuse></material>
+        </visual>
+        <collision name='housing_col'>
+          <geometry><box><size>0.22 0.22 0.72</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- RED light (top) -->
+    <model name='signal_red'>
+      <static>true</static>
+      <pose>18.0 1.62 2.84 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><sphere><radius>0.08</radius></sphere></geometry>
+          <material><ambient>0.95 0.1 0.1 1</ambient><diffuse>0.95 0.1 0.1 1</diffuse>
+            <specular>1 1 1 1</specular><emissive>0.8 0.0 0.0 1</emissive></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- YELLOW light (middle) -->
+    <model name='signal_yellow'>
+      <static>true</static>
+      <pose>18.0 1.62 2.60 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><sphere><radius>0.08</radius></sphere></geometry>
+          <material><ambient>0.95 0.85 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse>
+            <specular>1 1 1 1</specular><emissive>0.7 0.7 0.0 1</emissive></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- GREEN light (bottom) -->
+    <model name='signal_green'>
+      <static>true</static>
+      <pose>18.0 1.62 2.36 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><sphere><radius>0.08</radius></sphere></geometry>
+          <material><ambient>0.1 0.90 0.1 1</ambient><diffuse>0.1 0.90 0.1 1</diffuse>
+            <specular>1 1 1 1</specular><emissive>0.0 0.8 0.0 1</emissive></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         REINFORCED STOP LINE at X=17.0 — wider and brighter than lane dashes
+         Three parallel stripes for visibility from camera and LiDAR
+    ==================================================================== -->
+    <model name='stop_line_reinforced'>
+      <static>true</static>
+      <pose>17.0 0 0.006 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.60 2.65 0.01</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular></material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>0.60 2.65 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Stop zone approach marker (red strip 1.5m before stop line) -->
+    <model name='stop_zone_marker'>
+      <static>true</static>
+      <pose>16.0 0 0.006 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.30 2.65 0.01</size></box></geometry>
+          <material><ambient>0.9 0.2 0.2 1</ambient><diffuse>0.9 0.2 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

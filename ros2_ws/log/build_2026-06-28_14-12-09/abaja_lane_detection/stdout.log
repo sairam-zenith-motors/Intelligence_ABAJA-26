@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing abaja_lane_detection.egg-info/PKG-INFO
+writing dependency_links to abaja_lane_detection.egg-info/dependency_links.txt
+writing entry points to abaja_lane_detection.egg-info/entry_points.txt
+writing requirements to abaja_lane_detection.egg-info/requires.txt
+writing top-level names to abaja_lane_detection.egg-info/top_level.txt
+reading manifest file 'abaja_lane_detection.egg-info/SOURCES.txt'
+writing manifest file 'abaja_lane_detection.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_lane_detection/lib/python3.12/site-packages/abaja-lane-detection.egg-link (link to .)
+Installing lane_detection_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_lane_detection/lib/abaja_lane_detection
+Installing lane_tracker_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_lane_detection/lib/abaja_lane_detection
+Installing lka_controller_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_lane_detection/lib/abaja_lane_detection
+
+Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_lane_detection
+running symlink_data

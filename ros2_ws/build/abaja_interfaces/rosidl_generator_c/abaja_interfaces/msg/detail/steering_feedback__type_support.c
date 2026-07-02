@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/steering_feedback__type_support.h"
-#include "abaja_interfaces/msg/detail/steering_feedback__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/steering_feedback__struct.h"
+#include "abaja_interfaces/msg/detail/steering_feedback__functions.h"
 
 #ifdef __cplusplus
 extern "C"

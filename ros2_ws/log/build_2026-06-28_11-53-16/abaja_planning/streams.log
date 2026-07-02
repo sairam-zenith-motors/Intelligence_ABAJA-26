@@ -1,0 +1,17 @@
+[2.290s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/build --no-deps symlink_data
+[2.882s] running develop
+[3.380s] running egg_info
+[3.380s] writing abaja_planning.egg-info/PKG-INFO
+[3.380s] writing dependency_links to abaja_planning.egg-info/dependency_links.txt
+[3.380s] writing entry points to abaja_planning.egg-info/entry_points.txt
+[3.380s] writing requirements to abaja_planning.egg-info/requires.txt
+[3.380s] writing top-level names to abaja_planning.egg-info/top_level.txt
+[3.380s] reading manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.380s] writing manifest file 'abaja_planning.egg-info/SOURCES.txt'
+[3.393s] running build_ext
+[3.393s] Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages/abaja-planning.egg-link (link to .)
+[3.393s] Installing path_planner_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/abaja_planning
+[3.394s] 
+[3.394s] Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning
+[3.394s] running symlink_data
+[3.452s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_planning/build --no-deps symlink_data

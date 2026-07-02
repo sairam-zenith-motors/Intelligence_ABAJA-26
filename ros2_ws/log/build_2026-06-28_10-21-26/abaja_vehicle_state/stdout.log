@@ -1,0 +1,27 @@
+running develop
+running egg_info
+creating abaja_vehicle_state.egg-info
+writing abaja_vehicle_state.egg-info/PKG-INFO
+writing dependency_links to abaja_vehicle_state.egg-info/dependency_links.txt
+writing entry points to abaja_vehicle_state.egg-info/entry_points.txt
+writing requirements to abaja_vehicle_state.egg-info/requires.txt
+writing top-level names to abaja_vehicle_state.egg-info/top_level.txt
+writing manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+reading manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+writing manifest file 'abaja_vehicle_state.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/python3.12/site-packages/abaja-vehicle-state.egg-link (link to .)
+Installing battery_monitor_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+Installing mode_status_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+Installing steering_feedback_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+Installing vehicle_dashboard_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+Installing vehicle_state_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+Installing wheel_speed_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/lib/abaja_vehicle_state
+
+Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_vehicle_state
+running symlink_data
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/ament_index
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_vehicle_state/resource/abaja_vehicle_state -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/ament_index/resource_index/packages
+symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_vehicle_state/package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/abaja_vehicle_state

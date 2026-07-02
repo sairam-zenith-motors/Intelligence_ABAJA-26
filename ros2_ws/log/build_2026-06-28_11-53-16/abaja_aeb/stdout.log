@@ -1,0 +1,18 @@
+running develop
+running egg_info
+writing abaja_aeb.egg-info/PKG-INFO
+writing dependency_links to abaja_aeb.egg-info/dependency_links.txt
+writing entry points to abaja_aeb.egg-info/entry_points.txt
+writing requirements to abaja_aeb.egg-info/requires.txt
+writing top-level names to abaja_aeb.egg-info/top_level.txt
+reading manifest file 'abaja_aeb.egg-info/SOURCES.txt'
+writing manifest file 'abaja_aeb.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_aeb/lib/python3.12/site-packages/abaja-aeb.egg-link (link to .)
+Installing aeb_controller_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_aeb/lib/abaja_aeb
+Installing mock_object_publisher_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_aeb/lib/abaja_aeb
+Installing object_distance_estimator_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_aeb/lib/abaja_aeb
+Installing ttc_calculator_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_aeb/lib/abaja_aeb
+
+Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_aeb
+running symlink_data

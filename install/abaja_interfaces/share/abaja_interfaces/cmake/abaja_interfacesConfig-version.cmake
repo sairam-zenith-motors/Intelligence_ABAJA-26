@@ -1,0 +1,1 @@
+/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/ament_cmake_core/abaja_interfacesConfig-version.cmake

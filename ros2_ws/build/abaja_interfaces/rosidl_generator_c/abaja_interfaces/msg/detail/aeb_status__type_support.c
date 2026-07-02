@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "abaja_interfaces/msg/detail/aeb_status__type_support.h"
 #include "abaja_interfaces/msg/detail/aeb_status__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/aeb_status__functions.h"
+#include "abaja_interfaces/msg/detail/aeb_status__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

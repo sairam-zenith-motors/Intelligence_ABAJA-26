@@ -1,0 +1,7 @@
+[console_scripts]
+battery_monitor_node = abaja_vehicle_state.battery_monitor_node:main
+mode_status_node = abaja_vehicle_state.mode_status_node:main
+steering_feedback_node = abaja_vehicle_state.steering_feedback_node:main
+vehicle_dashboard_node = abaja_vehicle_state.vehicle_dashboard_node:main
+vehicle_state_node = abaja_vehicle_state.vehicle_state_node:main
+wheel_speed_node = abaja_vehicle_state.wheel_speed_node:main

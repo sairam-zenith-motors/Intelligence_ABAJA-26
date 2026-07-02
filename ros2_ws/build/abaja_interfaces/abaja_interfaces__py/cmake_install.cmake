@@ -1,8 +1,8 @@
-# Install script for directory: /home/pavithra/ros2_ws/build/abaja_interfaces/abaja_interfaces__py
+# Install script for directory: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/abaja_interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/pavithra/ros2_ws/install/abaja_interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()

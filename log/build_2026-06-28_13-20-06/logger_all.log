@@ -1,0 +1,495 @@
+[0.090s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install', '--packages-select', 'abaja_interfaces', 'abaja_planning', 'abaja_control', 'abaja_bringup', 'abaja_dbw']
+[0.090s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['abaja_interfaces', 'abaja_planning', 'abaja_control', 'abaja_bringup', 'abaja_dbw'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7b09b3190ce0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7b09b31905f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7b09b31905f0>>, mixin_verb=('build',))
+[0.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.132s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.133s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.133s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/pavithra/Intelligence_ABAJA-26'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.133s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.182s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ignore', 'ignore_ament_install']
+[0.183s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ignore_ament_install'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_pkg']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_pkg'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['colcon_meta']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'colcon_meta'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['ros']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'ros'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['cmake', 'python']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'cmake'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extensions ['python_setup_py']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws) by extension 'python_setup_py'
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) by extensions ['ignore', 'ignore_ament_install']
+[0.184s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/build) ignored
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) by extensions ['ignore', 'ignore_ament_install']
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) by extension 'ignore'
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/install) ignored
+[0.185s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/log) ignored
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['ignore', 'ignore_ament_install']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'ignore'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'ignore_ament_install'
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['colcon_pkg']
+[0.186s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['colcon_meta']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'colcon_meta'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['ros']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'ros'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['cmake', 'python']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'cmake'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'python'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extensions ['python_setup_py']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/logs) by extension 'python_setup_py'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ignore_ament_install'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_pkg']
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_pkg'
+[0.187s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['colcon_meta']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'colcon_meta'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['ros']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'ros'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['cmake', 'python']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'cmake'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extensions ['python_setup_py']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src) by extension 'python_setup_py'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extensions ['ignore', 'ignore_ament_install']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extension 'ignore'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extension 'ignore_ament_install'
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extensions ['colcon_pkg']
+[0.188s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extension 'colcon_pkg'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extensions ['colcon_meta']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extension 'colcon_meta'
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extensions ['ros']
+[0.189s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_aeb) by extension 'ros'
+[0.194s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_aeb' with type 'ros.ament_python' and name 'abaja_aeb'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_bringup) by extension 'ros'
+[0.196s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_bringup' with type 'ros.ament_python' and name 'abaja_bringup'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extensions ['ignore', 'ignore_ament_install']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extension 'ignore'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extension 'ignore_ament_install'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extensions ['colcon_pkg']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extension 'colcon_pkg'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extensions ['colcon_meta']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extension 'colcon_meta'
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extensions ['ros']
+[0.196s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_control) by extension 'ros'
+[0.197s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_control' with type 'ros.ament_python' and name 'abaja_control'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw) by extension 'ros'
+[0.199s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_dbw' with type 'ros.ament_python' and name 'abaja_dbw'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extensions ['colcon_meta']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_dbw_bridge) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_dbw_bridge' with type 'ros.ament_python' and name 'abaja_dbw_bridge'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extensions ['ignore', 'ignore_ament_install']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extension 'ignore'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extension 'ignore_ament_install'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extensions ['colcon_pkg']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extension 'colcon_pkg'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extensions ['colcon_meta']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extension 'colcon_meta'
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extensions ['ros']
+[0.202s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_description) by extension 'ros'
+[0.203s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_description' with type 'ros.ament_cmake' and name 'abaja_description'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extension 'ignore'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extension 'ignore_ament_install'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extensions ['colcon_pkg']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extension 'colcon_pkg'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extensions ['colcon_meta']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extension 'colcon_meta'
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extensions ['ros']
+[0.204s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_interfaces) by extension 'ros'
+[0.205s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_interfaces' with type 'ros.ament_cmake' and name 'abaja_interfaces'
+[0.205s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extensions ['ignore', 'ignore_ament_install']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extension 'ignore'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extension 'ignore_ament_install'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extensions ['colcon_pkg']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extension 'colcon_pkg'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extensions ['colcon_meta']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extension 'colcon_meta'
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extensions ['ros']
+[0.206s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_lane_detection) by extension 'ros'
+[0.207s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_lane_detection' with type 'ros.ament_python' and name 'abaja_lane_detection'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extensions ['ignore', 'ignore_ament_install']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extension 'ignore'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extension 'ignore_ament_install'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extensions ['colcon_pkg']
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extension 'colcon_pkg'
+[0.207s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extensions ['colcon_meta']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extension 'colcon_meta'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extensions ['ros']
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_logging) by extension 'ros'
+[0.208s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_logging' with type 'ros.ament_python' and name 'abaja_logging'
+[0.208s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extensions ['ignore', 'ignore_ament_install']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extension 'ignore'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extension 'ignore_ament_install'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extensions ['colcon_pkg']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extension 'colcon_pkg'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extensions ['colcon_meta']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extension 'colcon_meta'
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extensions ['ros']
+[0.209s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_perception) by extension 'ros'
+[0.210s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_perception' with type 'ros.ament_python' and name 'abaja_perception'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extension 'ignore_ament_install'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extensions ['colcon_pkg']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extension 'colcon_pkg'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extensions ['colcon_meta']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extension 'colcon_meta'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extensions ['ros']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_planning) by extension 'ros'
+[0.211s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_planning' with type 'ros.ament_python' and name 'abaja_planning'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extensions ['colcon_pkg']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extension 'colcon_pkg'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extensions ['colcon_meta']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extension 'colcon_meta'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extensions ['ros']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_safety) by extension 'ros'
+[0.212s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_safety' with type 'ros.ament_python' and name 'abaja_safety'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extensions ['ros']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_teleop) by extension 'ros'
+[0.214s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_teleop' with type 'ros.ament_python' and name 'abaja_teleop'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extension 'ignore_ament_install'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extensions ['colcon_pkg']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extension 'colcon_pkg'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extensions ['colcon_meta']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extension 'colcon_meta'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_ws/src/abaja_vehicle_state) by extension 'ros'
+[0.215s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_ws/src/abaja_vehicle_state' with type 'ros.ament_python' and name 'abaja_vehicle_state'
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_dbw_bridge' in 'ros2_ws/src/abaja_dbw_bridge'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_description' in 'ros2_ws/src/abaja_description'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_safety' in 'ros2_ws/src/abaja_safety'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_teleop' in 'ros2_ws/src/abaja_teleop'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_aeb' in 'ros2_ws/src/abaja_aeb'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_lane_detection' in 'ros2_ws/src/abaja_lane_detection'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_logging' in 'ros2_ws/src/abaja_logging'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_perception' in 'ros2_ws/src/abaja_perception'
+[0.241s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'abaja_vehicle_state' in 'ros2_ws/src/abaja_vehicle_state'
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.244s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 373 installed packages in /opt/ros/jazzy
+[0.245s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.286s] DEBUG:colcon.colcon_core.verb:Building package 'abaja_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces', 'merge_install': False, 'path': '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces', 'symlink_install': True, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.286s] DEBUG:colcon.colcon_core.verb:Building package 'abaja_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control', 'merge_install': False, 'path': '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_control', 'symlink_install': True, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_clean_first' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'cmake_force_configure' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'ament_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'catkin_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_dbw' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.287s] DEBUG:colcon.colcon_core.verb:Building package 'abaja_dbw' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw', 'merge_install': False, 'path': '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_dbw', 'symlink_install': True, 'test_result_base': None}
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_target' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_clean_cache' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_clean_first' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'cmake_force_configure' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'ament_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'catkin_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_planning' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.287s] DEBUG:colcon.colcon_core.verb:Building package 'abaja_planning' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning', 'merge_install': False, 'path': '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_planning', 'symlink_install': True, 'test_result_base': None}
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_target' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.287s] Level 5:colcon.colcon_core.verb:set package 'abaja_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.287s] DEBUG:colcon.colcon_core.verb:Building package 'abaja_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/pavithra/Intelligence_ABAJA-26/build/abaja_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/pavithra/Intelligence_ABAJA-26/install/abaja_bringup', 'merge_install': False, 'path': '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.287s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.288s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.289s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces' with build type 'ament_cmake'
+[0.289s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces'
+[0.292s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.292s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.293s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.302s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces
+[5.046s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces
+[5.048s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces -- -j12 -l12
+[14.181s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces -- -j12 -l12
+[14.196s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces
+[19.544s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(abaja_interfaces)
+[19.545s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces
+[19.549s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces' for CMake module files
+[19.550s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces' for CMake config files
+[19.550s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'cmake_prefix_path')
+[19.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.ps1'
+[19.552s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.dsv'
+[19.552s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.sh'
+[19.554s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib'
+[19.554s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'ld_library_path_lib')
+[19.554s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.ps1'
+[19.554s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.dsv'
+[19.554s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.sh'
+[19.555s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/bin'
+[19.555s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/pkgconfig/abaja_interfaces.pc'
+[19.555s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages'
+[19.555s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'pythonpath')
+[19.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.ps1'
+[19.555s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.dsv'
+[19.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.sh'
+[19.556s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/bin'
+[19.557s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.ps1'
+[19.558s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.dsv'
+[19.558s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.sh'
+[19.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.bash'
+[19.559s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.zsh'
+[19.560s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/colcon-core/packages/abaja_interfaces)
+[19.560s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(abaja_interfaces)
+[19.561s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces' for CMake module files
+[19.561s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces' for CMake config files
+[19.561s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'cmake_prefix_path')
+[19.561s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.ps1'
+[19.561s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.dsv'
+[19.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/cmake_prefix_path.sh'
+[19.562s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib'
+[19.562s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'ld_library_path_lib')
+[19.562s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.ps1'
+[19.562s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.dsv'
+[19.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/ld_library_path_lib.sh'
+[19.563s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/bin'
+[19.563s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/pkgconfig/abaja_interfaces.pc'
+[19.563s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages'
+[19.563s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_interfaces', 'pythonpath')
+[19.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.ps1'
+[19.563s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.dsv'
+[19.563s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/hook/pythonpath.sh'
+[19.564s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/bin'
+[19.564s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.ps1'
+[19.564s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.dsv'
+[19.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.sh'
+[19.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.bash'
+[19.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/abaja_interfaces/package.zsh'
+[19.565s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/share/colcon-core/packages/abaja_interfaces)
+[19.565s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_control' with build type 'ament_python'
+[19.566s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_control', 'ament_prefix_path')
+[19.566s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/ament_prefix_path.ps1'
+[19.566s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/ament_prefix_path.dsv'
+[19.567s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/ament_prefix_path.sh'
+[19.567s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.567s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.570s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_dbw' with build type 'ament_python'
+[19.570s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_dbw', 'ament_prefix_path')
+[19.570s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/ament_prefix_path.ps1'
+[19.570s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/ament_prefix_path.dsv'
+[19.570s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/ament_prefix_path.sh'
+[19.571s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.571s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.573s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_planning' with build type 'ament_python'
+[19.573s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_planning', 'ament_prefix_path')
+[19.573s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/ament_prefix_path.ps1'
+[19.573s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/ament_prefix_path.dsv'
+[19.574s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/ament_prefix_path.sh'
+[19.574s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.574s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.738s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_control'
+[19.738s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.738s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[19.908s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_dbw'
+[19.908s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[19.908s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[20.091s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_planning'
+[20.092s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[20.092s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[20.682s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/build --no-deps symlink_data
+[20.697s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/build --no-deps symlink_data
+[20.727s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/build --no-deps symlink_data
+[21.178s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_planning', 'pythonpath_develop')
+[21.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/share/abaja_planning/hook/pythonpath_develop.ps1'
+[21.179s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/build --no-deps symlink_data
+[21.179s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/share/abaja_planning/hook/pythonpath_develop.dsv'
+[21.180s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_planning/share/abaja_planning/hook/pythonpath_develop.sh'
+[21.180s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning' for CMake module files
+[21.181s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning' for CMake config files
+[21.181s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/lib'
+[21.181s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/bin'
+[21.181s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/lib/pkgconfig/abaja_planning.pc'
+[21.182s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/lib/python3.12/site-packages'
+[21.182s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_planning', 'pythonpath')
+[21.182s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/pythonpath.ps1'
+[21.183s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/pythonpath.dsv'
+[21.183s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/hook/pythonpath.sh'
+[21.184s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/bin'
+[21.184s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(abaja_planning)
+[21.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/package.ps1'
+[21.185s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/package.dsv'
+[21.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/package.sh'
+[21.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/package.bash'
+[21.186s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/abaja_planning/package.zsh'
+[21.187s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pavithra/Intelligence_ABAJA-26/install/abaja_planning/share/colcon-core/packages/abaja_planning)
+[21.201s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_control', 'pythonpath_develop')
+[21.202s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/share/abaja_control/hook/pythonpath_develop.ps1'
+[21.202s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_control/build --no-deps symlink_data
+[21.203s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/share/abaja_control/hook/pythonpath_develop.dsv'
+[21.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_control/share/abaja_control/hook/pythonpath_develop.sh'
+[21.204s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control' for CMake module files
+[21.204s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control' for CMake config files
+[21.205s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib'
+[21.205s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/bin'
+[21.205s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/pkgconfig/abaja_control.pc'
+[21.205s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/lib/python3.12/site-packages'
+[21.205s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_control', 'pythonpath')
+[21.205s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/pythonpath.ps1'
+[21.206s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/pythonpath.dsv'
+[21.206s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/hook/pythonpath.sh'
+[21.207s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/bin'
+[21.207s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(abaja_control)
+[21.207s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/package.ps1'
+[21.208s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/package.dsv'
+[21.208s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/package.sh'
+[21.209s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/package.bash'
+[21.209s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/abaja_control/package.zsh'
+[21.209s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pavithra/Intelligence_ABAJA-26/install/abaja_control/share/colcon-core/packages/abaja_control)
+[21.349s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_dbw', 'pythonpath_develop')
+[21.350s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/share/abaja_dbw/hook/pythonpath_develop.ps1'
+[21.351s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/build --no-deps symlink_data
+[21.351s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/share/abaja_dbw/hook/pythonpath_develop.dsv'
+[21.351s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/build/abaja_dbw/share/abaja_dbw/hook/pythonpath_develop.sh'
+[21.352s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw' for CMake module files
+[21.352s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw' for CMake config files
+[21.353s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/lib'
+[21.353s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/bin'
+[21.353s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/lib/pkgconfig/abaja_dbw.pc'
+[21.353s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/lib/python3.12/site-packages'
+[21.353s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_dbw', 'pythonpath')
+[21.353s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/pythonpath.ps1'
+[21.354s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/pythonpath.dsv'
+[21.354s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/hook/pythonpath.sh'
+[21.355s] Level 1:colcon.colcon_core.environment:checking '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/bin'
+[21.355s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(abaja_dbw)
+[21.355s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/package.ps1'
+[21.356s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/package.dsv'
+[21.356s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/package.sh'
+[21.357s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/package.bash'
+[21.357s] INFO:colcon.colcon_core.shell:Creating package script '/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/abaja_dbw/package.zsh'
+[21.357s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/pavithra/Intelligence_ABAJA-26/install/abaja_dbw/share/colcon-core/packages/abaja_dbw)
+[21.358s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_bringup' with build type 'ament_python'
+[21.358s] Level 1:colcon.colcon_core.shell:create_environment_hook('abaja_bringup', 'ament_prefix_path')
+[21.358s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_bringup/share/abaja_bringup/hook/ament_prefix_path.ps1'
+[21.359s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/pavithra/Intelligence_ABAJA-26/install/abaja_bringup/share/abaja_bringup/hook/ament_prefix_path.dsv'
+[21.361s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/pavithra/Intelligence_ABAJA-26/install/abaja_bringup/share/abaja_bringup/hook/ament_prefix_path.sh'
+[21.362s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[21.362s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[21.369s] ERROR:colcon.colcon_ros.task.ament_python.build:Failed to find the following files:
+- /home/pavithra/Intelligence_ABAJA-26/install/abaja_description/share/abaja_description/package.sh
+- /home/pavithra/Intelligence_ABAJA-26/install/abaja_safety/share/abaja_safety/package.sh
+- /home/pavithra/Intelligence_ABAJA-26/install/abaja_teleop/share/abaja_teleop/package.sh
+- /home/pavithra/Intelligence_ABAJA-26/install/abaja_logging/share/abaja_logging/package.sh
+- /home/pavithra/Intelligence_ABAJA-26/install/abaja_vehicle_state/share/abaja_vehicle_state/package.sh
+Check that the following packages have been built:
+- abaja_description
+- abaja_safety
+- abaja_teleop
+- abaja_logging
+- abaja_vehicle_state
+[21.380s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[21.380s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[21.380s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[21.380s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[21.400s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[21.400s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[21.400s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[21.428s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[21.429s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pavithra/Intelligence_ABAJA-26/install/local_setup.ps1'
+[21.431s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pavithra/Intelligence_ABAJA-26/install/_local_setup_util_ps1.py'
+[21.433s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pavithra/Intelligence_ABAJA-26/install/setup.ps1'
+[21.435s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pavithra/Intelligence_ABAJA-26/install/local_setup.sh'
+[21.437s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/pavithra/Intelligence_ABAJA-26/install/_local_setup_util_sh.py'
+[21.437s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pavithra/Intelligence_ABAJA-26/install/setup.sh'
+[21.439s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pavithra/Intelligence_ABAJA-26/install/local_setup.bash'
+[21.439s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pavithra/Intelligence_ABAJA-26/install/setup.bash'
+[21.440s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/pavithra/Intelligence_ABAJA-26/install/local_setup.zsh'
+[21.441s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/pavithra/Intelligence_ABAJA-26/install/setup.zsh'

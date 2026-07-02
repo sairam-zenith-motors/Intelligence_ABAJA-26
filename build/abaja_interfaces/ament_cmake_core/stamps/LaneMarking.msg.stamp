@@ -1,0 +1,6 @@
+bool left_lane_detected
+bool right_lane_detected
+float32 left_lane_x
+float32 right_lane_x
+float32 lane_center_x
+float32 confidence

@@ -1,0 +1,1 @@
+Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces -- -j12 -l12

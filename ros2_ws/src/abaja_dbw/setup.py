@@ -29,6 +29,7 @@ setup(
             'throttle_by_wire_node = abaja_dbw.throttle_by_wire_node:main',
             'brake_by_wire_node = abaja_dbw.brake_by_wire_node:main',
             'steer_by_wire_node = abaja_dbw.steer_by_wire_node:main',
+            'dbw_to_cmd_vel_node = abaja_dbw.dbw_to_cmd_vel_node:main',
         ],
     },
 )

@@ -1,0 +1,3 @@
+float32 target_angle_deg
+float32 actual_angle_deg
+float32 error_deg

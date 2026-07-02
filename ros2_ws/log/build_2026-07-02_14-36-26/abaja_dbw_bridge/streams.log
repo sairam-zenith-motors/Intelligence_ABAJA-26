@@ -1,0 +1,36 @@
+[2.492s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build
+[3.042s] running develop
+[3.395s] Removing /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja-dbw-bridge.egg-link (link to .)
+[3.469s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build
+[3.471s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_dbw_bridge': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/abaja_dbw_bridge build --build-base /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build install --record /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/install.log --install-scripts $base/lib/abaja_dbw_bridge --single-version-externally-managed install_data --force
+[3.982s] running egg_info
+[4.018s] writing ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/PKG-INFO
+[4.018s] writing dependency_links to ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/dependency_links.txt
+[4.018s] writing entry points to ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/entry_points.txt
+[4.018s] writing requirements to ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/requires.txt
+[4.019s] writing top-level names to ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/top_level.txt
+[4.097s] reading manifest file '../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/SOURCES.txt'
+[4.098s] writing manifest file '../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info/SOURCES.txt'
+[4.098s] running build
+[4.098s] running build_py
+[4.098s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build
+[4.099s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib
+[4.099s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib/abaja_dbw_bridge
+[4.099s] copying abaja_dbw_bridge/dbw_interface_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib/abaja_dbw_bridge
+[4.099s] copying abaja_dbw_bridge/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib/abaja_dbw_bridge
+[4.100s] running install
+[4.109s] running install_lib
+[4.147s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge
+[4.148s] copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib/abaja_dbw_bridge/dbw_interface_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge
+[4.148s] copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build/lib/abaja_dbw_bridge/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge
+[4.149s] byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge/dbw_interface_node.py to dbw_interface_node.cpython-312.pyc
+[4.150s] byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge/__init__.py to __init__.cpython-312.pyc
+[4.151s] running install_data
+[4.151s] copying resource/abaja_dbw_bridge -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/share/ament_index/resource_index/packages
+[4.151s] copying package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/share/abaja_dbw_bridge
+[4.151s] running install_egg_info
+[4.195s] Copying ../../build/abaja_dbw_bridge/abaja_dbw_bridge.egg-info to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages/abaja_dbw_bridge-0.0.0-py3.12.egg-info
+[4.197s] running install_scripts
+[4.473s] Installing dbw_interface_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/abaja_dbw_bridge
+[4.473s] writing list of installed files to '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/install.log'
+[4.549s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_dbw_bridge' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw_bridge/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/abaja_dbw_bridge build --build-base /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/build install --record /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_dbw_bridge/install.log --install-scripts $base/lib/abaja_dbw_bridge --single-version-externally-managed install_data --force

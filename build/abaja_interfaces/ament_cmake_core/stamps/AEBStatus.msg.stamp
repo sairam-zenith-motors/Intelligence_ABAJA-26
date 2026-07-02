@@ -1,0 +1,6 @@
+bool aeb_active
+bool warning_active
+bool emergency_braking
+float32 commanded_brake_percent
+float32 commanded_throttle_percent
+string reason

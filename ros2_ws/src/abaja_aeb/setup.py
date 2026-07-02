@@ -27,6 +27,7 @@ setup(
             'object_distance_estimator_node = abaja_aeb.object_distance_estimator_node:main',
             'ttc_calculator_node = abaja_aeb.ttc_calculator_node:main',
             'aeb_controller_node = abaja_aeb.aeb_controller_node:main',
+            'mock_object_publisher_node = abaja_aeb.mock_object_publisher_node:main',
         ],
     },
 )

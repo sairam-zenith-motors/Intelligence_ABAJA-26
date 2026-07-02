@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pavithra/ros2_ws/src/abaja_interfaces
+CMAKE_SOURCE_DIR = /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pavithra/ros2_ws/build/abaja_interfaces
+CMAKE_BINARY_DIR = /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces
 
 # Utility rule file for uninstall.
 
@@ -78,6 +78,6 @@ CMakeFiles/uninstall.dir/clean:
 .PHONY : CMakeFiles/uninstall.dir/clean
 
 CMakeFiles/uninstall.dir/depend:
-	cd /home/pavithra/ros2_ws/build/abaja_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pavithra/ros2_ws/src/abaja_interfaces /home/pavithra/ros2_ws/src/abaja_interfaces /home/pavithra/ros2_ws/build/abaja_interfaces /home/pavithra/ros2_ws/build/abaja_interfaces /home/pavithra/ros2_ws/build/abaja_interfaces/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_interfaces /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/uninstall.dir/depend
 

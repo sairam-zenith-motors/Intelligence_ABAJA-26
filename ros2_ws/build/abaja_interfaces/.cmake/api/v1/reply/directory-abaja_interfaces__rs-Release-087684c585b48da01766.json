@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "abaja_interfaces__rs",
+		"source" : "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/abaja_interfaces__rs"
+	}
+}

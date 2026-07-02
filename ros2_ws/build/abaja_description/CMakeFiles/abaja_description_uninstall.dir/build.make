@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pavithra/ros2_ws/src/abaja_description
+CMAKE_SOURCE_DIR = /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pavithra/ros2_ws/build/abaja_description
+CMAKE_BINARY_DIR = /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description
 
 # Utility rule file for abaja_description_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/abaja_description_uninstall.dir/compiler_depend.make
 include CMakeFiles/abaja_description_uninstall.dir/progress.make
 
 CMakeFiles/abaja_description_uninstall:
-	/usr/bin/cmake -P /home/pavithra/ros2_ws/build/abaja_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 abaja_description_uninstall: CMakeFiles/abaja_description_uninstall
 abaja_description_uninstall: CMakeFiles/abaja_description_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/abaja_description_uninstall.dir/clean:
 .PHONY : CMakeFiles/abaja_description_uninstall.dir/clean
 
 CMakeFiles/abaja_description_uninstall.dir/depend:
-	cd /home/pavithra/ros2_ws/build/abaja_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pavithra/ros2_ws/src/abaja_description /home/pavithra/ros2_ws/src/abaja_description /home/pavithra/ros2_ws/build/abaja_description /home/pavithra/ros2_ws/build/abaja_description /home/pavithra/ros2_ws/build/abaja_description/CMakeFiles/abaja_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_description /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_description /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description/CMakeFiles/abaja_description_uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/abaja_description_uninstall.dir/depend
 

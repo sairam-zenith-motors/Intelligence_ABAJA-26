@@ -4,10 +4,10 @@
 
 #include <string.h>
 
+#include "abaja_interfaces/msg/detail/wheel_speed__struct.h"
 #include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/wheel_speed__functions.h"
 #include "abaja_interfaces/msg/detail/wheel_speed__type_support.h"
-#include "abaja_interfaces/msg/detail/wheel_speed__struct.h"
 
 #ifdef __cplusplus
 extern "C"

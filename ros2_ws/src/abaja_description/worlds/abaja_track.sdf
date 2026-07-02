@@ -1,0 +1,273 @@
+<?xml version="1.0" ?>
+<!--
+  abaja_track.sdf — aBAJA Autonomous Buggy Test Track World for Gazebo Harmonic
+
+  DESCRIPTION:
+    A simple closed-loop track with bright white lane markings on a dark grey
+    asphalt surface. Designed to work with lane_detection_node.py which uses
+    a brightness threshold (value=200) to detect lane markings.
+
+  TRACK LAYOUT:
+    - A straight section and a gentle curved loop ~20m × 12m
+    - Lane width: ~2.5m (matches aBAJA buggy width with margin)
+    - White lane markings: 0.15m wide centre line + edge lines
+    - Ground surface: dark grey (RGB 0.15, 0.15, 0.15) for contrast
+
+  COORDINATE SYSTEM:
+    - X = forward (along main straight)
+    - Y = left
+    - Z = up
+    - Vehicle spawns at origin (0, 0, 0), facing +X
+
+  LIGHTING:
+    - Directional overhead sun (no shadows for simplicity)
+
+  HOW LANE LINES ARE IMPLEMENTED:
+    Each white line segment is a flat thin box (0.15m wide, 0.01m tall)
+    placed on the ground plane. The dark ground underneath provides contrast
+    for the camera's brightness threshold to detect them.
+-->
+<sdf version='1.10'>
+  <world name='abaja_track'>
+
+    <!-- ====================================================================
+         PHYSICS
+    ==================================================================== -->
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+
+    <!-- ====================================================================
+         PLUGINS
+    ==================================================================== -->
+    <plugin filename='gz-sim-physics-system'
+            name='gz::sim::systems::Physics'/>
+    <plugin filename='gz-sim-sensors-system'
+            name='gz::sim::systems::Sensors'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename='gz-sim-scene-broadcaster-system'
+            name='gz::sim::systems::SceneBroadcaster'/>
+    <plugin filename='gz-sim-user-commands-system'
+            name='gz::sim::systems::UserCommands'/>
+    <plugin filename='gz-sim-diff-drive-system'
+            name='gz::sim::systems::DiffDrive'/>
+
+    <!-- ====================================================================
+         SCENE & LIGHTING
+    ==================================================================== -->
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <light name='sun' type='directional'>
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.3 0.3 0.3 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- ====================================================================
+         GROUND PLANE — Dark asphalt for lane detection contrast
+    ==================================================================== -->
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>50 50</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1.0</mu>
+                <mu2>1.0</mu2>
+              </ode>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>50 50</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.15 0.15 0.15 1</ambient>
+            <diffuse>0.15 0.15 0.15 1</diffuse>
+            <specular>0.0 0.0 0.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         LANE MARKING MACRO (implemented as flat white boxes)
+
+         Lane layout (top view, X = forward):
+           Y= +1.25  — left edge line
+           Y=  0.0   — centre line (dashed)
+           Y= -1.25  — right edge line
+
+         The buggy drives along the centre line (Y=0).
+         Camera sees left edge (Y≈+1.25) and right edge (Y≈-1.25).
+    ==================================================================== -->
+
+    <!-- ++ STRAIGHT SECTION: X = 0 to 20m ++ -->
+
+    <!-- Left edge line -->
+    <model name='left_edge_straight'>
+      <static>true</static>
+      <pose>10 1.25 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>20 0.15 0.01</size></box></geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.5 0.5 0.5 1</specular>
+          </material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>20 0.15 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Right edge line -->
+    <model name='right_edge_straight'>
+      <static>true</static>
+      <pose>10 -1.25 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>20 0.15 0.01</size></box></geometry>
+          <material>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>20 0.15 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Centre dashes (5 dashes × 2m long with 1m gaps) -->
+    <model name='centre_dash_1'><static>true</static><pose>1 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_2'><static>true</static><pose>4 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_3'><static>true</static><pose>7 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_4'><static>true</static><pose>10 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_5'><static>true</static><pose>13 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_6'><static>true</static><pose>16 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <model name='centre_dash_7'><static>true</static><pose>19 0 0.005 0 0 0</pose>
+      <link name='link'><visual name='vis'><geometry><box><size>2 0.10 0.01</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+        <collision name='col'><geometry><box><size>2 0.10 0.01</size></box></geometry></collision>
+      </link></model>
+
+    <!-- ++ END SECTION: stop line at X=20m ++ -->
+    <model name='stop_line'>
+      <static>true</static>
+      <pose>20 0 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.3 2.6 0.01</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+        <collision name='col'>
+          <geometry><box><size>0.3 2.6 0.01</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         TRACK BOUNDARY WALLS (invisible collision, prevent driving off track)
+    ==================================================================== -->
+    <model name='left_wall'>
+      <static>true</static>
+      <pose>10 2.0 0.25 0 0 0</pose>
+      <link name='link'>
+        <collision name='col'>
+          <geometry><box><size>20 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name='vis'>
+          <geometry><box><size>20 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 0.3</ambient><diffuse>0.8 0.2 0.2 0.3</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='right_wall'>
+      <static>true</static>
+      <pose>10 -2.0 0.25 0 0 0</pose>
+      <link name='link'>
+        <collision name='col'>
+          <geometry><box><size>20 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name='vis'>
+          <geometry><box><size>20 0.1 0.5</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 0.3</ambient><diffuse>0.8 0.2 0.2 0.3</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ====================================================================
+         SPAWN POINT MARKER (green box at origin = vehicle start position)
+    ==================================================================== -->
+    <model name='spawn_marker'>
+      <static>true</static>
+      <pose>0 0 0.005 0 0 0</pose>
+      <link name='link'>
+        <visual name='vis'>
+          <geometry><box><size>0.5 0.5 0.01</size></box></geometry>
+          <material><ambient>0 1 0 1</ambient><diffuse>0 1 0 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

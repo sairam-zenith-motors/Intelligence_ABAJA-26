@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/Cargo.toml"
-  "/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/build.rs"
-  "/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/lib.rs"
-  "/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/msg.rs"
-  "/home/pavithra/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/msg/rmw.rs"
+  "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/Cargo.toml"
+  "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/build.rs"
+  "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/lib.rs"
+  "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/msg.rs"
+  "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/msg/rmw.rs"
   "CMakeFiles/abaja_interfaces__rs"
 )
 

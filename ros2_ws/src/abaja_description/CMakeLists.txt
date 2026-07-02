@@ -34,6 +34,11 @@ install(DIRECTORY meshes/
   DESTINATION share/${PROJECT_NAME}/meshes
 )
 
+# Install Gazebo world files
+install(DIRECTORY worlds/
+  DESTINATION share/${PROJECT_NAME}/worlds
+)
+
 # ==============================================================================
 # Finalize ament package
 # ==============================================================================

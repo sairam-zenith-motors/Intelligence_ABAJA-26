@@ -4,8 +4,8 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/object_distance__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/object_distance__struct.h"
 #include "abaja_interfaces/msg/detail/object_distance__type_support.h"
 

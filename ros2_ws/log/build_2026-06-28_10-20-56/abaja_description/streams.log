@@ -1,0 +1,50 @@
+[0.012s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description
+[0.154s] -- The C compiler identification is GNU 13.3.0
+[0.290s] -- The CXX compiler identification is GNU 13.3.0
+[0.315s] -- Detecting C compiler ABI info
+[0.501s] -- Detecting C compiler ABI info - done
+[0.524s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.526s] -- Detecting C compile features
+[0.527s] -- Detecting C compile features - done
+[0.553s] -- Detecting CXX compiler ABI info
+[0.754s] -- Detecting CXX compiler ABI info - done
+[0.775s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.775s] -- Detecting CXX compile features
+[0.777s] -- Detecting CXX compile features - done
+[0.801s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.089s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.158s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.294s] -- Configuring done (1.3s)
+[1.297s] -- Generating done (0.0s)
+[1.299s] -- Build files have been written to: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description
+[1.307s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/pavithra/Intelligence_ABAJA-26/ros2_ws/src/abaja_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description
+[1.310s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description -- -j12 -l12
+[1.363s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description -- -j12 -l12
+[1.377s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description
+[1.387s] -- Install configuration: ""
+[1.387s] -- Execute custom install script
+[1.388s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/urdf/abaja_buggy.urdf.xacro
+[1.399s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/urdf/chassis.xacro
+[1.415s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/urdf/materials.xacro
+[1.433s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/urdf/sensors.xacro
+[1.455s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/urdf/wheels.xacro
+[1.475s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/launch/display.launch.py
+[1.490s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/launch/gazebo.launch.py
+[1.509s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/rviz/abaja_display.rviz
+[1.528s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/meshes/README.md
+[1.543s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/ament_index/resource_index/package_run_dependencies/abaja_description
+[1.558s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/ament_index/resource_index/parent_prefix_path/abaja_description
+[1.576s] -- Up-to-date symlink: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.sh
+[1.576s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/environment/ament_prefix_path.dsv
+[1.597s] -- Up-to-date symlink: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/environment/path.sh
+[1.597s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/environment/path.dsv
+[1.618s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/local_setup.bash
+[1.642s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/local_setup.sh
+[1.660s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/local_setup.zsh
+[1.677s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/local_setup.dsv
+[1.687s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/package.dsv
+[1.706s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/ament_index/resource_index/packages/abaja_description
+[1.725s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig.cmake
+[1.744s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/cmake/abaja_descriptionConfig-version.cmake
+[1.758s] -- Symlinking: /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/package.xml
+[1.769s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_description

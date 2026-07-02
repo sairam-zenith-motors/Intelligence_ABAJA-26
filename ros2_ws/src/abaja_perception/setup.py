@@ -24,10 +24,16 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            # Real hardware USB/laptop camera (DO NOT run in simulation)
             'camera_node = abaja_perception.camera_node:main',
+            # Object detection with YOLO (disabled until trained model available)
             'object_detection_node = abaja_perception.object_detection_node:main',
+            # Display annotated detections (used with object_detection_node)
             'detection_display_node = abaja_perception.detection_display_node:main',
             'detection_recorder_node = abaja_perception.detection_recorder_node:main',
+            # Simulation camera viewer: subscribes to /camera/image_raw from Gazebo
+            # Does NOT open any webcam. Use this during Gazebo simulation.
+            'sim_camera_viewer_node = abaja_perception.sim_camera_viewer_node:main',
         ],
     },
 )

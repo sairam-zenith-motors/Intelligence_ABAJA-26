@@ -1,0 +1,1 @@
+/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_generator_cpp/abaja_interfaces/msg/battery_status.hpp

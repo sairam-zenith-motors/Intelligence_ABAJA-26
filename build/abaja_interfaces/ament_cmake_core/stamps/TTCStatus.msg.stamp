@@ -1,0 +1,6 @@
+bool obstacle_detected
+string object_class
+float32 distance_m
+float32 ego_speed_mps
+float32 ttc_seconds
+string risk_level

@@ -6,7 +6,7 @@ package_name = 'abaja_bringup'
 
 setup(
     name=package_name,
-    version='0.1.0',
+    version='0.2.0',
     packages=[package_name],
     data_files=[
         # Register package with ament index
@@ -17,6 +17,12 @@ setup(
         # Install all launch files
         (os.path.join('share', package_name, 'launch'),
             glob('launch/*.launch.py')),
+        # Install all config/YAML files (slam, nav2, waypoints, traffic signal)
+        (os.path.join('share', package_name, 'config'),
+            glob('config/*.yaml')),
+        # Install maps directory (for saved SLAM maps)
+        (os.path.join('share', package_name, 'maps'),
+            glob('maps/*') if os.path.exists('maps') else []),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

@@ -1,0 +1,1 @@
+/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_generator_rs/abaja_interfaces/rust/src/msg.rs

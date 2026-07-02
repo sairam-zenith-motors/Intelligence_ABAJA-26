@@ -1,0 +1,4 @@
+[console_scripts]
+data_logger_node = abaja_logging.data_logger_node:main
+safety_supervisor_node = abaja_logging.safety_supervisor_node:main
+system_dashboard_node = abaja_logging.system_dashboard_node:main

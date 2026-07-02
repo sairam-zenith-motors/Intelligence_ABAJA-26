@@ -1,1 +1,0 @@
-/home/pavithra/ros2_ws/src/abaja_lane_detection/setup.py

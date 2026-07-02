@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_aeb_status_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_aeb_status_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_battery_status_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_battery_status_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_control_cmd_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_control_cmd_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_dbw_cmd_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_dbw_cmd_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_dbw_status_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_dbw_status_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_detected_object_array_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_detected_object_array_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_detected_object_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_detected_object_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_lane_marking_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_lane_marking_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_lane_state_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_lane_state_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_mode_status_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_mode_status_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_object_distance_array_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_object_distance_array_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_object_distance_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_object_distance_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_safety_state_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_safety_state_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_steering_feedback_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_steering_feedback_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_ttc_status_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_ttc_status_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_vehicle_state_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_vehicle_state_s.c.o.d"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_wheel_speed_s.c.o"
+  "CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/rosidl_generator_py/abaja_interfaces/msg/_wheel_speed_s.c.o.d"
+  "libabaja_interfaces__rosidl_generator_py.pdb"
+  "libabaja_interfaces__rosidl_generator_py.so"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/abaja_interfaces__rosidl_generator_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,2 @@
+[console_scripts]
+control_mux_node = abaja_control.control_mux_node:main

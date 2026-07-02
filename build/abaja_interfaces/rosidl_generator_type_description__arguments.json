@@ -1,0 +1,27 @@
+{
+  "package_name": "abaja_interfaces",
+  "output_dir": "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_generator_type_description/abaja_interfaces",
+  "idl_tuples": [
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/ControlCmd.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/VehicleState.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/WheelSpeed.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/SteeringFeedback.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/BatteryStatus.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/ModeStatus.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/DbwCmd.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/DbwStatus.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/DetectedObject.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/DetectedObjectArray.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/LaneMarking.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/LaneState.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/ObjectDistance.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/ObjectDistanceArray.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/TTCStatus.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/AEBStatus.idl",
+    "/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_adapter/abaja_interfaces:msg/SafetyState.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

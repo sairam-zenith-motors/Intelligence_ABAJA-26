@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: abaja-teleop
+Version: 0.1.0
+Summary: Keyboard teleoperation node for the aBAJA autonomous buggy
+Maintainer: aBAJA Team
+Maintainer-email: team@abaja.com
+License: MIT

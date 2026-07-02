@@ -2,27 +2,33 @@
 <!-- ============================================================================
   materials.xacro - Color/Material definitions for the aBAJA Buggy
   
-  This file defines all the visual materials (colors) used across the URDF model.
-  Colors are defined using RGBA values (Red, Green, Blue, Alpha).
-  
-  Usage: Include this file in other XACRO files with:
-    <xacro:include filename="materials.xacro"/>
-  Then reference materials with: <material name="MaterialName"/>
+  Professional color palette for a clean autonomous-vehicle demo look:
+  - Frame/chassis:    near-black
+  - Roll cage tubes:  dark steel
+  - Body panels:      team blue (distinctive front/side identity)
+  - Wheels/tires:     near-black rubber + silver rim
+  - Sensor housing:   near-black
+  - Battery:          safety yellow
+  - Electronics:      grey
+  - Seat:             near-black with red harness
+  - Tail lights:      bright red
+  - Front bumper:     safety orange accent
+  - LiDAR:            dark navy
+  - Radar:            dark grey
 ============================================================================ -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="abaja_materials">
 
   <!-- ======================================================================
-    CHASSIS AND BODY COLORS
+    CHASSIS AND STRUCTURAL COLORS
   ====================================================================== -->
-  
-  <!-- Main chassis color - Black like the real buggy -->
+  <!-- Main chassis / frame - near black -->
   <material name="Black">
-    <color rgba="0.1 0.1 0.1 1.0"/>
+    <color rgba="0.08 0.08 0.08 1.0"/>
   </material>
 
-  <!-- Dark grey for structural elements -->
+  <!-- Dark grey for structural/subframe elements -->
   <material name="DarkGrey">
-    <color rgba="0.2 0.2 0.2 1.0"/>
+    <color rgba="0.18 0.18 0.18 1.0"/>
   </material>
 
   <!-- Medium grey for metallic parts -->
@@ -30,44 +36,77 @@
     <color rgba="0.5 0.5 0.5 1.0"/>
   </material>
 
-  <!-- Light grey for wheel rims -->
+  <!-- Light grey for wheel rims and hub centers -->
   <material name="LightGrey">
-    <color rgba="0.7 0.7 0.7 1.0"/>
+    <color rgba="0.72 0.72 0.72 1.0"/>
   </material>
 
   <!-- ======================================================================
-    ROLL CAGE AND FRAME COLORS
+    ROLL CAGE AND FRAME
   ====================================================================== -->
-  
-  <!-- Roll cage tubes - dark steel color -->
+  <!-- Roll cage - dark steel tube look -->
   <material name="Steel">
-    <color rgba="0.25 0.25 0.28 1.0"/>
+    <color rgba="0.22 0.22 0.25 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    BODY PANEL COLORS - Team distinctive color
+  ====================================================================== -->
+  <!-- Side body panels: deep blue (team color, easily visible) -->
+  <material name="BodyPanel">
+    <color rgba="0.04 0.18 0.52 1.0"/>
+  </material>
+
+  <!-- Floor pan - dark grey -->
+  <material name="FloorGrey">
+    <color rgba="0.25 0.25 0.25 1.0"/>
+  </material>
+
+  <!-- Front nose panel - slightly lighter blue for differentiation -->
+  <material name="FrontNose">
+    <color rgba="0.06 0.22 0.60 1.0"/>
+  </material>
+
+  <!-- Rear guard / rear bumper panel -->
+  <material name="RearGuard">
+    <color rgba="0.04 0.18 0.52 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    BUMPERS
+  ====================================================================== -->
+  <!-- Front bumper - safety orange accent for clear front identification -->
+  <material name="BumperOrange">
+    <color rgba="0.95 0.48 0.02 1.0"/>
+  </material>
+
+  <!-- Rear bumper - dark structural steel -->
+  <material name="BumperGrey">
+    <color rgba="0.20 0.20 0.20 1.0"/>
   </material>
 
   <!-- ======================================================================
     WHEEL AND TIRE COLORS
   ====================================================================== -->
-  
-  <!-- Tire rubber - near black -->
+  <!-- Tire rubber - near black with slight brown for realism -->
   <material name="TireBlack">
-    <color rgba="0.15 0.15 0.15 1.0"/>
+    <color rgba="0.12 0.11 0.10 1.0"/>
   </material>
 
-  <!-- Wheel rim - silver/light grey like the real buggy -->
+  <!-- Wheel rim - silver/aluminium -->
   <material name="WheelRim">
-    <color rgba="0.75 0.75 0.75 1.0"/>
+    <color rgba="0.78 0.78 0.78 1.0"/>
   </material>
 
   <!-- ======================================================================
     SUSPENSION COLORS
   ====================================================================== -->
-  
-  <!-- Red suspension springs - visible on the real buggy -->
+  <!-- Front spring/shock - Red (visible in real buggy) -->
   <material name="Red">
-    <color rgba="0.85 0.1 0.1 1.0"/>
+    <color rgba="0.85 0.08 0.08 1.0"/>
   </material>
 
-  <!-- Orange for rear suspension springs -->
+  <!-- Rear spring/shock - Orange -->
   <material name="Orange">
     <color rgba="1.0 0.55 0.0 1.0"/>
   </material>
@@ -75,67 +114,120 @@
   <!-- ======================================================================
     BEACON AND LIGHT COLORS
   ====================================================================== -->
-  
-  <!-- Blue ASAL (Autonomous) beacon -->
+  <!-- Blue ASAL autonomous beacon -->
   <material name="Blue">
-    <color rgba="0.0 0.3 0.9 1.0"/>
+    <color rgba="0.0 0.25 0.9 1.0"/>
   </material>
 
-  <!-- Orange/Amber warning beacon -->
+  <!-- Amber warning beacon -->
   <material name="Amber">
     <color rgba="1.0 0.65 0.0 0.9"/>
   </material>
 
+  <!-- Tail lights - bright red -->
+  <material name="TailRed">
+    <color rgba="0.9 0.02 0.02 1.0"/>
+  </material>
+
+  <!-- Front indicator lights - white -->
+  <material name="FrontLight">
+    <color rgba="0.95 0.95 0.90 1.0"/>
+  </material>
+
   <!-- ======================================================================
-    SENSOR AND ELECTRONICS COLORS  
+    SENSOR COLORS
   ====================================================================== -->
-  
-  <!-- Camera sensor housing -->
+  <!-- Camera housing - near black -->
   <material name="CameraBlack">
     <color rgba="0.05 0.05 0.05 1.0"/>
   </material>
 
-  <!-- Electronics box -->
+  <!-- LiDAR - dark navy/blue-black -->
+  <material name="LidarBlue">
+    <color rgba="0.05 0.08 0.20 1.0"/>
+  </material>
+
+  <!-- Radar - dark grey -->
+  <material name="RadarGrey">
+    <color rgba="0.28 0.28 0.30 1.0"/>
+  </material>
+
+  <!-- Sensor mount bar - dark grey -->
+  <material name="SensorBar">
+    <color rgba="0.20 0.20 0.20 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    ELECTRONICS AND BATTERY
+  ====================================================================== -->
+  <!-- Electronics box - medium grey -->
   <material name="ElectronicsGrey">
     <color rgba="0.35 0.35 0.38 1.0"/>
   </material>
 
-  <!-- Battery box - typically yellow hazard or dark -->
+  <!-- Battery box - safety yellow -->
   <material name="BatteryYellow">
-    <color rgba="0.9 0.85 0.2 1.0"/>
+    <color rgba="0.92 0.82 0.10 1.0"/>
   </material>
 
   <!-- ======================================================================
-    SEAT AND COCKPIT COLORS
+    SEAT AND COCKPIT
   ====================================================================== -->
-  
-  <!-- Seat material - black with red stripe like the real buggy -->
+  <!-- Seat - near black -->
   <material name="SeatBlack">
-    <color rgba="0.12 0.12 0.12 1.0"/>
+    <color rgba="0.10 0.10 0.10 1.0"/>
   </material>
 
-  <!-- Red harness/stripe on seat -->
+  <!-- Seat harness stripe - red -->
   <material name="SeatRed">
-    <color rgba="0.8 0.05 0.1 1.0"/>
+    <color rgba="0.85 0.05 0.08 1.0"/>
   </material>
 
   <!-- Steering wheel -->
   <material name="SteeringBlack">
     <color rgba="0.08 0.08 0.08 1.0"/>
   </material>
-
   <!-- ======================================================================
-    BODY PANEL COLORS
+    ELECTRONICS MODULES — PCB boards and hardware modules
   ====================================================================== -->
-  
-  <!-- Side body panels - dark black like real buggy -->
-  <material name="BodyPanel">
-    <color rgba="0.08 0.08 0.1 1.0"/>
+
+  <!-- ESP32-C6 module — green PCB colour -->
+  <material name="PCBGreen">
+    <color rgba="0.13 0.55 0.13 1.0"/>
   </material>
 
-  <!-- Floor pan -->
-  <material name="FloorGrey">
-    <color rgba="0.3 0.3 0.3 1.0"/>
+  <!-- SN65HVD230 CAN transceiver — blue/green PCB -->
+  <material name="PCBBlue">
+    <color rgba="0.05 0.35 0.60 1.0"/>
+  </material>
+
+  <!-- Kvaser CAN network module — dark charcoal/black -->
+  <material name="CANModule">
+    <color rgba="0.15 0.15 0.16 1.0"/>
+  </material>
+
+  <!-- GPS antenna/receiver — off-white/light grey -->
+  <material name="GPSWhite">
+    <color rgba="0.88 0.88 0.85 1.0"/>
+  </material>
+
+  <!-- IMU sensor body — light olive green -->
+  <material name="IMUGreen">
+    <color rgba="0.30 0.50 0.20 1.0"/>
+  </material>
+
+  <!-- ======================================================================
+    SAFETY EQUIPMENT
+  ====================================================================== -->
+
+  <!-- Fire extinguisher body — safety red -->
+  <material name="FireExtRed">
+    <color rgba="0.85 0.08 0.08 1.0"/>
+  </material>
+
+  <!-- Fire extinguisher head/nozzle — black -->
+  <material name="FireExtHead">
+    <color rgba="0.10 0.10 0.10 1.0"/>
   </material>
 
 </robot>

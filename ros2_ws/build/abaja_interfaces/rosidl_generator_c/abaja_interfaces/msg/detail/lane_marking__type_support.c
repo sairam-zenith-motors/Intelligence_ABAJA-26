@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "abaja_interfaces/msg/detail/lane_marking__functions.h"
 #include "abaja_interfaces/msg/detail/lane_marking__type_support.h"
 #include "abaja_interfaces/msg/detail/lane_marking__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "abaja_interfaces/msg/detail/lane_marking__functions.h"
 
 #ifdef __cplusplus
 extern "C"

@@ -1,0 +1,5 @@
+bool lane_available
+float32 lateral_error_m
+float32 heading_error_deg
+float32 lane_confidence
+string status_text

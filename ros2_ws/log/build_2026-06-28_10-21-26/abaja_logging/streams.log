@@ -1,0 +1,26 @@
+[1.916s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/build --no-deps symlink_data
+[2.439s] running develop
+[2.794s] running egg_info
+[2.794s] creating abaja_logging.egg-info
+[2.825s] writing abaja_logging.egg-info/PKG-INFO
+[2.826s] writing dependency_links to abaja_logging.egg-info/dependency_links.txt
+[2.826s] writing entry points to abaja_logging.egg-info/entry_points.txt
+[2.826s] writing requirements to abaja_logging.egg-info/requires.txt
+[2.826s] writing top-level names to abaja_logging.egg-info/top_level.txt
+[2.826s] writing manifest file 'abaja_logging.egg-info/SOURCES.txt'
+[2.873s] reading manifest file 'abaja_logging.egg-info/SOURCES.txt'
+[2.874s] writing manifest file 'abaja_logging.egg-info/SOURCES.txt'
+[2.900s] running build_ext
+[2.900s] Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/python3.12/site-packages/abaja-logging.egg-link (link to .)
+[2.901s] Installing data_logger_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/abaja_logging
+[2.901s] Installing safety_supervisor_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/abaja_logging
+[2.901s] Installing system_dashboard_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/abaja_logging
+[2.901s] 
+[2.902s] Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging
+[2.902s] running symlink_data
+[2.902s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/ament_index
+[2.902s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/ament_index/resource_index
+[2.902s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/ament_index/resource_index/packages
+[2.902s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/resource/abaja_logging -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/ament_index/resource_index/packages
+[2.902s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/abaja_logging
+[2.958s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_logging/build --no-deps symlink_data

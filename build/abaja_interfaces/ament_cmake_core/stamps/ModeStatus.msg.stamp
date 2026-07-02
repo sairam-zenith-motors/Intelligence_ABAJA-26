@@ -1,0 +1,6 @@
+bool autonomous_switch
+bool manual_switch
+bool lateral_switch
+bool longitudinal_switch
+bool kill_switch
+bool dbw_ready

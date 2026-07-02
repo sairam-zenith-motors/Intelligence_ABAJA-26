@@ -1,0 +1,150 @@
+# =============================================================================
+# mission_waypoints.yaml — aBAJA Buggy Lane-Track Mission Waypoints
+# Package: abaja_bringup/config/
+#
+# TRACK LAYOUT (abaja_lane_track.sdf):
+#   Straight lane: X = -2 to +25m, Y = 0m (centre), Z = 0m
+#   Lane width: 2.5m (left edge Y=+1.25, right Y=-1.25)
+#   Vehicle spawns at: X=-1, Y=0, facing +X (forward)
+#   Traffic signal: X=18, Y=1.8 (beside left lane edge)
+#   Stop line: X=17, Y=0 (across full lane width)
+#   End of track: X=25 (white stop line)
+#
+# COORDINATE SYSTEM (ROS2/Gazebo convention):
+#   X = forward (along lane)
+#   Y = left (+Y) / right (-Y)
+#   Z = up (always 0 for flat track)
+#   Orientation: quaternion (x=0, y=0, z=sin(yaw/2), w=cos(yaw/2))
+#     Facing +X (forward): z=0, w=1  (0° yaw)
+#     Facing -X (backward): z=1, w=0 (180° yaw)
+#
+# WAYPOINT NOTES:
+#   - All waypoints are in the 'map' frame
+#   - With SLAM, map frame origin = vehicle start position
+#   - So vehicle spawns at approximately (0,0) in map frame
+#   - Waypoints are spaced such that Nav2 has time to plan each segment
+#   - stop_before_signal = waypoint just before the traffic stop zone
+#   - Nav2 will pause at the stop line if traffic is red (traffic_signal_logic_node)
+# =============================================================================
+
+mission:
+  # Frame all poses are expressed in
+  frame_id: map
+
+  waypoints:
+
+    # ── Waypoint 0: Launch position (vehicle starts here) ──────────────
+    # Not sent as a goal — this is where the buggy spawns.
+    # Included for reference.
+    - name: start
+      description: "Vehicle spawn point at beginning of track"
+      pose:
+        position:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 1: Early straight section ─────────────────────────────
+    - name: wp1_early_straight
+      description: "5m into the straight lane — confirm navigation is active"
+      pose:
+        position:
+          x: 5.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 2: Mid straight section ───────────────────────────────
+    - name: wp2_mid_straight
+      description: "10m mark — mid-lane approach"
+      pose:
+        position:
+          x: 10.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 3: Approach stop zone ─────────────────────────────────
+    # Buggy slows down and enters the stop zone detection range (~3m before signal)
+    - name: wp3_approach_signal
+      description: "15m mark — approaching traffic signal stop zone"
+      pose:
+        position:
+          x: 15.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 4: Stop line ───────────────────────────────────────────
+    # This pose is AT the stop line (X=17).
+    # traffic_signal_logic_node will apply /traffic_signal_stop=True here if RED.
+    # control_mux will apply 80% brake, halting before this point.
+    # When GREEN, buggy resumes and crosses to this waypoint.
+    - name: wp4_stop_line
+      description: "X=17 stop line — traffic signal gate. Buggy stops here if RED."
+      pose:
+        position:
+          x: 17.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 5: Past traffic signal ────────────────────────────────
+    # After green, buggy passes X=18 (signal) and continues
+    - name: wp5_past_signal
+      description: "X=20 — past traffic signal, continuing to end"
+      pose:
+        position:
+          x: 20.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+    # ── Waypoint 6: Final goal — end of track ───────────────────────────
+    # X=24 (just before the physical stop line at X=25 and boundary wall)
+    # Staying 1m before the wall to allow Nav2 to stop cleanly
+    - name: wp6_end_of_track
+      description: "X=24 — end of track goal. Buggy completes mission here."
+      pose:
+        position:
+          x: 24.0
+          y: 0.0
+          z: 0.0
+        orientation:
+          x: 0.0
+          y: 0.0
+          z: 0.0
+          w: 1.0
+
+  # ── Mission metadata ─────────────────────────────────────────────────────
+  # waypoint_mission_node uses 'goals' list (excludes 'start' which is index 0)
+  # Indices 1-6 are sent as follow_waypoints goals in order
+  goals_start_index: 1   # skip 'start' waypoint (index 0)
+  total_distance_m: 25.0
+  estimated_time_s: 60.0
+  track_world: abaja_lane_track.sdf

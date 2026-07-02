@@ -1,0 +1,17 @@
+[2.351s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control/build --no-deps symlink_data
+[2.735s] running develop
+[2.924s] running egg_info
+[2.942s] writing abaja_control.egg-info/PKG-INFO
+[2.943s] writing dependency_links to abaja_control.egg-info/dependency_links.txt
+[2.943s] writing entry points to abaja_control.egg-info/entry_points.txt
+[2.943s] writing requirements to abaja_control.egg-info/requires.txt
+[2.943s] writing top-level names to abaja_control.egg-info/top_level.txt
+[2.984s] reading manifest file 'abaja_control.egg-info/SOURCES.txt'
+[2.985s] writing manifest file 'abaja_control.egg-info/SOURCES.txt'
+[3.015s] running build_ext
+[3.015s] Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_control/lib/python3.12/site-packages/abaja-control.egg-link (link to .)
+[3.016s] Installing control_mux_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_control/lib/abaja_control
+[3.016s] 
+[3.016s] Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control
+[3.017s] running symlink_data
+[3.055s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control' returned '0': AMENT_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_control/lib/python3.12/site-packages:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_control/build --no-deps symlink_data

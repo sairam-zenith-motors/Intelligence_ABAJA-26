@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "rosidl_typesupport_interface/macros.h"
-#include "abaja_interfaces/msg/detail/control_cmd__functions.h"
 #include "abaja_interfaces/msg/detail/control_cmd__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
 #include "abaja_interfaces/msg/detail/control_cmd__type_support.h"
+#include "abaja_interfaces/msg/detail/control_cmd__functions.h"
 
 #ifdef __cplusplus
 extern "C"

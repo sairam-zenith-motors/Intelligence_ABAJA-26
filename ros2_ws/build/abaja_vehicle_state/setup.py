@@ -1,1 +1,0 @@
-/home/pavithra/ros2_ws/src/abaja_vehicle_state/setup.py

@@ -1,1 +1,53 @@
-/home/pavithra/ros2_ws/build/abaja_bringup/package.xml
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!--
+  abaja_bringup - Launch/bringup package for the aBAJA buggy
+
+  This package contains launch files that bring up the complete
+  robot system by combining description, teleop, navigation, and other packages.
+-->
+<package format="3">
+  <name>abaja_bringup</name>
+  <version>0.2.0</version>
+  <description>Bringup launch files for the aBAJA autonomous buggy — includes Nav2, SLAM, and full autonomy launch</description>
+  <maintainer email="team@abaja.com">aBAJA Team</maintainer>
+  <license>MIT</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Dependencies on other aBAJA packages -->
+  <exec_depend>abaja_description</exec_depend>
+  <exec_depend>abaja_teleop</exec_depend>
+  <exec_depend>abaja_control</exec_depend>
+  <exec_depend>abaja_dbw</exec_depend>
+  <exec_depend>abaja_vehicle_state</exec_depend>
+  <exec_depend>abaja_planning</exec_depend>
+  <exec_depend>abaja_safety</exec_depend>
+  <exec_depend>abaja_logging</exec_depend>
+
+  <!-- Launch dependencies -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- Core ROS2 tools -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <!-- Navigation2 -->
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
+
+  <!-- SLAM -->
+  <exec_depend>slam_toolbox</exec_depend>
+
+  <!-- Gazebo bridge -->
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

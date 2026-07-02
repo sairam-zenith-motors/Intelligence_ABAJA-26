@@ -1,3 +1,10 @@
 # generated from colcon_core/shell/template/command_prefix.sh.em
-. "/home/pavithra/ros2_ws/install/abaja_description/share/abaja_description/package.sh"
-. "/home/pavithra/ros2_ws/install/abaja_teleop/share/abaja_teleop/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_description/share/abaja_description/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_interfaces/share/abaja_interfaces/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/abaja_safety/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_teleop/share/abaja_teleop/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_control/share/abaja_control/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_dbw/share/abaja_dbw/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_logging/share/abaja_logging/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_planning/share/abaja_planning/package.sh"
+. "/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_vehicle_state/share/abaja_vehicle_state/package.sh"

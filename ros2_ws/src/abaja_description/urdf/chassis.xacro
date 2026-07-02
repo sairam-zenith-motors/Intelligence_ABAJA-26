@@ -1,57 +1,54 @@
 <?xml version="1.0"?>
 <!-- ============================================================================
-  chassis.xacro - Chassis, body, roll cage, seat, and electronics for aBAJA Buggy
-  
-  This file defines the main structural components of the buggy:
-  - base_link (ground reference)
-  - chassis_link (main body frame)
-  - roll_cage_link (tubular safety cage)  
-  - floor_pan_link
-  - left/right body panels
-  - seat_link (driver seat)
-  - steering_column_link
-  - battery_box_link
-  - electronics_box_link
-  - front/rear suspension arms
-  - sensor mount bar on top of roll cage
-  - blue ASAL beacon and orange warning beacon
-  
-  Vehicle Dimensions (approximate from real buggy):
-    Length:  2.30 m
-    Width:   1.45 m  
-    Height:  1.65 m
+  chassis.xacro - Chassis, body, roll cage, bumpers, cockpit for aBAJA Buggy
+
+  VISUAL IMPROVEMENTS (over original):
+  - Roll cage hoops now use cylinders (not boxes) for realistic tube look
+  - Front hoop has proper left/top/right cylinder segments
+  - Rear hoop same — identifiable from rear
+  - Added: front bumper (orange accent) + front skid plate
+  - Added: rear bumper + rear guard plate
+  - Added: front nose body panel
+  - Added: rear body panel
+  - Added: two diagonal brace tubes on roll cage
+  - Body panels (blue) extended to full cockpit height for visual depth
+  - Tail lights repositioned to rear face
+  - Added: front indicator lights (white) for front identification
+  - Added: LiDAR mount link on sensor bar
+  - All existing TF frames, joints, and Gazebo plugins preserved
+
+  Coordinate system (base_link at rear axle center, ground level):
+    X = forward, Y = left, Z = up
+
+  Vehicle dimensions (unchanged):
     Wheelbase: 1.65 m
-    Track width: 1.25 m
-    Ground clearance: ~0.25 m
+    Track: 1.25 m
+    Wheel radius: 0.32 m
+    Ground clearance: 0.25 m
 ============================================================================ -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="abaja_chassis">
 
   <!-- ======================================================================
-    XACRO PROPERTIES - Vehicle dimensions as reusable constants
-    Modify these values to adjust the entire model proportionally
+    XACRO PROPERTIES
   ====================================================================== -->
   <xacro:property name="chassis_length" value="2.0"/>
-  <xacro:property name="chassis_width" value="0.85"/>
+  <xacro:property name="chassis_width"  value="0.85"/>
   <xacro:property name="chassis_height" value="0.15"/>
-  <xacro:property name="chassis_mass" value="80.0"/>
+  <xacro:property name="chassis_mass"   value="80.0"/>
   <xacro:property name="ground_clearance" value="0.25"/>
-  
-  <!-- Wheelbase and track -->
-  <xacro:property name="wheelbase" value="1.65"/>
+
+  <xacro:property name="wheelbase"   value="1.65"/>
   <xacro:property name="track_width" value="1.25"/>
-  
-  <!-- Roll cage dimensions -->
+
+  <!-- Roll cage -->
   <xacro:property name="cage_tube_radius" value="0.025"/>
-  <xacro:property name="cage_height" value="1.15"/>
-  
-  <!-- Cockpit position (center of cockpit relative to chassis center) -->
+  <xacro:property name="cage_height"      value="1.15"/>
+
+  <!-- Cockpit offset -->
   <xacro:property name="cockpit_offset_x" value="0.1"/>
 
   <!-- ======================================================================
-    INERTIA MACRO - Helper to generate inertial properties for box shapes
-    
-    This simplifies adding physics properties to every link.
-    Parameters: mass, x_dim, y_dim, z_dim
+    INERTIA MACROS
   ====================================================================== -->
   <xacro:macro name="box_inertia" params="mass x_dim y_dim z_dim">
     <inertial>
@@ -59,8 +56,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia
         ixx="${(1.0/12.0) * mass * (y_dim*y_dim + z_dim*z_dim)}"
-        ixy="0.0"
-        ixz="0.0"
+        ixy="0.0" ixz="0.0"
         iyy="${(1.0/12.0) * mass * (x_dim*x_dim + z_dim*z_dim)}"
         iyz="0.0"
         izz="${(1.0/12.0) * mass * (x_dim*x_dim + y_dim*y_dim)}"/>
@@ -73,8 +69,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia
         ixx="${(1.0/12.0) * mass * (3*radius*radius + length*length)}"
-        ixy="0.0"
-        ixz="0.0"
+        ixy="0.0" ixz="0.0"
         iyy="${(1.0/12.0) * mass * (3*radius*radius + length*length)}"
         iyz="0.0"
         izz="${(1.0/2.0) * mass * radius * radius}"/>
@@ -87,8 +82,7 @@
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <inertia
         ixx="${(2.0/5.0) * mass * radius * radius}"
-        ixy="0.0"
-        ixz="0.0"
+        ixy="0.0" ixz="0.0"
         iyy="${(2.0/5.0) * mass * radius * radius}"
         iyz="0.0"
         izz="${(2.0/5.0) * mass * radius * radius}"/>
@@ -96,774 +90,950 @@
   </xacro:macro>
 
   <!-- ======================================================================
-    BASE_LINK - The reference frame at the center of the rear axle on ground
-    
-    This is the standard ROS convention: base_link is at ground level,
-    centered between the rear wheels. All other links are relative to this.
+    TUBE MACRO - reusable cylinder visual for roll cage / frame tubes
+    Reduces repetition for cage bars
+    params: name, length, parent, xyz, rpy (joint origin), tube_mass
+  ====================================================================== -->
+  <xacro:macro name="cage_tube" params="link_name tube_len tube_mass parent_link jnt_x jnt_y jnt_z jnt_r jnt_p jnt_yaw vis_r vis_p vis_yaw">
+    <link name="${link_name}">
+      <visual>
+        <origin xyz="0 0 0" rpy="${vis_r} ${vis_p} ${vis_yaw}"/>
+        <geometry><cylinder radius="${cage_tube_radius}" length="${tube_len}"/></geometry>
+        <material name="Steel"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="${vis_r} ${vis_p} ${vis_yaw}"/>
+        <geometry><cylinder radius="${cage_tube_radius}" length="${tube_len}"/></geometry>
+      </collision>
+      <xacro:cylinder_inertia mass="${tube_mass}" radius="${cage_tube_radius}" length="${tube_len}"/>
+    </link>
+    <joint name="${link_name}_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child  link="${link_name}"/>
+      <origin xyz="${jnt_x} ${jnt_y} ${jnt_z}" rpy="${jnt_r} ${jnt_p} ${jnt_yaw}"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- ======================================================================
+    BASE AND REFERENCE LINKS (PRESERVED - do not change names)
   ====================================================================== -->
   <link name="dummy_root">
-    <!-- Massless root link to satisfy KDL's requirement that the root link cannot have inertia -->
+    <!-- Massless root link (KDL requirement) -->
   </link>
 
   <joint name="dummy_to_base" type="fixed">
     <parent link="dummy_root"/>
-    <child link="base_link"/>
+    <child  link="base_link"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
-  <!-- ======================================================================
-    BASE_LINK - The reference frame at the center of the rear axle on ground
-    
-    This is the standard ROS convention: base_link is at ground level,
-    centered between the rear wheels. All other links are relative to this.
-  ====================================================================== -->
   <link name="base_link">
-    <!-- base_link needs a small inertia so Gazebo doesn't lump it and drop its joints -->
     <inertial>
       <mass value="0.001"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
     </inertial>
   </link>
-  <!-- ======================================================================
-    BASE_FOOTPRINT - Optional ground-level reference (some nav stacks use this)
-  ====================================================================== -->
+
   <link name="base_footprint">
     <inertial>
       <mass value="0.001"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
     </inertial>
   </link>
 
   <joint name="base_footprint_joint" type="fixed">
     <parent link="base_link"/>
-    <child link="base_footprint"/>
-    <origin xyz="0 0 -${ground_clearance + 0.32}" rpy="0 0 0"/>
+    <child  link="base_footprint"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    CHASSIS_LINK - Main body frame / floor pan of the buggy
-    
-    This is the main structural frame. It's positioned above base_link
-    at ground_clearance height. The chassis extends forward from the 
-    rear axle by the wheelbase distance.
+    CHASSIS_LINK - Main lower frame (preserved name/joint)
   ====================================================================== -->
   <link name="chassis_link">
+    <!-- Main lower chassis tube frame (longitudinal rail) -->
     <visual>
       <origin xyz="${wheelbase/2} 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
-      </geometry>
+      <geometry><box size="${chassis_length} ${chassis_width} ${chassis_height}"/></geometry>
       <material name="Black"/>
+    </visual>
+    <!-- Left chassis rail (visual highlight) -->
+    <visual>
+      <origin xyz="${wheelbase/2} ${chassis_width/2 + 0.01} 0" rpy="0 0 0"/>
+      <geometry><box size="${chassis_length} 0.05 ${chassis_height + 0.02}"/></geometry>
+      <material name="DarkGrey"/>
+    </visual>
+    <!-- Right chassis rail -->
+    <visual>
+      <origin xyz="${wheelbase/2} -${chassis_width/2 + 0.01} 0" rpy="0 0 0"/>
+      <geometry><box size="${chassis_length} 0.05 ${chassis_height + 0.02}"/></geometry>
+      <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="${wheelbase/2} 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
-      </geometry>
+      <geometry><box size="${chassis_length} ${chassis_width} ${chassis_height}"/></geometry>
     </collision>
     <xacro:box_inertia mass="${chassis_mass}" x_dim="${chassis_length}" y_dim="${chassis_width}" z_dim="${chassis_height}"/>
   </link>
 
-  <!-- Fixed joint: base_link -> chassis (chassis is above ground) -->
   <joint name="base_to_chassis" type="fixed">
     <parent link="base_link"/>
-    <child link="chassis_link"/>
+    <child  link="chassis_link"/>
     <origin xyz="0 0 ${ground_clearance}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    FLOOR PAN - The flat bottom plate of the cockpit area
+    FLOOR PAN (preserved)
   ====================================================================== -->
   <link name="floor_pan_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.0 ${chassis_width} 0.02"/>
-      </geometry>
+      <geometry><box size="1.0 ${chassis_width} 0.02"/></geometry>
       <material name="FloorGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.0 ${chassis_width} 0.02"/>
-      </geometry>
+      <geometry><box size="1.0 ${chassis_width} 0.02"/></geometry>
     </collision>
     <xacro:box_inertia mass="8.0" x_dim="1.0" y_dim="${chassis_width}" z_dim="0.02"/>
   </link>
 
   <joint name="chassis_to_floor" type="fixed">
     <parent link="chassis_link"/>
-    <child link="floor_pan_link"/>
+    <child  link="floor_pan_link"/>
     <origin xyz="${wheelbase/2 + 0.1} 0 ${chassis_height/2 + 0.01}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    BODY PANELS - Left and right side panels (black sheet metal)
-    These are the distinctive side panels visible in the photos
+    BODY PANELS - Left and right (improved: taller, team blue color)
   ====================================================================== -->
-  <!-- Left body panel -->
+  <!-- Left body panel - full cockpit height, team blue -->
   <link name="left_body_panel_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.1 0.02 0.45"/>
-      </geometry>
+      <geometry><box size="1.15 0.025 0.52"/></geometry>
       <material name="BodyPanel"/>
+    </visual>
+    <!-- Panel stripe accent (lighter blue strip along top) -->
+    <visual>
+      <origin xyz="0 0 0.27" rpy="0 0 0"/>
+      <geometry><box size="1.15 0.03 0.04"/></geometry>
+      <material name="FrontNose"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.1 0.02 0.45"/>
-      </geometry>
+      <geometry><box size="1.15 0.025 0.52"/></geometry>
     </collision>
-    <xacro:box_inertia mass="3.0" x_dim="1.1" y_dim="0.02" z_dim="0.45"/>
+    <xacro:box_inertia mass="3.5" x_dim="1.15" y_dim="0.025" z_dim="0.52"/>
   </link>
 
   <joint name="chassis_to_left_panel" type="fixed">
     <parent link="chassis_link"/>
-    <child link="left_body_panel_link"/>
-    <origin xyz="${wheelbase/2 + 0.05} ${chassis_width/2} ${chassis_height/2 + 0.25}" rpy="0 0 0"/>
+    <child  link="left_body_panel_link"/>
+    <origin xyz="${wheelbase/2 + 0.05} ${chassis_width/2 + 0.01} ${chassis_height/2 + 0.28}" rpy="0 0 0"/>
   </joint>
 
   <!-- Right body panel -->
   <link name="right_body_panel_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.1 0.02 0.45"/>
-      </geometry>
+      <geometry><box size="1.15 0.025 0.52"/></geometry>
       <material name="BodyPanel"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.27" rpy="0 0 0"/>
+      <geometry><box size="1.15 0.03 0.04"/></geometry>
+      <material name="FrontNose"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="1.1 0.02 0.45"/>
-      </geometry>
+      <geometry><box size="1.15 0.025 0.52"/></geometry>
     </collision>
-    <xacro:box_inertia mass="3.0" x_dim="1.1" y_dim="0.02" z_dim="0.45"/>
+    <xacro:box_inertia mass="3.5" x_dim="1.15" y_dim="0.025" z_dim="0.52"/>
   </link>
 
   <joint name="chassis_to_right_panel" type="fixed">
     <parent link="chassis_link"/>
-    <child link="right_body_panel_link"/>
-    <origin xyz="${wheelbase/2 + 0.05} -${chassis_width/2} ${chassis_height/2 + 0.25}" rpy="0 0 0"/>
+    <child  link="right_body_panel_link"/>
+    <origin xyz="${wheelbase/2 + 0.05} -${chassis_width/2 + 0.01} ${chassis_height/2 + 0.28}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    ROLL CAGE - The distinctive tubular safety cage
-    
-    Modeled as a set of cylindrical tubes forming the main structure.
-    The real buggy has a complex welded tube frame - we approximate it
-    with the main visible members.
+    FRONT NOSE PANEL - Gives the front a distinctive look
   ====================================================================== -->
-  
-  <!-- Main roll cage - front hoop (A-pillar area) -->
-  <link name="roll_cage_front_hoop">
+  <link name="front_nose_link">
+    <!-- Main angled nose plate -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0.25 0"/>
+      <geometry><box size="0.35 ${chassis_width + 0.05} 0.38"/></geometry>
+      <material name="BodyPanel"/>
+    </visual>
+    <!-- Nose accent stripe (orange) -->
+    <visual>
+      <origin xyz="0.04 0 0.18" rpy="0 0 0"/>
+      <geometry><box size="0.04 ${chassis_width + 0.05} 0.04"/></geometry>
+      <material name="BumperOrange"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0.25 0"/>
+      <geometry><box size="0.35 ${chassis_width + 0.05} 0.38"/></geometry>
+    </collision>
+    <xacro:box_inertia mass="2.0" x_dim="0.35" y_dim="${chassis_width + 0.05}" z_dim="0.38"/>
+  </link>
+
+  <joint name="chassis_to_front_nose" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="front_nose_link"/>
+    <origin xyz="${wheelbase + 0.82} 0 ${chassis_height/2 + 0.22}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    REAR BODY PANEL / REAR GUARD
+  ====================================================================== -->
+  <link name="rear_guard_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.05 ${chassis_width + 0.1} 0.05"/>
-      </geometry>
+      <geometry><box size="0.06 ${chassis_width + 0.05} 0.42"/></geometry>
+      <material name="RearGuard"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 ${chassis_width + 0.05} 0.42"/></geometry>
+    </collision>
+    <xacro:box_inertia mass="2.0" x_dim="0.06" y_dim="${chassis_width + 0.05}" z_dim="0.42"/>
+  </link>
+
+  <joint name="chassis_to_rear_guard" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="rear_guard_link"/>
+    <origin xyz="-0.15 0 ${chassis_height/2 + 0.24}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    FRONT BUMPER - Orange accent, clearly identifies front
+  ====================================================================== -->
+  <link name="front_bumper_link">
+    <!-- Main bumper bar -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 ${track_width + 0.15} 0.08"/></geometry>
+      <material name="BumperOrange"/>
+    </visual>
+    <!-- Left bumper horn -->
+    <visual>
+      <origin xyz="-0.08 ${track_width/2 + 0.05} 0" rpy="0 0 0.35"/>
+      <geometry><box size="0.25 0.05 0.06"/></geometry>
+      <material name="BumperOrange"/>
+    </visual>
+    <!-- Right bumper horn -->
+    <visual>
+      <origin xyz="-0.08 -${track_width/2 + 0.05} 0" rpy="0 0 -0.35"/>
+      <geometry><box size="0.25 0.05 0.06"/></geometry>
+      <material name="BumperOrange"/>
+    </visual>
+    <!-- Bumper skid plate (lower) -->
+    <visual>
+      <origin xyz="0 0 -0.06" rpy="0 0 0"/>
+      <geometry><box size="0.04 ${track_width + 0.15} 0.05"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.05 ${chassis_width + 0.1} 0.05"/>
-      </geometry>
+      <geometry><box size="0.08 ${track_width + 0.15} 0.08"/></geometry>
     </collision>
-    <xacro:box_inertia mass="2.0" x_dim="0.05" y_dim="${chassis_width + 0.1}" z_dim="0.05"/>
+    <xacro:box_inertia mass="3.0" x_dim="0.08" y_dim="${track_width + 0.15}" z_dim="0.08"/>
   </link>
 
+  <joint name="chassis_to_front_bumper" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="front_bumper_link"/>
+    <origin xyz="${wheelbase + 1.02} 0 ${-chassis_height/2 + 0.04}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Front indicator lights (white, mounted on bumper corners) -->
+  <link name="front_left_light_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.04" length="0.025"/></geometry>
+      <material name="FrontLight"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.04" length="0.025"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia mass="0.05" radius="0.04" length="0.025"/>
+  </link>
+
+  <joint name="bumper_to_fl_light" type="fixed">
+    <parent link="front_bumper_link"/>
+    <child  link="front_left_light_link"/>
+    <origin xyz="0.03 ${track_width/2 + 0.02} 0.02" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_right_light_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.04" length="0.025"/></geometry>
+      <material name="FrontLight"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
+      <geometry><cylinder radius="0.04" length="0.025"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia mass="0.05" radius="0.04" length="0.025"/>
+  </link>
+
+  <joint name="bumper_to_fr_light" type="fixed">
+    <parent link="front_bumper_link"/>
+    <child  link="front_right_light_link"/>
+    <origin xyz="0.03 -${track_width/2 + 0.02} 0.02" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    REAR BUMPER
+  ====================================================================== -->
+  <link name="rear_bumper_link">
+    <!-- Main rear bumper bar -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 ${track_width + 0.1} 0.07"/></geometry>
+      <material name="BumperGrey"/>
+    </visual>
+    <!-- Rear tow hook visual -->
+    <visual>
+      <origin xyz="-0.05 0 -0.04" rpy="0 0 0"/>
+      <geometry><box size="0.08 0.04 0.04"/></geometry>
+      <material name="Steel"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 ${track_width + 0.1} 0.07"/></geometry>
+    </collision>
+    <xacro:box_inertia mass="2.5" x_dim="0.06" y_dim="${track_width + 0.1}" z_dim="0.07"/>
+  </link>
+
+  <joint name="chassis_to_rear_bumper" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="rear_bumper_link"/>
+    <origin xyz="-0.18 0 ${-chassis_height/2 + 0.03}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    ROLL CAGE - Proper cylindrical tubes for realistic look
+    FRONT HOOP: left pillar + top cross + right pillar
+    REAR HOOP:  left pillar + top cross + right pillar
+    CONNECTIONS: top bar (L-R), diagonal braces
+  ====================================================================== -->
+
+  <!-- ── FRONT HOOP ─────────────────────────────────────────── -->
+  <!-- Front hoop: left pillar (cylinder, vertical) -->
+  <xacro:cage_tube
+    link_name="roll_cage_front_left_upright"
+    tube_len="${cage_height}"
+    tube_mass="2.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2 + 0.55}" jnt_y="${chassis_width/2 + 0.03}" jnt_z="${chassis_height/2 + cage_height/2}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="0" vis_yaw="0"/>
+
+  <!-- Front hoop: right pillar -->
+  <xacro:cage_tube
+    link_name="roll_cage_front_right_upright"
+    tube_len="${cage_height}"
+    tube_mass="2.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2 + 0.55}" jnt_y="-${chassis_width/2 + 0.03}" jnt_z="${chassis_height/2 + cage_height/2}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="0" vis_yaw="0"/>
+
+  <!-- Front hoop: top cross tube (horizontal, Y direction) -->
+  <link name="roll_cage_front_hoop">
+    <visual>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/></geometry>
+      <material name="Steel"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia mass="1.5" radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/>
+  </link>
   <joint name="chassis_to_front_hoop" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_front_hoop"/>
+    <child  link="roll_cage_front_hoop"/>
     <origin xyz="${wheelbase/2 + 0.55} 0 ${chassis_height/2 + cage_height}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Main roll cage - rear hoop -->
+  <!-- ── REAR HOOP ──────────────────────────────────────────── -->
+  <!-- Rear hoop: left upright (with slight outward lean for BAJA style) -->
+  <link name="roll_cage_left_rear_pillar">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.12 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/></geometry>
+      <material name="Steel"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0.12 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia mass="2.5" radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
+  </link>
+  <joint name="chassis_to_left_rear_pillar" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="roll_cage_left_rear_pillar"/>
+    <origin xyz="${wheelbase/2 - 0.30} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rear hoop: right upright -->
+  <link name="roll_cage_right_rear_pillar">
+    <visual>
+      <origin xyz="0 0 0" rpy="0.12 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/></geometry>
+      <material name="Steel"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0.12 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/></geometry>
+    </collision>
+    <xacro:cylinder_inertia mass="2.5" radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
+  </link>
+  <joint name="chassis_to_right_rear_pillar" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="roll_cage_right_rear_pillar"/>
+    <origin xyz="${wheelbase/2 - 0.30} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rear hoop: top cross bar -->
   <link name="roll_cage_rear_hoop">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.05 ${chassis_width + 0.1} 0.05"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.05 ${chassis_width + 0.1} 0.05"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/></geometry>
     </collision>
-    <xacro:box_inertia mass="2.0" x_dim="0.05" y_dim="${chassis_width + 0.1}" z_dim="0.05"/>
+    <xacro:cylinder_inertia mass="1.5" radius="${cage_tube_radius}" length="${chassis_width + 0.1}"/>
   </link>
-
   <joint name="chassis_to_rear_hoop" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_rear_hoop"/>
-    <origin xyz="${wheelbase/2 - 0.3} 0 ${chassis_height/2 + cage_height}" rpy="0 0 0"/>
+    <child  link="roll_cage_rear_hoop"/>
+    <origin xyz="${wheelbase/2 - 0.30} 0 ${chassis_height/2 + cage_height}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Roll cage - top bar (connects front and rear hoops) -->
-  <link name="roll_cage_top_bar">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.9 0.05 0.05"/>
-      </geometry>
-      <material name="Steel"/>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.9 0.05 0.05"/>
-      </geometry>
-    </collision>
-    <xacro:box_inertia mass="1.5" x_dim="0.9" y_dim="0.05" z_dim="0.05"/>
-  </link>
-
-  <joint name="chassis_to_top_bar" type="fixed">
-    <parent link="chassis_link"/>
-    <child link="roll_cage_top_bar"/>
-    <origin xyz="${wheelbase/2 + 0.12} 0 ${chassis_height/2 + cage_height + 0.025}" rpy="0 0 0"/>
-  </joint>
-
-  <!-- Roll cage - left pillar (A-pillar) -->
+  <!-- ── A-PILLAR (front cage uprights connecting front hoop to chassis sides) -->
+  <!-- Preserved names from original for Gazebo/abaja_buggy.urdf.xacro compatibility -->
   <link name="roll_cage_left_pillar">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height}"/>
-      </geometry>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height}"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height}"/>
-      </geometry>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height}"/></geometry>
     </collision>
     <xacro:cylinder_inertia mass="2.0" radius="${cage_tube_radius}" length="${cage_height}"/>
   </link>
-
   <joint name="chassis_to_left_pillar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_left_pillar"/>
-    <origin xyz="${wheelbase/2 + 0.55} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
+    <child  link="roll_cage_left_pillar"/>
+    <origin xyz="${wheelbase/2 + 0.12} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Roll cage - right pillar -->
   <link name="roll_cage_right_pillar">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height}"/>
-      </geometry>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height}"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height}"/>
-      </geometry>
+      <geometry><cylinder radius="${cage_tube_radius}" length="${cage_height}"/></geometry>
     </collision>
     <xacro:cylinder_inertia mass="2.0" radius="${cage_tube_radius}" length="${cage_height}"/>
   </link>
-
   <joint name="chassis_to_right_pillar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_right_pillar"/>
-    <origin xyz="${wheelbase/2 + 0.55} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
+    <child  link="roll_cage_right_pillar"/>
+    <origin xyz="${wheelbase/2 + 0.12} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Roll cage - left rear pillar -->
-  <link name="roll_cage_left_rear_pillar">
+  <!-- ── TOP CONNECTING BAR (front hoop to rear hoop, left and right) ── -->
+  <link name="roll_cage_top_bar">
     <visual>
-      <origin xyz="0 0 0" rpy="0.15 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.90"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0.15 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.90"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="2.5" radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
+    <xacro:cylinder_inertia mass="1.5" radius="${cage_tube_radius}" length="0.90"/>
   </link>
-
-  <joint name="chassis_to_left_rear_pillar" type="fixed">
+  <joint name="chassis_to_top_bar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_left_rear_pillar"/>
-    <origin xyz="${wheelbase/2 - 0.3} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
+    <child  link="roll_cage_top_bar"/>
+    <origin xyz="${wheelbase/2 + 0.12} 0 ${chassis_height/2 + cage_height + 0.025}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Roll cage - right rear pillar -->
-  <link name="roll_cage_right_rear_pillar">
-    <visual>
-      <origin xyz="0 0 0" rpy="0.15 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
-      </geometry>
-      <material name="Steel"/>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0.15 0 0"/>
-      <geometry>
-        <cylinder radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
-      </geometry>
-    </collision>
-    <xacro:cylinder_inertia mass="2.5" radius="${cage_tube_radius}" length="${cage_height + 0.15}"/>
-  </link>
-
-  <joint name="chassis_to_right_rear_pillar" type="fixed">
-    <parent link="chassis_link"/>
-    <child link="roll_cage_right_rear_pillar"/>
-    <origin xyz="${wheelbase/2 - 0.3} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height/2}" rpy="0 0 0"/>
-  </joint>
-
-  <!-- Roll cage - side bars (left) -->
+  <!-- Top left longtudinal bar -->
   <link name="roll_cage_left_side_bar">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.85 ${cage_tube_radius*2} ${cage_tube_radius*2}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.85"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.85 ${cage_tube_radius*2} ${cage_tube_radius*2}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.85"/></geometry>
     </collision>
-    <xacro:box_inertia mass="1.5" x_dim="0.85" y_dim="${cage_tube_radius*2}" z_dim="${cage_tube_radius*2}"/>
+    <xacro:cylinder_inertia mass="1.5" radius="${cage_tube_radius}" length="0.85"/>
   </link>
-
   <joint name="chassis_to_left_side_bar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_left_side_bar"/>
-    <origin xyz="${wheelbase/2 + 0.12} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height * 0.55}" rpy="0 0 0"/>
+    <child  link="roll_cage_left_side_bar"/>
+    <origin xyz="${wheelbase/2 + 0.12} ${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Roll cage - side bars (right) -->
+  <!-- Top right longitudinal bar -->
   <link name="roll_cage_right_side_bar">
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.85 ${cage_tube_radius*2} ${cage_tube_radius*2}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.85"/></geometry>
       <material name="Steel"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.85 ${cage_tube_radius*2} ${cage_tube_radius*2}"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="${cage_tube_radius}" length="0.85"/></geometry>
     </collision>
-    <xacro:box_inertia mass="1.5" x_dim="0.85" y_dim="${cage_tube_radius*2}" z_dim="${cage_tube_radius*2}"/>
+    <xacro:cylinder_inertia mass="1.5" radius="${cage_tube_radius}" length="0.85"/>
   </link>
-
   <joint name="chassis_to_right_side_bar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="roll_cage_right_side_bar"/>
-    <origin xyz="${wheelbase/2 + 0.12} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height * 0.55}" rpy="0 0 0"/>
+    <child  link="roll_cage_right_side_bar"/>
+    <origin xyz="${wheelbase/2 + 0.12} -${chassis_width/2 + 0.03} ${chassis_height/2 + cage_height}" rpy="0 0 0"/>
   </joint>
 
+  <!-- ── DIAGONAL BRACES (X-brace pattern at rear of roll cage) ── -->
+  <xacro:cage_tube
+    link_name="roll_cage_diag_left"
+    tube_len="0.80"
+    tube_mass="1.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2 + 0.12}" jnt_y="${chassis_width/2 + 0.03}" jnt_z="${chassis_height/2 + cage_height * 0.60}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="0.52" vis_yaw="0"/>
+
+  <xacro:cage_tube
+    link_name="roll_cage_diag_right"
+    tube_len="0.80"
+    tube_mass="1.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2 + 0.12}" jnt_y="-${chassis_width/2 + 0.03}" jnt_z="${chassis_height/2 + cage_height * 0.60}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="0.52" vis_yaw="0"/>
+
+  <!-- ── SIDE PROTECTION BARS (low horizontal tube along body sides) ── -->
+  <xacro:cage_tube
+    link_name="side_protection_left"
+    tube_len="1.20"
+    tube_mass="2.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2}" jnt_y="${chassis_width/2 + 0.07}" jnt_z="${chassis_height/2 + 0.18}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="${pi/2}" vis_yaw="0"/>
+
+  <xacro:cage_tube
+    link_name="side_protection_right"
+    tube_len="1.20"
+    tube_mass="2.0"
+    parent_link="chassis_link"
+    jnt_x="${wheelbase/2}" jnt_y="-${chassis_width/2 + 0.07}" jnt_z="${chassis_height/2 + 0.18}"
+    jnt_r="0" jnt_p="0" jnt_yaw="0"
+    vis_r="0" vis_p="${pi/2}" vis_yaw="0"/>
+
   <!-- ======================================================================
-    SENSOR MOUNT BAR - The horizontal bar on top of the roll cage
-    Used for mounting beacons, camera, and other sensors
+    SENSOR MOUNT BAR (preserved name/joint)
   ====================================================================== -->
   <link name="sensor_mount_bar">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.4 0.7 0.04"/>
-      </geometry>
+      <geometry><box size="0.45 0.75 0.05"/></geometry>
+      <material name="SensorBar"/>
+    </visual>
+    <!-- Mounting rail left -->
+    <visual>
+      <origin xyz="0 0.30 0" rpy="0 0 0"/>
+      <geometry><box size="0.42 0.04 0.03"/></geometry>
+      <material name="DarkGrey"/>
+    </visual>
+    <!-- Mounting rail right -->
+    <visual>
+      <origin xyz="0 -0.30 0" rpy="0 0 0"/>
+      <geometry><box size="0.42 0.04 0.03"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.4 0.7 0.04"/>
-      </geometry>
+      <geometry><box size="0.45 0.75 0.05"/></geometry>
     </collision>
-    <xacro:box_inertia mass="2.0" x_dim="0.4" y_dim="0.7" z_dim="0.04"/>
+    <xacro:box_inertia mass="2.0" x_dim="0.45" y_dim="0.75" z_dim="0.05"/>
   </link>
 
   <joint name="cage_to_sensor_bar" type="fixed">
     <parent link="chassis_link"/>
-    <child link="sensor_mount_bar"/>
-    <origin xyz="${wheelbase/2 + 0.12} 0 ${chassis_height/2 + cage_height + 0.07}" rpy="0 0 0"/>
+    <child  link="sensor_mount_bar"/>
+    <origin xyz="${wheelbase/2 + 0.12} 0 ${chassis_height/2 + cage_height + 0.08}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    BEACONS - Blue ASAL (Autonomous) and Orange Warning beacons
-    These are the distinctive lights visible on top of the real buggy
+    BEACONS (preserved names and joints)
   ====================================================================== -->
-  
-  <!-- Blue ASAL Beacon (left side on top) -->
+  <!-- Blue ASAL beacon -->
   <link name="asal_beacon_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.06" length="0.1"/>
-      </geometry>
+      <geometry><cylinder radius="0.055" length="0.10"/></geometry>
       <material name="Blue"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.06" length="0.1"/>
-      </geometry>
+      <geometry><cylinder radius="0.055" length="0.10"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.3" radius="0.06" length="0.1"/>
+    <xacro:cylinder_inertia mass="0.3" radius="0.055" length="0.10"/>
   </link>
 
-  <!-- Beacon dome (sphere on top) -->
   <link name="asal_beacon_dome">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.055"/>
-      </geometry>
+      <geometry><sphere radius="0.050"/></geometry>
       <material name="Blue"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.055"/>
-      </geometry>
+      <geometry><sphere radius="0.050"/></geometry>
     </collision>
-    <xacro:sphere_inertia mass="0.1" radius="0.055"/>
+    <xacro:sphere_inertia mass="0.1" radius="0.050"/>
   </link>
 
   <joint name="sensor_bar_to_asal_beacon" type="fixed">
     <parent link="sensor_mount_bar"/>
-    <child link="asal_beacon_link"/>
-    <origin xyz="0.05 0.15 0.07" rpy="0 0 0"/>
+    <child  link="asal_beacon_link"/>
+    <origin xyz="0.05 0.15 0.08" rpy="0 0 0"/>
   </joint>
 
   <joint name="asal_beacon_to_dome" type="fixed">
     <parent link="asal_beacon_link"/>
-    <child link="asal_beacon_dome"/>
-    <origin xyz="0 0 0.075" rpy="0 0 0"/>
+    <child  link="asal_beacon_dome"/>
+    <origin xyz="0 0 0.08" rpy="0 0 0"/>
   </joint>
 
-  <!-- Orange Warning Beacon (right side on top) -->
+  <!-- Orange warning beacon -->
   <link name="warning_beacon_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.06" length="0.1"/>
-      </geometry>
+      <geometry><cylinder radius="0.055" length="0.10"/></geometry>
       <material name="Amber"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.06" length="0.1"/>
-      </geometry>
+      <geometry><cylinder radius="0.055" length="0.10"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.3" radius="0.06" length="0.1"/>
+    <xacro:cylinder_inertia mass="0.3" radius="0.055" length="0.10"/>
   </link>
 
   <link name="warning_beacon_dome">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.055"/>
-      </geometry>
+      <geometry><sphere radius="0.050"/></geometry>
       <material name="Amber"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.055"/>
-      </geometry>
+      <geometry><sphere radius="0.050"/></geometry>
     </collision>
-    <xacro:sphere_inertia mass="0.1" radius="0.055"/>
+    <xacro:sphere_inertia mass="0.1" radius="0.050"/>
   </link>
 
   <joint name="sensor_bar_to_warning_beacon" type="fixed">
     <parent link="sensor_mount_bar"/>
-    <child link="warning_beacon_link"/>
-    <origin xyz="0.05 -0.15 0.07" rpy="0 0 0"/>
+    <child  link="warning_beacon_link"/>
+    <origin xyz="0.05 -0.15 0.08" rpy="0 0 0"/>
   </joint>
 
   <joint name="warning_beacon_to_dome" type="fixed">
     <parent link="warning_beacon_link"/>
-    <child link="warning_beacon_dome"/>
-    <origin xyz="0 0 0.075" rpy="0 0 0"/>
+    <child  link="warning_beacon_dome"/>
+    <origin xyz="0 0 0.08" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    SEAT - Driver seat (the black seat with red harness visible in photos)
+    SEAT - Preserved names
   ====================================================================== -->
   <link name="seat_link">
-    <!-- Seat bottom -->
+    <!-- Seat base cushion -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.42 0.4 0.08"/>
-      </geometry>
+      <geometry><box size="0.45 0.42 0.09"/></geometry>
+      <material name="SeatBlack"/>
+    </visual>
+    <!-- Seat side bolster left -->
+    <visual>
+      <origin xyz="0 0.22 0.05" rpy="0 0 0"/>
+      <geometry><box size="0.40 0.04 0.07"/></geometry>
+      <material name="SeatBlack"/>
+    </visual>
+    <!-- Seat side bolster right -->
+    <visual>
+      <origin xyz="0 -0.22 0.05" rpy="0 0 0"/>
+      <geometry><box size="0.40 0.04 0.07"/></geometry>
       <material name="SeatBlack"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.42 0.4 0.08"/>
-      </geometry>
+      <geometry><box size="0.45 0.42 0.09"/></geometry>
     </collision>
-    <xacro:box_inertia mass="3.0" x_dim="0.42" y_dim="0.4" z_dim="0.08"/>
+    <xacro:box_inertia mass="3.0" x_dim="0.45" y_dim="0.42" z_dim="0.09"/>
   </link>
 
   <!-- Seat backrest -->
   <link name="seat_backrest_link">
+    <!-- Main backrest -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.06 0.38 0.5"/>
-      </geometry>
+      <geometry><box size="0.07 0.40 0.52"/></geometry>
       <material name="SeatBlack"/>
     </visual>
-    <!-- Red harness stripe -->
+    <!-- Red harness vertical strap -->
     <visual>
-      <origin xyz="0.01 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.04 0.08 0.48"/>
-      </geometry>
+      <origin xyz="0.02 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.07 0.50"/></geometry>
+      <material name="SeatRed"/>
+    </visual>
+    <!-- Red harness horizontal strap -->
+    <visual>
+      <origin xyz="0.02 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.36 0.04"/></geometry>
       <material name="SeatRed"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.06 0.38 0.5"/>
-      </geometry>
+      <geometry><box size="0.07 0.40 0.52"/></geometry>
     </collision>
-    <xacro:box_inertia mass="2.0" x_dim="0.06" y_dim="0.38" z_dim="0.5"/>
+    <xacro:box_inertia mass="2.0" x_dim="0.07" y_dim="0.40" z_dim="0.52"/>
   </link>
 
   <joint name="chassis_to_seat" type="fixed">
     <parent link="chassis_link"/>
-    <child link="seat_link"/>
-    <origin xyz="${wheelbase/2 + 0.2} 0 ${chassis_height/2 + 0.12}" rpy="0 0 0"/>
+    <child  link="seat_link"/>
+    <origin xyz="${wheelbase/2 + 0.20} 0 ${chassis_height/2 + 0.12}" rpy="0 0 0"/>
   </joint>
 
   <joint name="seat_to_backrest" type="fixed">
     <parent link="seat_link"/>
-    <child link="seat_backrest_link"/>
-    <origin xyz="-0.2 0 0.29" rpy="0 -0.1 0"/>
+    <child  link="seat_backrest_link"/>
+    <origin xyz="-0.21 0 0.31" rpy="0 -0.10 0"/>
   </joint>
 
   <!-- ======================================================================
-    STEERING COLUMN - Simplified steering wheel area
+    STEERING COLUMN (preserved)
   ====================================================================== -->
   <link name="steering_column_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0.5 0"/>
-      <geometry>
-        <cylinder radius="0.015" length="0.35"/>
-      </geometry>
+      <geometry><cylinder radius="0.016" length="0.38"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0.5 0"/>
-      <geometry>
-        <cylinder radius="0.015" length="0.35"/>
-      </geometry>
+      <geometry><cylinder radius="0.016" length="0.38"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.5" radius="0.015" length="0.35"/>
+    <xacro:cylinder_inertia mass="0.5" radius="0.016" length="0.38"/>
   </link>
 
-  <!-- Steering wheel -->
   <link name="steering_wheel_link">
+    <!-- Outer ring -->
     <visual>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
-      <geometry>
-        <cylinder radius="0.14" length="0.025"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="0.13" length="0.022"/></geometry>
       <material name="SteeringBlack"/>
     </visual>
+    <!-- Centre hub -->
+    <visual>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="0.040" length="0.024"/></geometry>
+      <material name="Grey"/>
+    </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
-      <geometry>
-        <cylinder radius="0.14" length="0.025"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+      <geometry><cylinder radius="0.13" length="0.022"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.8" radius="0.14" length="0.025"/>
+    <xacro:cylinder_inertia mass="0.8" radius="0.13" length="0.022"/>
   </link>
 
   <joint name="chassis_to_steering_column" type="fixed">
     <parent link="chassis_link"/>
-    <child link="steering_column_link"/>
+    <child  link="steering_column_link"/>
     <origin xyz="${wheelbase/2 + 0.55} 0 ${chassis_height/2 + 0.35}" rpy="0 0 0"/>
   </joint>
 
   <joint name="column_to_wheel" type="fixed">
     <parent link="steering_column_link"/>
-    <child link="steering_wheel_link"/>
+    <child  link="steering_wheel_link"/>
     <origin xyz="0.12 0 0.12" rpy="0 0.5 0"/>
   </joint>
 
   <!-- ======================================================================
-    BATTERY BOX - The battery/energy storage visible in the rear
-    (Yellow hazard marking visible in the rear photos)
+    BATTERY BOX (preserved name)
   ====================================================================== -->
   <link name="battery_box_link">
+    <!-- Main box -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.35 0.3 0.2"/>
-      </geometry>
+      <geometry><box size="0.38 0.32 0.22"/></geometry>
       <material name="BatteryYellow"/>
+    </visual>
+    <!-- Hazard stripe (black alternating) -->
+    <visual>
+      <origin xyz="0 0 0.115" rpy="0 0 0"/>
+      <geometry><box size="0.38 0.32 0.02"/></geometry>
+      <material name="Black"/>
+    </visual>
+    <!-- Terminal block -->
+    <visual>
+      <origin xyz="0.20 0 0.02" rpy="0 0 0"/>
+      <geometry><box size="0.04 0.10 0.06"/></geometry>
+      <material name="Grey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.35 0.3 0.2"/>
-      </geometry>
+      <geometry><box size="0.38 0.32 0.22"/></geometry>
     </collision>
-    <xacro:box_inertia mass="25.0" x_dim="0.35" y_dim="0.3" z_dim="0.2"/>
+    <xacro:box_inertia mass="25.0" x_dim="0.38" y_dim="0.32" z_dim="0.22"/>
   </link>
 
   <joint name="chassis_to_battery" type="fixed">
     <parent link="chassis_link"/>
-    <child link="battery_box_link"/>
-    <origin xyz="${wheelbase/2 - 0.5} 0 ${chassis_height/2 + 0.15}" rpy="0 0 0"/>
+    <child  link="battery_box_link"/>
+    <origin xyz="${wheelbase/2 - 0.50} 0 ${chassis_height/2 + 0.16}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    ELECTRONICS BOX - Motor controller, wiring harness, etc.
-    (The wiring/electronics visible behind the cockpit)
+    ELECTRONICS BOX (preserved name)
   ====================================================================== -->
   <link name="electronics_box_link">
+    <!-- Main enclosure -->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.3 0.5 0.25"/>
-      </geometry>
+      <geometry><box size="0.32 0.52 0.28"/></geometry>
       <material name="ElectronicsGrey"/>
+    </visual>
+    <!-- Ventilation grille visual (thin panel on front face) -->
+    <visual>
+      <origin xyz="0.17 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.015 0.48 0.24"/></geometry>
+      <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.3 0.5 0.25"/>
-      </geometry>
+      <geometry><box size="0.32 0.52 0.28"/></geometry>
     </collision>
-    <xacro:box_inertia mass="10.0" x_dim="0.3" y_dim="0.5" z_dim="0.25"/>
+    <xacro:box_inertia mass="10.0" x_dim="0.32" y_dim="0.52" z_dim="0.28"/>
   </link>
 
   <joint name="chassis_to_electronics" type="fixed">
     <parent link="chassis_link"/>
-    <child link="electronics_box_link"/>
-    <origin xyz="${wheelbase/2 - 0.15} 0 ${chassis_height/2 + 0.45}" rpy="0 0 0"/>
+    <child  link="electronics_box_link"/>
+    <origin xyz="${wheelbase/2 - 0.15} 0 ${chassis_height/2 + 0.47}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    REAR LIGHTS - Tail lights visible in rear photos
+    TAIL LIGHTS - Moved to rear face (rear identification)
   ====================================================================== -->
   <link name="left_tail_light">
     <visual>
-      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
-      <geometry>
-        <cylinder radius="0.05" length="0.03"/>
-      </geometry>
-      <material name="Red"/>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.048" length="0.03"/></geometry>
+      <material name="TailRed"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
-      <geometry>
-        <cylinder radius="0.05" length="0.03"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.048" length="0.03"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.1" radius="0.05" length="0.03"/>
+    <xacro:cylinder_inertia mass="0.1" radius="0.048" length="0.03"/>
   </link>
 
   <link name="right_tail_light">
     <visual>
-      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
-      <geometry>
-        <cylinder radius="0.05" length="0.03"/>
-      </geometry>
-      <material name="Red"/>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.048" length="0.03"/></geometry>
+      <material name="TailRed"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 1.5708 0"/>
-      <geometry>
-        <cylinder radius="0.05" length="0.03"/>
-      </geometry>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.048" length="0.03"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.1" radius="0.05" length="0.03"/>
+    <xacro:cylinder_inertia mass="0.1" radius="0.048" length="0.03"/>
   </link>
 
+  <!-- Tail lights on rear guard face -->
   <joint name="chassis_to_left_tail_light" type="fixed">
     <parent link="chassis_link"/>
-    <child link="left_tail_light"/>
-    <origin xyz="${wheelbase/2 - 0.65} 0.15 ${chassis_height/2 + 0.75}" rpy="0 0 0"/>
+    <child  link="left_tail_light"/>
+    <origin xyz="-0.18 0.22 ${chassis_height/2 + 0.38}" rpy="0 0 0"/>
   </joint>
 
   <joint name="chassis_to_right_tail_light" type="fixed">
     <parent link="chassis_link"/>
-    <child link="right_tail_light"/>
-    <origin xyz="${wheelbase/2 - 0.65} -0.15 ${chassis_height/2 + 0.75}" rpy="0 0 0"/>
+    <child  link="right_tail_light"/>
+    <origin xyz="-0.18 -0.22 ${chassis_height/2 + 0.38}" rpy="0 0 0"/>
   </joint>
 
   <!-- ======================================================================
-    SUSPENSION ARMS - Simplified A-arm / wishbone representation
-    With red/orange spring-shock absorbers visible on the real buggy
+    SUSPENSION ARMS AND SPRINGS (preserved from original)
   ====================================================================== -->
 
   <!-- Front left suspension arm -->
   <link name="front_left_suspension_arm">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
     </collision>
     <xacro:box_inertia mass="1.5" x_dim="0.35" y_dim="0.04" z_dim="0.04"/>
   </link>
-
   <joint name="chassis_to_fl_suspension" type="fixed">
     <parent link="chassis_link"/>
-    <child link="front_left_suspension_arm"/>
+    <child  link="front_left_suspension_arm"/>
     <origin xyz="${wheelbase} ${chassis_width/2 + 0.08} -${chassis_height/2 + 0.02}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Front left spring/shock (RED) -->
+  <!-- Front left spring -->
   <link name="front_left_spring">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.25"/>
+    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.26"/>
   </link>
-
   <joint name="chassis_to_fl_spring" type="fixed">
     <parent link="chassis_link"/>
-    <child link="front_left_spring"/>
+    <child  link="front_left_spring"/>
     <origin xyz="${wheelbase - 0.05} ${chassis_width/2 + 0.05} ${-chassis_height/2 + 0.05}" rpy="0 0.2 0"/>
   </joint>
 
@@ -871,47 +1041,37 @@
   <link name="front_right_suspension_arm">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 -0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 -0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
     </collision>
     <xacro:box_inertia mass="1.5" x_dim="0.35" y_dim="0.04" z_dim="0.04"/>
   </link>
-
   <joint name="chassis_to_fr_suspension" type="fixed">
     <parent link="chassis_link"/>
-    <child link="front_right_suspension_arm"/>
+    <child  link="front_right_suspension_arm"/>
     <origin xyz="${wheelbase} -${chassis_width/2 + 0.08} -${chassis_height/2 + 0.02}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Front right spring/shock (RED) -->
+  <!-- Front right spring -->
   <link name="front_right_spring">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.25"/>
+    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.26"/>
   </link>
-
   <joint name="chassis_to_fr_spring" type="fixed">
     <parent link="chassis_link"/>
-    <child link="front_right_spring"/>
+    <child  link="front_right_spring"/>
     <origin xyz="${wheelbase - 0.05} -${chassis_width/2 + 0.05} ${-chassis_height/2 + 0.05}" rpy="0 0.2 0"/>
   </joint>
 
@@ -919,47 +1079,37 @@
   <link name="rear_left_suspension_arm">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
     </collision>
     <xacro:box_inertia mass="1.5" x_dim="0.35" y_dim="0.04" z_dim="0.04"/>
   </link>
-
   <joint name="chassis_to_rl_suspension" type="fixed">
     <parent link="chassis_link"/>
-    <child link="rear_left_suspension_arm"/>
+    <child  link="rear_left_suspension_arm"/>
     <origin xyz="0 ${chassis_width/2 + 0.08} -${chassis_height/2 + 0.02}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Rear left spring/shock (ORANGE - visible in rear photos) -->
+  <!-- Rear left spring (ORANGE) -->
   <link name="rear_left_spring">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
       <material name="Orange"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.25"/>
+    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.26"/>
   </link>
-
   <joint name="chassis_to_rl_spring" type="fixed">
     <parent link="chassis_link"/>
-    <child link="rear_left_spring"/>
+    <child  link="rear_left_spring"/>
     <origin xyz="-0.05 ${chassis_width/2 + 0.05} ${-chassis_height/2 + 0.05}" rpy="0 -0.2 0"/>
   </joint>
 
@@ -967,74 +1117,186 @@
   <link name="rear_right_suspension_arm">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 -0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 -0.3"/>
-      <geometry>
-        <box size="0.35 0.04 0.04"/>
-      </geometry>
+      <geometry><box size="0.35 0.04 0.04"/></geometry>
     </collision>
     <xacro:box_inertia mass="1.5" x_dim="0.35" y_dim="0.04" z_dim="0.04"/>
   </link>
-
   <joint name="chassis_to_rr_suspension" type="fixed">
     <parent link="chassis_link"/>
-    <child link="rear_right_suspension_arm"/>
+    <child  link="rear_right_suspension_arm"/>
     <origin xyz="0 -${chassis_width/2 + 0.08} -${chassis_height/2 + 0.02}" rpy="0 0 0"/>
   </joint>
 
-  <!-- Rear right spring/shock (ORANGE) -->
+  <!-- Rear right spring (ORANGE) -->
   <link name="rear_right_spring">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
       <material name="Orange"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <cylinder radius="0.025" length="0.25"/>
-      </geometry>
+      <geometry><cylinder radius="0.025" length="0.26"/></geometry>
     </collision>
-    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.25"/>
+    <xacro:cylinder_inertia mass="0.8" radius="0.025" length="0.26"/>
   </link>
-
   <joint name="chassis_to_rr_spring" type="fixed">
     <parent link="chassis_link"/>
-    <child link="rear_right_spring"/>
+    <child  link="rear_right_spring"/>
     <origin xyz="-0.05 -${chassis_width/2 + 0.05} ${-chassis_height/2 + 0.05}" rpy="0 -0.2 0"/>
   </joint>
 
   <!-- ======================================================================
-    REAR SUBFRAME - Motor/drivetrain mount area
+    REAR SUBFRAME (preserved)
   ====================================================================== -->
   <link name="rear_subframe_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.5 0.6 0.1"/>
-      </geometry>
+      <geometry><box size="0.52 0.62 0.10"/></geometry>
       <material name="DarkGrey"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.5 0.6 0.1"/>
-      </geometry>
+      <geometry><box size="0.52 0.62 0.10"/></geometry>
     </collision>
-    <xacro:box_inertia mass="12.0" x_dim="0.5" y_dim="0.6" z_dim="0.1"/>
+    <xacro:box_inertia mass="12.0" x_dim="0.52" y_dim="0.62" z_dim="0.10"/>
   </link>
-
   <joint name="chassis_to_rear_subframe" type="fixed">
     <parent link="chassis_link"/>
-    <child link="rear_subframe_link"/>
+    <child  link="rear_subframe_link"/>
     <origin xyz="-0.15 0 -${chassis_height/2 + 0.02}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    FIRE EXTINGUISHER — Safety-red cylinder mounted on left side of cockpit
+    Visual only. Fixed to chassis_link.
+    Frame: fire_extinguisher_link
+  ====================================================================== -->
+  <link name="fire_extinguisher_link">
+    <!-- Main extinguisher body (red cylinder) -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.04" length="0.30"/></geometry>
+      <material name="FireExtRed"/>
+    </visual>
+    <!-- Top head / valve area (dark, slightly wider) -->
+    <visual>
+      <origin xyz="0 0 0.17" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.025" length="0.06"/></geometry>
+      <material name="FireExtHead"/>
+    </visual>
+    <!-- Nozzle hose (thin cylinder, angled) -->
+    <visual>
+      <origin xyz="0.02 0 0.20" rpy="0 0.6 0"/>
+      <geometry><cylinder radius="0.008" length="0.08"/></geometry>
+      <material name="FireExtHead"/>
+    </visual>
+    <!-- Mounting bracket (flat box clamp) -->
+    <visual>
+      <origin xyz="-0.045 0 -0.05" rpy="0 0 0"/>
+      <geometry><box size="0.02 0.10 0.08"/></geometry>
+      <material name="Steel"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.04" length="0.30"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="1.5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <!-- Mounted on left side panel, mid-cockpit height, clearly visible -->
+  <joint name="chassis_to_fire_extinguisher" type="fixed">
+    <parent link="chassis_link"/>
+    <child  link="fire_extinguisher_link"/>
+    <!-- Left side, inside the cockpit area, visible when looking from the left -->
+    <origin xyz="${wheelbase/2 + 0.30} ${chassis_width/2 + 0.06} ${chassis_height/2 + 0.35}" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ======================================================================
+    SEATBELT / HARNESS CROSS-STRAPS
+    Visual only — two diagonal straps crossing the seat area.
+    Represents a 4-point / 6-point racing harness.
+  ====================================================================== -->
+  <!-- Left shoulder strap (diagonal from top-left to lap-centre) -->
+  <link name="harness_left_strap">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.035 0.55"/></geometry>
+      <material name="SeatBlack"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.035 0.55"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0005"/>
+    </inertial>
+  </link>
+
+  <joint name="seat_to_left_strap" type="fixed">
+    <parent link="seat_link"/>
+    <child  link="harness_left_strap"/>
+    <!-- Left-of-centre, angled 20° toward centre (simulates shoulder→lap diagonal) -->
+    <origin xyz="-0.05 0.10 0.32" rpy="0 0.35 0.18"/>
+  </joint>
+
+  <!-- Right shoulder strap -->
+  <link name="harness_right_strap">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.035 0.55"/></geometry>
+      <material name="SeatBlack"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.045 0.035 0.55"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.2"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.0005"/>
+    </inertial>
+  </link>
+
+  <joint name="seat_to_right_strap" type="fixed">
+    <parent link="seat_link"/>
+    <child  link="harness_right_strap"/>
+    <origin xyz="-0.05 -0.10 0.32" rpy="0 0.35 -0.18"/>
+  </joint>
+
+  <!-- Lap belt (horizontal across the seat bottom) -->
+  <link name="harness_lap_belt">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 0.38 0.035"/></geometry>
+      <material name="SeatRed"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.06 0.38 0.035"/></geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0002"/>
+    </inertial>
+  </link>
+
+  <joint name="seat_to_lap_belt" type="fixed">
+    <parent link="seat_link"/>
+    <child  link="harness_lap_belt"/>
+    <origin xyz="0.10 0 0.06" rpy="0 0 0"/>
   </joint>
 
 </robot>

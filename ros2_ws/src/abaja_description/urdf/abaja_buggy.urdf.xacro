@@ -57,68 +57,50 @@
   
   <!-- Chassis -->
   <gazebo reference="chassis_link">
-    <material>Gazebo/Black</material>
   </gazebo>
 
   <!-- Floor pan -->
   <gazebo reference="floor_pan_link">
-    <material>Gazebo/Grey</material>
   </gazebo>
 
   <!-- Body panels -->
   <gazebo reference="left_body_panel_link">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="right_body_panel_link">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Roll cage elements -->
   <gazebo reference="roll_cage_front_hoop">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_rear_hoop">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_top_bar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_left_pillar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_right_pillar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_left_rear_pillar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_right_rear_pillar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_left_side_bar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
   <gazebo reference="roll_cage_right_side_bar">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <!-- Beacons -->
   <gazebo reference="asal_beacon_link">
-    <material>Gazebo/Blue</material>
   </gazebo>
   <gazebo reference="asal_beacon_dome">
-    <material>Gazebo/Blue</material>
   </gazebo>
   <gazebo reference="warning_beacon_link">
-    <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="warning_beacon_dome">
-    <material>Gazebo/Orange</material>
   </gazebo>
 
   <!-- Wheels -->
   <gazebo reference="front_left_wheel_link">
-    <material>Gazebo/DarkGrey</material>
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1000000.0</kp>
@@ -126,7 +108,6 @@
     <minDepth>0.001</minDepth>
   </gazebo>
   <gazebo reference="front_right_wheel_link">
-    <material>Gazebo/DarkGrey</material>
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1000000.0</kp>
@@ -134,7 +115,6 @@
     <minDepth>0.001</minDepth>
   </gazebo>
   <gazebo reference="rear_left_wheel_link">
-    <material>Gazebo/DarkGrey</material>
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1000000.0</kp>
@@ -142,7 +122,6 @@
     <minDepth>0.001</minDepth>
   </gazebo>
   <gazebo reference="rear_right_wheel_link">
-    <material>Gazebo/DarkGrey</material>
     <mu1>1.0</mu1>
     <mu2>1.0</mu2>
     <kp>1000000.0</kp>
@@ -152,51 +131,101 @@
 
   <!-- Seat -->
   <gazebo reference="seat_link">
-    <material>Gazebo/Black</material>
   </gazebo>
   <gazebo reference="seat_backrest_link">
-    <material>Gazebo/Black</material>
   </gazebo>
 
   <!-- Battery and Electronics -->
   <gazebo reference="battery_box_link">
-    <material>Gazebo/Yellow</material>
   </gazebo>
   <gazebo reference="electronics_box_link">
-    <material>Gazebo/Grey</material>
   </gazebo>
 
   <!-- Sensors -->
   <gazebo reference="camera_link">
-    <material>Gazebo/Black</material>
   </gazebo>
+  <gazebo reference="camera_mount_link">
+  </gazebo>
+  <!-- LiDAR — dark navy blue -->
+  <gazebo reference="lidar_link">
+  </gazebo>
+  <!-- Starkenn Orion Radar — visual only, no Gazebo plugin -->
   <gazebo reference="radar_link">
-    <material>Gazebo/DarkGrey</material>
   </gazebo>
+  <!-- GPS — off-white patch antenna -->
+  <gazebo reference="gps_link">
+  </gazebo>
+  <!-- IMU — green PCB -->
   <gazebo reference="imu_link">
-    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Hardware modules (visual-only, no Gazebo simulation plugins) -->
+  <!-- Kvaser CAN network module -->
+  <gazebo reference="kvaser_can_link">
+  </gazebo>
+  <!-- ESP32-C6 module — green PCB -->
+  <gazebo reference="esp32_c6_link">
+  </gazebo>
+  <!-- SN65HVD230 CAN transceiver — blue-green -->
+  <gazebo reference="sn65hvd230_link">
+  </gazebo>
+
+  <!-- Safety equipment -->
+  <!-- Fire extinguisher — red -->
+  <gazebo reference="fire_extinguisher_link">
+  </gazebo>
+  <!-- Harness straps — dark grey/black -->
+  <gazebo reference="harness_left_strap">
+  </gazebo>
+  <gazebo reference="harness_right_strap">
+  </gazebo>
+  <gazebo reference="harness_lap_belt">
   </gazebo>
 
   <!-- Suspension springs -->
   <gazebo reference="front_left_spring">
-    <material>Gazebo/Red</material>
   </gazebo>
   <gazebo reference="front_right_spring">
-    <material>Gazebo/Red</material>
   </gazebo>
   <gazebo reference="rear_left_spring">
-    <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="rear_right_spring">
-    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <!-- New visual elements - bumpers, nose, guard -->
+  <gazebo reference="front_nose_link">
+  </gazebo>
+  <gazebo reference="rear_guard_link">
+  </gazebo>
+  <gazebo reference="front_bumper_link">
+  </gazebo>
+  <gazebo reference="rear_bumper_link">
+  </gazebo>
+  <gazebo reference="front_left_light_link">
+  </gazebo>
+  <gazebo reference="front_right_light_link">
+  </gazebo>
+  <gazebo reference="left_tail_light">
+  </gazebo>
+  <gazebo reference="right_tail_light">
+  </gazebo>
+  <gazebo reference="roll_cage_front_left_upright">
+  </gazebo>
+  <gazebo reference="roll_cage_front_right_upright">
+  </gazebo>
+  <gazebo reference="roll_cage_diag_left">
+  </gazebo>
+  <gazebo reference="roll_cage_diag_right">
+  </gazebo>
+  <gazebo reference="side_protection_left">
+  </gazebo>
+  <gazebo reference="side_protection_right">
   </gazebo>
 
   <!-- Tail lights -->
   <gazebo reference="left_tail_light">
-    <material>Gazebo/Red</material>
   </gazebo>
   <gazebo reference="right_tail_light">
-    <material>Gazebo/Red</material>
   </gazebo>
 
   <!-- ======================================================================

@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/AEBStatus.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct AEBStatus {
+      boolean aeb_active;
+
+      boolean warning_active;
+
+      boolean emergency_braking;
+
+      float commanded_brake_percent;
+
+      float commanded_throttle_percent;
+
+      string reason;
+    };
+  };
+};

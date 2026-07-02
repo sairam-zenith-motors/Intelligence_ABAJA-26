@@ -1,0 +1,44 @@
+running develop
+Removing /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja-bringup.egg-link (link to .)
+running egg_info
+writing ../../build/abaja_bringup/abaja_bringup.egg-info/PKG-INFO
+writing dependency_links to ../../build/abaja_bringup/abaja_bringup.egg-info/dependency_links.txt
+writing requirements to ../../build/abaja_bringup/abaja_bringup.egg-info/requires.txt
+writing top-level names to ../../build/abaja_bringup/abaja_bringup.egg-info/top_level.txt
+reading manifest file '../../build/abaja_bringup/abaja_bringup.egg-info/SOURCES.txt'
+writing manifest file '../../build/abaja_bringup/abaja_bringup.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/build
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/build/lib
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/build/lib/abaja_bringup
+copying abaja_bringup/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/build/lib/abaja_bringup
+running install
+running install_lib
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/build/lib/abaja_bringup/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup/__init__.py to __init__.cpython-312.pyc
+running install_data
+copying resource/abaja_bringup -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/ament_index/resource_index/packages
+copying package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup
+copying launch/stage7_full_system.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage2_3_4_bringup.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/autonomy_bringup.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage2_vehicle_state.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage6_aeb.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/bringup.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/sim_bringup.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage8_navigation.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage4_perception.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage7_sim_only.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage5_lane.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/stage3_dbw.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying launch/full_autonomy_gazebo_nav.launch.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/launch
+copying config/slam_toolbox.yaml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/config
+copying config/traffic_signal_config.yaml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/config
+copying config/mission_waypoints.yaml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/config
+copying config/nav2_params.yaml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/share/abaja_bringup/config
+running install_egg_info
+Copying ../../build/abaja_bringup/abaja_bringup.egg-info to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_bringup/lib/python3.12/site-packages/abaja_bringup-0.2.0-py3.12.egg-info
+running install_scripts
+writing list of installed files to '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_bringup/install.log'

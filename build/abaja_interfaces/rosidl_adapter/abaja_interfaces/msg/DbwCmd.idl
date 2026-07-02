@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/DbwCmd.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct DbwCmd {
+      float target_speed_mps;
+
+      float steering_angle_deg;
+
+      float throttle_percent;
+
+      float brake_percent;
+
+      boolean enable_throttle;
+
+      boolean enable_brake;
+
+      boolean enable_steering;
+
+      boolean emergency_stop;
+    };
+  };
+};

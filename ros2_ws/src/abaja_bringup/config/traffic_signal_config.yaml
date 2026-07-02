@@ -1,0 +1,68 @@
+# =============================================================================
+# traffic_signal_config.yaml — Traffic Signal Configuration
+# Package: abaja_bringup/config/
+#
+# Used by:
+#   traffic_light_sim_node.py  — publishes /traffic_light_state (String: RED/YELLOW/GREEN)
+#   traffic_signal_logic_node.py — publishes /traffic_signal_stop (Bool)
+#
+# GAZEBO WORLD COORDINATES (abaja_lane_track.sdf):
+#   Signal model: X=18.0, Y=1.8 (beside left lane edge)
+#   Stop line:    X=17.0, Y=0   (across lane at X=17)
+#
+# STOPPING LOGIC:
+#   The buggy should stop BEFORE the stop line when RED.
+#   Vehicle base_link is at its centre. Buggy length ~1.8m, so front is +0.9m.
+#   Stop zone: when vehicle base_link.x > (stop_line_x - stopping_distance)
+#   Default stopping_distance = 3.5m → vehicle stops at X=13.5 when approaching X=17
+#   This gives ~3.5m of stopping distance at 0.8 m/s → ~4.4s to stop cleanly.
+#
+# SIGNAL TIMING:
+#   Default cycle: GREEN 10s → YELLOW 3s → RED 8s → repeat
+#   Total cycle: 21 seconds
+#   On launch: starts with GREEN (so buggy can proceed initially)
+# =============================================================================
+
+traffic_signal:
+
+  # ── Physical location ──────────────────────────────────────────────────
+  signal_position:
+    x: 18.0       # X coordinate of traffic signal model in map frame
+    y: 1.8        # Y coordinate (beside left lane edge)
+    z: 0.0
+
+  stop_line:
+    x: 17.0       # X coordinate of stop line across lane
+    y: 0.0        # Y coordinate (lane centre)
+
+  # ── Stop zone ──────────────────────────────────────────────────────────
+  # Vehicle stops when its base_link X position enters the stop zone AND signal is RED/YELLOW
+  stopping_distance: 3.5     # metres before stop line to begin stopping
+  # stop zone: vehicle.x >= (stop_line_x - stopping_distance) → X >= 13.5
+  stop_zone_entry_x: 13.5    # = stop_line_x - stopping_distance
+
+  # Hysteresis: once stopped, don't resume until vehicle.x < resume_x
+  resume_hysteresis: 1.0     # metres: resume allowed when vehicle.x < stop_zone_entry_x - hysteresis
+  # → resume allowed when vehicle.x < 12.5
+
+  # ── Signal timing ──────────────────────────────────────────────────────
+  timing:
+    green_duration_s: 10.0    # seconds GREEN
+    yellow_duration_s: 3.0    # seconds YELLOW (prepare to stop)
+    red_duration_s: 8.0       # seconds RED (full stop)
+    # Total cycle: 21 seconds
+    initial_state: GREEN      # state when node starts
+
+  # ── Behaviour per state ────────────────────────────────────────────────
+  behaviour:
+    GREEN:
+      traffic_signal_stop: false   # allow movement
+      description: "Clear to proceed. Nav2 command passes through control_mux."
+
+    YELLOW:
+      traffic_signal_stop: true    # stop early — treat as RED when in stop zone
+      description: "Prepare to stop. If in stop zone, apply brake."
+
+    RED:
+      traffic_signal_stop: true    # stop command sent
+      description: "Stop before stop line. 80% brake via control_mux Priority 3."

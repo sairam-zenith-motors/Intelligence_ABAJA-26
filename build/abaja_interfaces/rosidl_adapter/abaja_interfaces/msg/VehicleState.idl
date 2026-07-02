@@ -1,0 +1,32 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/VehicleState.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct VehicleState {
+      float speed_mps;
+
+      float steering_angle_deg;
+
+      float brake_position;
+
+      float throttle_position;
+
+      float battery_voltage;
+
+      boolean autonomous_mode;
+
+      boolean manual_mode;
+
+      boolean lateral_enabled;
+
+      boolean longitudinal_enabled;
+
+      boolean emergency_stop;
+
+      string status_text;
+    };
+  };
+};

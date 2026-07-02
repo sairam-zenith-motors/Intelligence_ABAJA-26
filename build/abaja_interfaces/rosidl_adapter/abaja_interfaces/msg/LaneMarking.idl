@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from abaja_interfaces/msg/LaneMarking.msg
+// generated code does not contain a copyright notice
+
+
+module abaja_interfaces {
+  module msg {
+    struct LaneMarking {
+      boolean left_lane_detected;
+
+      boolean right_lane_detected;
+
+      float left_lane_x;
+
+      float right_lane_x;
+
+      float lane_center_x;
+
+      float confidence;
+    };
+  };
+};

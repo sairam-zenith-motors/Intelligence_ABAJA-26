@@ -1,0 +1,24 @@
+[1.741s] Invoking command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/build --no-deps symlink_data
+[2.244s] running develop
+[2.574s] running egg_info
+[2.574s] creating abaja_safety.egg-info
+[2.604s] writing abaja_safety.egg-info/PKG-INFO
+[2.604s] writing dependency_links to abaja_safety.egg-info/dependency_links.txt
+[2.604s] writing entry points to abaja_safety.egg-info/entry_points.txt
+[2.605s] writing requirements to abaja_safety.egg-info/requires.txt
+[2.605s] writing top-level names to abaja_safety.egg-info/top_level.txt
+[2.605s] writing manifest file 'abaja_safety.egg-info/SOURCES.txt'
+[2.651s] reading manifest file 'abaja_safety.egg-info/SOURCES.txt'
+[2.652s] writing manifest file 'abaja_safety.egg-info/SOURCES.txt'
+[2.669s] running build_ext
+[2.669s] Creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/lib/python3.12/site-packages/abaja-safety.egg-link (link to .)
+[2.670s] Installing safety_monitor_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/lib/abaja_safety
+[2.670s] 
+[2.670s] Installed /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety
+[2.670s] running symlink_data
+[2.671s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/ament_index
+[2.671s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/ament_index/resource_index
+[2.671s] creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/ament_index/resource_index/packages
+[2.671s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/resource/abaja_safety -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/ament_index/resource_index/packages
+[2.671s] symbolically linking /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/share/abaja_safety
+[2.705s] Invoked command in '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_safety/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_safety/build --no-deps symlink_data

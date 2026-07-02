@@ -1,0 +1,51 @@
+running develop
+Removing /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja-perception.egg-link (link to .)
+running egg_info
+writing ../../build/abaja_perception/abaja_perception.egg-info/PKG-INFO
+writing dependency_links to ../../build/abaja_perception/abaja_perception.egg-info/dependency_links.txt
+writing entry points to ../../build/abaja_perception/abaja_perception.egg-info/entry_points.txt
+writing requirements to ../../build/abaja_perception/abaja_perception.egg-info/requires.txt
+writing top-level names to ../../build/abaja_perception/abaja_perception.egg-info/top_level.txt
+reading manifest file '../../build/abaja_perception/abaja_perception.egg-info/SOURCES.txt'
+writing manifest file '../../build/abaja_perception/abaja_perception.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/camera_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/object_detection_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/detection_recorder_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/radar_perception_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/sim_camera_viewer_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+copying abaja_perception/detection_display_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception
+running install
+running install_lib
+creating /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/camera_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/__init__.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/object_detection_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/detection_recorder_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/radar_perception_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/sim_camera_viewer_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+copying /home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/build/lib/abaja_perception/detection_display_node.py -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/camera_node.py to camera_node.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/object_detection_node.py to object_detection_node.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/detection_recorder_node.py to detection_recorder_node.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/radar_perception_node.py to radar_perception_node.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/sim_camera_viewer_node.py to sim_camera_viewer_node.cpython-312.pyc
+byte-compiling /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception/detection_display_node.py to detection_display_node.cpython-312.pyc
+running install_data
+copying resource/abaja_perception -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/share/ament_index/resource_index/packages
+copying package.xml -> /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/share/abaja_perception
+running install_egg_info
+Copying ../../build/abaja_perception/abaja_perception.egg-info to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/python3.12/site-packages/abaja_perception-0.0.0-py3.12.egg-info
+running install_scripts
+Installing camera_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/abaja_perception
+Installing detection_display_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/abaja_perception
+Installing detection_recorder_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/abaja_perception
+Installing object_detection_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/abaja_perception
+Installing sim_camera_viewer_node script to /home/pavithra/Intelligence_ABAJA-26/ros2_ws/install/abaja_perception/lib/abaja_perception
+writing list of installed files to '/home/pavithra/Intelligence_ABAJA-26/ros2_ws/build/abaja_perception/install.log'

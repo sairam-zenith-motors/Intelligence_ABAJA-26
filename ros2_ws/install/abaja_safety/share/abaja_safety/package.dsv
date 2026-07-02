@@ -4,6 +4,3 @@ source;share/abaja_safety/hook/pythonpath.sh
 source;share/abaja_safety/hook/ament_prefix_path.ps1
 source;share/abaja_safety/hook/ament_prefix_path.dsv
 source;share/abaja_safety/hook/ament_prefix_path.sh
-source;../../build/abaja_safety/share/abaja_safety/hook/pythonpath_develop.ps1
-source;../../build/abaja_safety/share/abaja_safety/hook/pythonpath_develop.dsv
-source;../../build/abaja_safety/share/abaja_safety/hook/pythonpath_develop.sh

@@ -1,0 +1,1 @@
+/home/pavithra/Intelligence_ABAJA-26/build/abaja_interfaces/rosidl_typesupport_introspection_c/abaja_interfaces/msg/detail/control_cmd__rosidl_typesupport_introspection_c.h

@@ -1,0 +1,75 @@
+# =============================================================================
+# slam_toolbox.yaml — SLAM Toolbox configuration for aBAJA buggy
+# Package: abaja_bringup/config/
+#
+# PURPOSE:
+#   Online asynchronous SLAM using 2D LiDAR.
+#   Publishes /map topic and map → odom TF transform.
+#   Uses /lidar/scan (bridged from Gazebo gpu_lidar sensor).
+#
+# USAGE:
+#   ros2 launch abaja_bringup stage8_navigation.launch.py slam:=true
+#
+# TUNING NOTES:
+#   - resolution: 0.05m → good for a 27m track (540 cells across)
+#   - max_laser_range: 10m → matches Gazebo LiDAR range in sensors.xacro
+#   - minimum_travel_distance: 0.3m → low for slow buggy, updates map often
+#   - minimum_travel_heading: 0.3 rad → ~17° heading change triggers scan
+#   - map_update_interval: 2.0s → frequent enough for real-time visualisation
+# =============================================================================
+
+slam_toolbox:
+  ros__parameters:
+
+    # ── Mode ──────────────────────────────────────────────────────────────
+    # online_async: builds map in real time while driving
+    # lifelong: updates existing map (use after initial mapping)
+    mode: mapping   # mapping | localization | lifelong
+
+    # ── Simulation time ───────────────────────────────────────────────────
+    use_sim_time: true
+
+    # ── Topics ────────────────────────────────────────────────────────────
+    # CRITICAL: must match the topic from ros_gz_bridge in gazebo.launch.py
+    # The bridge remaps /front_camera/... but LiDAR publishes directly as /lidar/scan
+    odom_frame:    odom
+    map_frame:     map
+    base_frame:    base_link
+    scan_topic:    /lidar/scan   # published by Gazebo → ros_gz_bridge
+
+    # ── Solver ────────────────────────────────────────────────────────────
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
+
+    # ── Map parameters ─────────────────────────────────────────────────────
+    resolution: 0.05                # metres per cell (5 cm)
+    max_laser_range: 10.0           # metres — match sensors.xacro LiDAR range
+    minimum_travel_distance: 0.3    # metres before new scan is added
+    minimum_travel_heading: 0.3     # radians before new scan is added
+    map_update_interval: 2.0        # seconds between map publishes
+
+    # ── Transform ─────────────────────────────────────────────────────────
+    transform_publish_period: 0.02  # seconds (50 Hz TF — match Nav2 expectations)
+    transform_timeout: 0.2          # seconds
+    tf_buffer_duration: 30.0        # seconds
+
+    # ── Scan matching ──────────────────────────────────────────────────────
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_time_interval: 0.5      # seconds between forced scans
+    scan_queue_size: 1
+
+    # ── Loop closure ──────────────────────────────────────────────────────
+    enable_interactive_mode: false  # disable GUI controls (headless/auto mode)
+
+    # ── Stack / memory ────────────────────────────────────────────────────
+    stack_size_to_use: 40000000    # 40 MB stack (safe for large maps)
+
+    # ── Serialization (map saving) ─────────────────────────────────────────
+    # Set to a path to auto-save map on shutdown (optional)
+    # map_file_name: ~/ros2_ws/src/abaja_bringup/maps/abaja_lane_track_map
+    # map_start_at_dock: true
